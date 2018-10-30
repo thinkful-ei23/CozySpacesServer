@@ -1,0 +1,33 @@
+{
+  "name": "CozySpacesServer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thinkful-ei23/CozySpacesServer.git"
+  },
+  "keywords": [],
+  "author": "Alexander Richard Puhl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thinkful-ei23/CozySpacesServer/issues"
+  },
+  "homepage": "https://github.com/thinkful-ei23/CozySpacesServer#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.4",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.7",
+    "morgan": "^1.9.1"
+  }
+}
