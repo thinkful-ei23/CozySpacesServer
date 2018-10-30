@@ -75,7 +75,7 @@ router.post('/', (req, res, next) => {
     return next(err);
   }
 
-  let { username, email, password = '' } = req.body;
+  let { username, email, password } = req.body;
 
   return User.hashPassword(password)
     .then(digest => {
