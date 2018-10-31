@@ -1,6 +1,6 @@
 'use strict';
 const express = require('express');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
 const Place = require('../models/places');
 
