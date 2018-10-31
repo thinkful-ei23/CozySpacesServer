@@ -24,9 +24,12 @@ mongoose.connect(DATABASE_URL)
     console.info('Seeding Database');
     return Promise.all([
 
-      Subscription.insertMany(seedSubscriptions),
-      Subscription.createIndexes(),
-
+      Places.insertMany(seedPlaces),
+      Places.createIndexes(),
+      Rating.insertMany(seedRatings),
+      Rating.createIndexes(),
+      Photo.insertMany(seedPhotos),
+      Photo.createIndexes(),
       User.insertMany(seedUsers),
       User.createIndexes()
 
