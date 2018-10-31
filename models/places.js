@@ -9,38 +9,18 @@ const placeSchema = new mongoose.Schema({
   city: { type: String, required: true },
   state: { type: String, required: true },
   zipcode: { type: String, required: true },
-
+  averageCozyness:  { type: Number },
   photos: [
     {
-      photoLink: { type: mongoose.Schema.Types.ObjectId, ref: 'Photo' },
+      photo: { type: mongoose.Schema.Types.ObjectId, ref: 'Photo' },
     }
   ],
-  averageCozyness:  { type: Number },
-  ratingsLighting: [
+
+  ratings: [
     {
-      ratingLink: { type: mongoose.Schema.Types.ObjectId, ref: 'Rating' },
+      ratings: { type: mongoose.Schema.Types.ObjectId, ref: 'Rating' },
     }
-  ],
-  ratingsMusic: [
-    {
-      ratingLink: { type: mongoose.Schema.Types.ObjectId, ref: 'Rating' },
-    }
-  ],
-  ratingsEnvironment: [
-    {
-      ratingLink: { type: mongoose.Schema.Types.ObjectId, ref: 'Rating' },
-    }
-  ],
-  ratingsFabrics: [
-    {
-      ratingLink: { type: mongoose.Schema.Types.ObjectId, ref: 'Rating' },
-    }
-  ],
-  ratingsFoodBev: [
-    {
-      ratingLink: { type: mongoose.Schema.Types.ObjectId, ref: 'Rating' },
-    }
-  ],
+  ]
 });
 
 placeSchema.set('toObject', {
