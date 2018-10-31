@@ -2,15 +2,15 @@
 
 [
   {
-    _id: "p000000001",
-    name: "Insomnia Coffee Co",
-    type: "cafe",
-    address: "2388 NW Amberbrook Dr",
-    city: "Beaverton",
-    state: "OR ",
-    zipcode: "97006",
-    averageCozyness: "5",
-    ratings: [
+    "_id": "p000000001",
+    "name": "Insomnia Coffee Co",
+    "type": "cafe",
+    "address": "2388 NW Amberbrook Dr",
+    "city": "Beaverton",
+    "state": "OR ",
+    "zipcode": "97006",
+    "averageCozyness": "5",
+    "ratings": [
       "r0000000001",
       "r0000000002",
       "r0000000003",
@@ -18,30 +18,30 @@
     ]    
   },
   {
-    _id: "p000000002",
-    name: "The Dragonfly Coffee House",
-    type: "coffee shop",
-    address: "2387 NW Thurman St",
-    city: "Portland",
-    state: "OR",
-    zipcode: "97124",
-    averageCozyness: "5",
-    ratings: [
+   "_id": "p000000002",
+   "name": "The Dragonfly Coffee House",
+   "type": "coffee shop",
+   "address": "2387 NW Thurman St",
+   "city": "Portland",
+   "state": "OR",
+   "zipcode": "97124",
+   "averageCozyness": "5",
+   "ratings": [
       "r0000000005",
       "r0000000006",
       "r0000000007"
     ]    
   },
   {
-    _id: "p000000003",
-    name: "AVA Roasteria",
-    type: "coffee shop",
-    address: "936 NE Orenco Station Loop",
-    city: "OR ",
-    state: "OR",
-    zipcode: "97124",
-    averageCozyness: "5",
-    ratings: [
+   "_id": "p000000003",
+   "name": "AVA Roasteria",
+   "type": "coffee shop",
+   "address": "936 NE Orenco Station Loop",
+   "city": "OR ",
+   "state": "OR",
+   "zipcode": "97124",
+   "averageCozyness": "5",
+   "ratings": [
       "r0000000008",
       "r0000000009",
       "r0000000010",
@@ -49,45 +49,45 @@
     ]    
   },
   {
-    _id: "p000000004",
-    name: "Jack Mormon Coffee",
-    type: "cafe",
-    address: "82 E St E",
-    city: "Salt Lake City",
-    state: "UT",
-    zipcode: "84103",
-    averageCozyness: "5",
-    ratings: [
+   "_id": "p000000004",
+   "name": "Jack Mormon Coffee",
+   "type": "cafe",
+   "address": "82 E St E",
+   "city": "Salt Lake City",
+   "state": "UT",
+   "zipcode": "84103",
+   "averageCozyness": "5",
+   "ratings": [
       "r0000000012",
       "r0000000013",
       "r0000000014"
     ]    
   },
   {
-    _id: "p000000005",
-    name: "Cafe on 1st",
-    type: "cafe",
-    address: "39 I St",
-    city: "Salt Lake City",
-    state: "UT",
-    zipcode: "84103",
-    averageCozyness: "5",
-    ratings: [
+   "_id": "p000000005",
+   "name": "Cafe on 1st",
+   "type": "cafe",
+   "address": "39 I St",
+   "city": "Salt Lake City",
+   "state": "UT",
+   "zipcode": "84103",
+   "averageCozyness": "5",
+   "ratings": [
       "r0000000015",
       "r0000000016"
       "r0000000017"  
     ]    
   },
   {
-    _id: "p000000006",
-    name: "Salt Lake Roasting Co",
-    type: "cafe",
-    address: "820 E 400 S",
-    city: "Salt Lake City",
-    state: "UT",
-    zipcode: "84102",
-    averageCozyness: "5",
-    ratings: [
+   "_id": "p000000006",
+   "name": "Salt Lake Roasting Co",
+   "type": "cafe",
+   "address": "820 E 400 S",
+   "city": "Salt Lake City",
+   "state": "UT",
+   "zipcode": "84102",
+   "averageCozyness": "5",
+   "ratings": [
       "r0000000018",
       "r0000000019",
       "r0000000020"
@@ -95,15 +95,15 @@
     ]    
   },
   {
-    _id: "p000000007",
-    name: "Java Jo"s",
-    type: "cafe",
-    address: "401 1st Ave N",
-    city: "Salt Lake City",
-    state: "UT",
-    zipcode: "84103",
-    averageCozyness: "5",
-    ratings: [
+   "_id": "p000000007",
+   "name": "Java Jo's",
+   "type": "cafe",
+   "address": "401 1st Ave N",
+   "city": "Salt Lake City",
+   "state": "UT",
+   "zipcode": "84103",
+   "averageCozyness": "5",
+   "ratings": [
       "r0000000022",
       "r0000000023",
       "r0000000024",
@@ -111,15 +111,15 @@
     ]    
   },
   {
-    _id: "p000000008",
-    name: "Nostalgia Café",
-    type: "cafe",
-    address: "248 E 100 S",
-    city: "Salt Lake City",
-    state: "UT",
-    zipcode: "84111",
-    averageCozyness: "5",
-    ratings: [
+   "_id": "p000000008",
+   "name": "Nostalgia Café",
+   "type": "cafe",
+   "address": "248 E 100 S",
+   "city": "Salt Lake City",
+   "state": "UT",
+   "zipcode": "84111",
+   "averageCozyness": "5",
+   "ratings": [
       "r0000000026",
       "r0000000027",
       "r0000000028",
@@ -127,15 +127,15 @@
     ]    
   }
   {
-    _id: "p000000009",
-    name: "Eve",
-    type: "cafe",
-    address: "575 S Coast Hwy. 101",
-    city: "Encinitas",
-    state: "CA",
-    zipcode: "92024",
-    averageCozyness: "5",
-    ratings: [
+   "_id": "p000000009",
+   "name": "Eve",
+   "type": "cafe",
+   "address": "575 S Coast Hwy. 101",
+   "city": "Encinitas",
+   "state": "CA",
+   "zipcode": "92024",
+   "averageCozyness": "5",
+   "ratings": [
       "r0000000030",
       "r0000000031",
       "r0000000032",
