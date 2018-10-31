@@ -1,0 +1,50 @@
+[
+  {
+    "_id":      "u000000001",
+    "username": "foobar",
+    "email":    "foobar@fakeemail.com",
+    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm"
+  },
+  {
+    "_id":      "u000000002",
+    "username": "batbar",
+    "email":    "batbar@fakeemail.com",
+    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm"
+  },
+  {
+    "_id":      "u000000003",
+    "username": "bifbaf",
+    "email":    "bifbaf@fakeemail.com",
+    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm"
+  },
+  {
+    "_id":      "u000000004",
+    "username": "bizbaz",
+    "email":    "bizbaz@fakeemail.com",
+    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm"
+  },
+  {
+    "_id":      "u000000005",
+    "username": "marjoe",
+    "email":    "marjoe@fakeemail.com",
+    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm"
+  },
+  {
+    "_id":      "u000000006",
+    "username": "jarjar",
+    "email":    "jarjar@fakeemail.com",
+    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm"
+  },
+  {
+    "_id":      "u000000007",
+    "username": "tiptop",
+    "email":    "tiptop@fakeemail.com",
+    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm"
+  },
+  {
+    "_id":      "u000000008",
+    "username": "bambam",
+    "email":    "bambam@fakeemail.com",
+    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm"
+  }
+]

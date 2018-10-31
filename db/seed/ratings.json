@@ -1,0 +1,464 @@
+[
+  {
+    "_id":        "r0000000001",
+    "userLink":   "u000000001",
+    "placesLink": "p000000001",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  4,
+        "softFabrics":      5,
+        "comfySeating":     5,
+        "hotFoodDrink":     4
+      }     
+  }, 
+  {
+    "_id":        "r0000000002",
+    "userLink":   "u000000002",    
+    "placesLink": "p000000001",
+    "rating": 
+      {        
+        "warmLighting":     4, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  4,
+        "softFabrics":      4,
+        "comfySeating":     5,
+        "hotFoodDrink":     5
+      }     
+  },
+  {
+    "_id":        "r0000000003",
+    "userLink":   "u000000003",  
+    "placesLink": "p000000001",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     4,
+        "calmEnvironment":  4,
+        "softFabrics":      5,
+        "comfySeating":     4,
+        "hotFoodDrink":     5
+      }     
+  },
+  {
+    "_id":        "r0000000004",
+    "userLink":   "u000000004",
+    "placesLink": "p000000001",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  5,
+        "softFabrics":      4,
+        "comfySeating":     4,
+        "hotFoodDrink":     4
+      }     
+  }, 
+  {
+    "_id":        "r0000000005",
+    "userLink":   "u000000001",
+    "placesLink": "p000000002",
+    "rating": 
+      {        
+        "warmLighting":     4, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  4,
+        "softFabrics":      4,
+        "comfySeating":     5,
+        "hotFoodDrink":     5
+      }     
+  }, 
+  {
+    "_id":        "r0000000006",    
+    "userLink":   "u000000002",
+    "placesLink": "p000000002",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     4,
+        "calmEnvironment":  4,
+        "softFabrics":      4,
+        "comfySeating":     5,
+        "hotFoodDrink":     5
+      }     
+  },
+  {
+    "_id":        "r0000000007",
+    "userLink":   "u000000005",
+    "placesLink": "p000000002",
+    "rating": 
+      {        
+        "warmLighting":     4, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  5,
+        "softFabrics":      4,
+        "comfySeating":     5,
+        "hotFoodDrink":     4
+      }     
+  },
+  {
+    "_id":        "r0000000008",
+    "userLink":   "u000000006",
+    "placesLink": "p000000003",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     4,
+        "calmEnvironment":  5,
+        "softFabrics":      5,
+        "comfySeating":     4,
+        "hotFoodDrink":     5
+      }     
+  }, 
+  {
+    "_id":        "r0000000009",
+    "userLink":   "u0000000033",
+    "placesLink": "p000000003",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     4,
+        "calmEnvironment":  5,
+        "softFabrics":      5,
+        "comfySeating":     5,
+        "hotFoodDrink":     5
+      }     
+  }, 
+  {
+    "_id":        "r0000000010",
+    "userLink":   "u000000004",
+    "placesLink": "p000000003",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  3,
+        "softFabrics":      4,
+        "comfySeating":     4,
+        "hotFoodDrink":     5
+      }     
+  }, 
+  {
+    "_id":        "r0000000011",
+    "userLink":   "u000000006",
+    "placesLink": "p000000003",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  4,
+        "softFabrics":      4,
+        "comfySeating":     5,
+        "hotFoodDrink":     4
+      }     
+  }, 
+  {
+    "_id":        "r0000000012",
+    "userLink":   "u000000002",
+    "placesLink": "p000000004",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     4,
+        "calmEnvironment":  4,
+        "softFabrics":      4,
+        "comfySeating":     5,
+        "hotFoodDrink":     5
+      }     
+  }, 
+  {
+    "_id":        "r0000000013",
+    "userLink":   "u000000003",
+    "placesLink": "p000000004",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     4,
+        "calmEnvironment":  4,
+        "softFabrics":      4,
+        "comfySeating":     5,
+        "hotFoodDrink":     5
+      }     
+  }, 
+  {
+    "_id":        "r0000000014",
+    "userLink":   "u000000007",
+    "placesLink": "p000000004",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     4,
+        "calmEnvironment":  5,
+        "softFabrics":      5,
+        "comfySeating":     4,
+        "hotFoodDrink":     4
+      }     
+  } 
+  {
+    "_id":        "r0000000015",
+    "userLink":   "u000000008",
+    "placesLink": "p000000005",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     4,
+        "calmEnvironment":  4,
+        "softFabrics":      4,
+        "comfySeating":     5,
+        "hotFoodDrink":     5
+      }     
+  }, 
+  {
+    "_id":        "r0000000016",
+    "userLink":   "u000000001",
+    "placesLink": "p000000005",
+    "rating": 
+      {        
+        "warmLighting":     4, 
+        "relaxedMusic":     4,
+        "calmEnvironment":  4,
+        "softFabrics":      5,
+        "comfySeating":     5,
+        "hotFoodDrink":     5
+      }     
+  }, 
+  {
+    "_id":        "r0000000017",
+    "userLink":   "u000000002",
+    "placesLink": "p000000005",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  5,
+        "softFabrics":      4,
+        "comfySeating":     4,
+        "hotFoodDrink":     5
+      }     
+  }, 
+  {
+    "_id":        "r0000000018",
+    "userLink":   "u000000006",
+    "placesLink": "p000000006",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  4,
+        "softFabrics":      4,
+        "comfySeating":     4,
+        "hotFoodDrink":     5
+      }     
+  }, 
+  {
+    "_id":        "r0000000019",
+    "userLink":   "u000000002",
+    "placesLink": "p000000006",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  5,
+        "softFabrics":      4,
+        "comfySeating":     4,
+        "hotFoodDrink":     4
+      }     
+  }, 
+  {
+    "_id":        "r0000000020",
+    "userLink":   "u000000003",
+    "placesLink": "p000000006",
+    "rating": 
+      {        
+        "warmLighting":     4, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  4,
+        "softFabrics":      4,
+        "comfySeating":     5,
+        "hotFoodDrink":     5
+      }     
+  }, 
+  {
+    "_id":        "r0000000021",
+    "userLink":   "u000000007",
+    "placesLink": "p000000006",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  5,
+        "softFabrics":      4,
+        "comfySeating":     4,
+        "hotFoodDrink":     4
+      }     
+  } 
+  {
+    "_id":        "r0000000022",
+    "userLink":   "u000000001",
+    "placesLink": "p000000007",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     4,
+        "calmEnvironment":  4,
+        "softFabrics":      4,
+        "comfySeating":     5,
+        "hotFoodDrink":     5
+      }     
+  }, 
+  {
+    "_id":        "r0000000023",
+    "userLink":   "u000000002",
+    "placesLink": "p000000007",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     4,
+        "calmEnvironment":  5,
+        "softFabrics":      5,
+        "comfySeating":     4,
+        "hotFoodDrink":     4
+      }     
+  } 
+  {
+    "_id":        "r0000000024",
+    "userLink":   "u0000000055",
+    "placesLink": "p000000007",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     4,
+        "calmEnvironment":  4,
+        "softFabrics":      4,
+        "comfySeating":     5,
+        "hotFoodDrink":     5
+      }     
+  }, 
+  {
+    "_id":        "r0000000025",
+    "userLink":   "u000000004",
+    "placesLink": "p000000007",
+    "rating": 
+      {        
+        "warmLighting":     4, 
+        "relaxedMusic":     4,
+        "calmEnvironment":  4,
+        "softFabrics":      5,
+        "comfySeating":     5,
+        "hotFoodDrink":     5
+      }     
+  }, 
+  {
+    "_id":        "r0000000026",
+    "userLink":   "u000000006",
+    "placesLink": "p000000008",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  5,
+        "softFabrics":      4,
+        "comfySeating":     4,
+        "hotFoodDrink":     5
+      }     
+  }, 
+  {
+    "_id":        "r0000000027",
+    "userLink":   "u000000008",
+    "placesLink": "p000000008",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  4,
+        "softFabrics":      4,
+        "comfySeating":     4,
+        "hotFoodDrink":     5
+      }     
+  }, 
+  {
+    "_id":        "r0000000028",
+    "userLink":   "u000000002",
+    "placesLink": "p000000008",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  5,
+        "softFabrics":      4,
+        "comfySeating":     4,
+        "hotFoodDrink":     4
+      }     
+  },  
+  {
+    "_id":        "r0000000029",
+    "userLink":   "u000000003",
+    "placesLink": "p000000008",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  5,
+        "softFabrics":      4,
+        "comfySeating":     4,
+        "hotFoodDrink":     4
+      }     
+  }, 
+  {
+    "_id":        "r0000000030",
+    "userLink":   "u000000005",
+    "placesLink": "p000000009",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  5,
+        "softFabrics":      4,
+        "comfySeating":     4,
+        "hotFoodDrink":     5
+      }     
+  }, 
+  {
+    "_id":        "r0000000031",
+    "userLink":   "u000000006",
+    "placesLink": "p000000009",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  4,
+        "softFabrics":      4,
+        "comfySeating":     4,
+        "hotFoodDrink":     5
+      }     
+  }, 
+  {
+    "_id":        "r0000000032",
+    "userLink":   "u000000008",
+    "placesLink": "p000000009",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  5,
+        "softFabrics":      4,
+        "comfySeating":     4,
+        "hotFoodDrink":     4
+      }     
+  }, 
+  {
+    "_id":        "r0000000033",
+    "userLink":   "u000000004",
+    "placesLink": "p000000009",
+    "rating": 
+      {        
+        "warmLighting":     5, 
+        "relaxedMusic":     5,
+        "calmEnvironment":  5,
+        "softFabrics":      4,
+        "comfySeating":     4,
+        "hotFoodDrink":     4
+      }     
+  }
+]
