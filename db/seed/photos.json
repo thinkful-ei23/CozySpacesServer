@@ -1,0 +1,65 @@
+[
+  {
+    "_id" :       "f0000000001",
+    "url" :       "https://www.tripsavvy.com/thmb/hgT0YIf3yo4l0Hg_G_AueHFbeSc=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/bookworm-588f86cb5f9b5874ee329e2c.jpg",
+    "caption":    "cozy place",
+    "userLink":   "u000000001",
+    "placesLink": "p000000001"  
+  }, 
+  {
+    "_id" :       "f0000000002",
+    "url" :       "http://cafes4nomads.com/wp-content/uploads/2014/12/IMGP0039.jpg",
+    "caption":    "really comfy",
+    "userLink":   "u000000002",
+    "placesLink": "p000000002"  
+  }, 
+  {
+    "_id" :       "f0000000003",
+    "url" :       "http://enjoycanada.co/wp/wp-content/uploads/2016/01/cafe.jpg",
+    "caption":    "OMFG it's cozy!",
+    "userLink":   "u000000003",
+    "placesLink": "p000000003"  
+  }, 
+  {
+    "_id" :       "f0000000004",
+    "url" :       "https://www.iheartreykjavik.net/wp-content/uploads/2017/01/Babal%C3%BA-2.jpg",
+    "caption":    "cozier",
+    "userLink":   "u000000004",
+    "placesLink": "p000000004"  
+  }, 
+  {
+    "_id" :       "f0000000005",
+    "url" :       "https://www.oakbaybeachhotel.com/wp-content/uploads/2015/05/KatesCafe.jpg",
+    "caption":    "comfier",
+    "userLink":   "u000000005",
+    "placesLink": "p000000005"  
+  }, 
+  {
+    "_id" :       "f0000000006",
+    "url" :       "https://assets3.thrillist.com/v1/image/2788431/size/tmg-facebook_social.jpg",
+    "caption":    "Coziest place ever",
+    "userLink":   "u000000006",
+    "placesLink": "p000000006"  
+  }, 
+  {
+    "_id" :       "f0000000007",
+    "url" :       "https://cdn-images-1.medium.com/max/1600/1*gYoVszcP6XPixqKa4srKJQ.jpeg",
+    "caption":    "excuse my photo skillz",
+    "userLink":   "u000000007",
+    "placesLink": "p000000002"  
+  }, 
+  {
+    "_id" :       "f0000000008",
+    "url" :       "http://lava-cafe.com/images/homepic.jpg",
+    "caption":    "Your caption here",
+    "userLink":   "u000000008",
+    "placesLink": "p000000007"  
+  }, 
+  {
+    "_id" :       "f0000000009",
+    "url" :       "https://www.travelportland.com/wp-content/uploads/2015/12/Rimsky-Korsakoffee-House-652x521.jpg",
+    "caption":    "My comfy place",
+    "userLink":   "u000000009",
+    "placesLink": "p000000009"  
+  } 
+] 
