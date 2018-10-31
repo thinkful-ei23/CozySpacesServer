@@ -12,13 +12,13 @@ const placeSchema = new mongoose.Schema({
   averageCozyness:  { type: Number },
   photos: [
     {
-      photo: { type: mongoose.Schema.Types.ObjectId, ref: 'Photo' },
+      photo: { type: mongoose.Schema.Types.ObjectId, ref: 'Photo' }
     }
   ],
 
   ratings: [
     {
-      ratings: { type: mongoose.Schema.Types.ObjectId, ref: 'Rating' },
+      ratings: { type: mongoose.Schema.Types.ObjectId, ref: 'Rating' }
     }
   ]
 });
