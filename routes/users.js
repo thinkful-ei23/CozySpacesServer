@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const mongoose = require('mongoose');
 
 const User = require('../models/users');
 
@@ -98,6 +99,26 @@ router.post('/', (req, res, next) => {
         err.status = 400;
         err.reason = 'ValidationError';
       }
+      next(err);
+    });
+});
+
+router.delete('/:id', (req, res, next) => {
+  const userId = req.params.id;
+  console.log(userId);
+
+  if (!mongoose.Types.ObjectId.isValid(userId)) {
+    const err = new Error('The `id` is not valid');
+    err.status = 400;
+    return next(err);
+  }
+
+  User.findByIdAndDelete(userId)
+    .then(() => {
+
+      res.sendStatus(204);
+    })
+    .catch(err => {
       next(err);
     });
 });
