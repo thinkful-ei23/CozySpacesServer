@@ -1,8 +1,9 @@
 [
   {
-    "_id":        "11111111111111111111001",
-    "userLink":   "00000000000000000000000",
-    "placesLink": "33333333333333333333001",
+    "_id":        "111111111111111111111001",
+    "score" : 5,
+    "userLink":   "000000000000000000000000",
+    "placesLink": "333333333333333333333001",
     "rating": 
       {        
         "warmLighting":     5, 
@@ -14,9 +15,10 @@
       }     
   }, 
   {
-    "_id":        "11111111111111111111002",
-    "userLink":   "00000000000000000000000",    
-    "placesLink": "33333333333333333333001",
+    "_id":        "111111111111111111111002",
+    "score" : 5,
+    "userLink":   "000000000000000000000000",    
+    "placesLink": "333333333333333333333001",
     "rating": 
       {        
         "warmLighting":     4, 
@@ -28,9 +30,10 @@
       }     
   },
   {
-    "_id":        "11111111111111111111003",
-    "userLink":   "00000000000000000000003",  
-    "placesLink": "33333333333333333333001",
+    "_id":        "111111111111111111111003",
+    "score" : 5,
+    "userLink":   "000000000000000000000003",  
+    "placesLink": "333333333333333333333001",
     "rating": 
       {        
         "warmLighting":     5, 
@@ -42,9 +45,10 @@
       }     
   },
   {
-    "_id":        "11111111111111111111004",
-    "userLink":   "00000000000000000000004",
-    "placesLink": "33333333333333333333001",
+    "_id":        "111111111111111111111004",
+    "score" : 5,
+    "userLink":   "000000000000000000000004",
+    "placesLink": "333333333333333333333001",
     "rating": 
       {        
         "warmLighting":     5, 
@@ -56,9 +60,10 @@
       }     
   }, 
   {
-    "_id":        "11111111111111111111005",
-    "userLink":   "00000000000000000000000",
-    "placesLink": "33333333333333333333002",
+    "_id":        "111111111111111111111005",
+    "score" : 5,
+    "userLink":   "000000000000000000000000",
+    "placesLink": "333333333333333333333002",
     "rating": 
       {        
         "warmLighting":     4, 
@@ -70,9 +75,10 @@
       }     
   }, 
   {
-    "_id":        "11111111111111111111006",    
-    "userLink":   "00000000000000000000000",
-    "placesLink": "33333333333333333333002",
+    "_id":        "111111111111111111111006",  
+    "score" : 5,  
+    "userLink":   "000000000000000000000000",
+    "placesLink": "333333333333333333333002",
     "rating": 
       {        
         "warmLighting":     5, 
@@ -84,9 +90,10 @@
       }     
   },
   {
-    "_id":        "11111111111111111111007",
-    "userLink":   "00000000000000000000005",
-    "placesLink": "33333333333333333333002",
+    "_id":        "111111111111111111111007",
+    "score" : 5,
+    "userLink":   "000000000000000000000005",
+    "placesLink": "333333333333333333333002",
     "rating": 
       {        
         "warmLighting":     4, 
@@ -98,9 +105,10 @@
       }     
   },
   {
-    "_id":        "11111111111111111111008",
-    "userLink":   "00000000000000000000006",
-    "placesLink": "33333333333333333333003",
+    "_id":        "111111111111111111111008",
+    "score" : 5,
+    "userLink":   "000000000000000000000006",
+    "placesLink": "333333333333333333333003",
     "rating": 
       {        
         "warmLighting":     5, 
@@ -112,9 +120,10 @@
       }     
   }, 
   {
-    "_id":        "11111111111111111111009",
-    "userLink":   "00000000000000000000003",
-    "placesLink": "33333333333333333333003",
+    "_id":        "111111111111111111111009",
+    "score" : 5,
+    "userLink":   "000000000000000000000003",
+    "placesLink": "333333333333333333333003",
     "rating": 
       {        
         "warmLighting":     5, 
@@ -126,9 +135,10 @@
       }     
   }, 
   {
-    "_id":        "11111111111111111111010",
-    "userLink":   "00000000000000000000004",
-    "placesLink": "33333333333333333333003",
+    "_id":        "111111111111111111111010",
+    "score" : 4,
+    "userLink":   "000000000000000000000004",
+    "placesLink": "333333333333333333333003",
     "rating": 
       {        
         "warmLighting":     5, 
@@ -140,9 +150,10 @@
       }     
   }, 
   {
-    "_id":        "11111111111111111111011",
-    "userLink":   "00000000000000000000006",
-    "placesLink": "33333333333333333333003",
+    "_id":        "111111111111111111111011",
+    "score" : 5,
+    "userLink":   "000000000000000000000006",
+    "placesLink": "333333333333333333333003",
     "rating": 
       {        
         "warmLighting":     5, 
@@ -150,315 +161,8 @@
         "calmEnvironment":  4,
         "softFabrics":      4,
         "comfySeating":     5,
-        "hotFoodDrink":     4
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111012",
-    "userLink":   "00000000000000000000000",
-    "placesLink": "33333333333333333333004",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     4,
-        "calmEnvironment":  4,
-        "softFabrics":      4,
-        "comfySeating":     5,
-        "hotFoodDrink":     5
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111013",
-    "userLink":   "00000000000000000000003",
-    "placesLink": "33333333333333333333004",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     4,
-        "calmEnvironment":  4,
-        "softFabrics":      4,
-        "comfySeating":     5,
-        "hotFoodDrink":     5
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111014",
-    "userLink":   "00000000000000000000007",
-    "placesLink": "33333333333333333333004",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     4,
-        "calmEnvironment":  5,
-        "softFabrics":      5,
-        "comfySeating":     4,
-        "hotFoodDrink":     4
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111015",
-    "userLink":   "00000000000000000000008",
-    "placesLink": "33333333333333333333005",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     4,
-        "calmEnvironment":  4,
-        "softFabrics":      4,
-        "comfySeating":     5,
-        "hotFoodDrink":     5
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111016",
-    "userLink":   "00000000000000000000000",
-    "placesLink": "33333333333333333333005",
-    "rating": 
-      {        
-        "warmLighting":     4, 
-        "relaxedMusic":     4,
-        "calmEnvironment":  4,
-        "softFabrics":      5,
-        "comfySeating":     5,
-        "hotFoodDrink":     5
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111017",
-    "userLink":   "00000000000000000000000",
-    "placesLink": "33333333333333333333005",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     5,
-        "calmEnvironment":  5,
-        "softFabrics":      4,
-        "comfySeating":     4,
-        "hotFoodDrink":     5
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111018",
-    "userLink":   "00000000000000000000006",
-    "placesLink": "33333333333333333333006",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     5,
-        "calmEnvironment":  4,
-        "softFabrics":      4,
-        "comfySeating":     4,
-        "hotFoodDrink":     5
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111019",
-    "userLink":   "00000000000000000000000",
-    "placesLink": "33333333333333333333006",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     5,
-        "calmEnvironment":  5,
-        "softFabrics":      4,
-        "comfySeating":     4,
-        "hotFoodDrink":     4
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111020",
-    "userLink":   "00000000000000000000003",
-    "placesLink": "33333333333333333333006",
-    "rating": 
-      {        
-        "warmLighting":     4, 
-        "relaxedMusic":     5,
-        "calmEnvironment":  4,
-        "softFabrics":      4,
-        "comfySeating":     5,
-        "hotFoodDrink":     5
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111021",
-    "userLink":   "00000000000000000000007",
-    "placesLink": "33333333333333333333006",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     5,
-        "calmEnvironment":  5,
-        "softFabrics":      4,
-        "comfySeating":     4,
-        "hotFoodDrink":     4
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111022",
-    "userLink":   "00000000000000000000000",
-    "placesLink": "33333333333333333333007",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     4,
-        "calmEnvironment":  4,
-        "softFabrics":      4,
-        "comfySeating":     5,
-        "hotFoodDrink":     5
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111023",
-    "userLink":   "00000000000000000000000",
-    "placesLink": "33333333333333333333007",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     4,
-        "calmEnvironment":  5,
-        "softFabrics":      5,
-        "comfySeating":     4,
-        "hotFoodDrink":     4
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111024",
-    "userLink":   "000000000000000000000055",
-    "placesLink": "33333333333333333333007",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     4,
-        "calmEnvironment":  4,
-        "softFabrics":      4,
-        "comfySeating":     5,
-        "hotFoodDrink":     5
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111025",
-    "userLink":   "00000000000000000000004",
-    "placesLink": "33333333333333333333007",
-    "rating": 
-      {        
-        "warmLighting":     4, 
-        "relaxedMusic":     4,
-        "calmEnvironment":  4,
-        "softFabrics":      5,
-        "comfySeating":     5,
-        "hotFoodDrink":     5
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111026",
-    "userLink":   "00000000000000000000006",
-    "placesLink": "33333333333333333333008",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     5,
-        "calmEnvironment":  5,
-        "softFabrics":      4,
-        "comfySeating":     4,
-        "hotFoodDrink":     5
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111027",
-    "userLink":   "00000000000000000000008",
-    "placesLink": "33333333333333333333008",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     5,
-        "calmEnvironment":  4,
-        "softFabrics":      4,
-        "comfySeating":     4,
-        "hotFoodDrink":     5
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111028",
-    "userLink":   "00000000000000000000000",
-    "placesLink": "33333333333333333333008",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     5,
-        "calmEnvironment":  5,
-        "softFabrics":      4,
-        "comfySeating":     4,
-        "hotFoodDrink":     4
-      }     
-  },  
-  {
-    "_id":        "11111111111111111111029",
-    "userLink":   "00000000000000000000003",
-    "placesLink": "33333333333333333333008",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     5,
-        "calmEnvironment":  5,
-        "softFabrics":      4,
-        "comfySeating":     4,
-        "hotFoodDrink":     4
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111030",
-    "userLink":   "00000000000000000000005",
-    "placesLink": "33333333333333333333009",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     5,
-        "calmEnvironment":  5,
-        "softFabrics":      4,
-        "comfySeating":     4,
-        "hotFoodDrink":     5
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111031",
-    "userLink":   "00000000000000000000006",
-    "placesLink": "33333333333333333333009",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     5,
-        "calmEnvironment":  4,
-        "softFabrics":      4,
-        "comfySeating":     4,
-        "hotFoodDrink":     5
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111032",
-    "userLink":   "00000000000000000000008",
-    "placesLink": "33333333333333333333009",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     5,
-        "calmEnvironment":  5,
-        "softFabrics":      4,
-        "comfySeating":     4,
-        "hotFoodDrink":     4
-      }     
-  }, 
-  {
-    "_id":        "11111111111111111111033",
-    "userLink":   "00000000000000000000004",
-    "placesLink": "33333333333333333333009",
-    "rating": 
-      {        
-        "warmLighting":     5, 
-        "relaxedMusic":     5,
-        "calmEnvironment":  5,
-        "softFabrics":      4,
-        "comfySeating":     4,
         "hotFoodDrink":     4
       }     
   }
 ]
+ 

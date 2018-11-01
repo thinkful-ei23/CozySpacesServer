@@ -16,9 +16,7 @@ const placeSchema = new mongoose.Schema({
     }
   ],
   ratings: [
-    {
-      type: mongoose.Schema.Types.ObjectId, ref: 'Rating' 
-    }
+    {type: mongoose.Schema.Types.ObjectId, ref: 'Rating' }
   ]
 });
 
@@ -30,4 +28,4 @@ placeSchema.set('toObject', {
   }
 });
 
-module.exports = mongoose.model('place', placeSchema);
+module.exports = mongoose.model('Place', placeSchema);
