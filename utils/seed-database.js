@@ -14,6 +14,7 @@ const seedUsers = require('../db/seed/users');
 const seedRatings = require('../db/seed/ratings');
 const seedPhotos = require('../db/seed/photos');
 
+
 console.log(`Connecting to mongodb at ${DATABASE_URL}`);
 mongoose.connect(DATABASE_URL)
   .then(() => {
@@ -21,6 +22,7 @@ mongoose.connect(DATABASE_URL)
     return mongoose.connection.db.dropDatabase();
   })
   .then(() => {
+    delete mongoose.connection.models['Place'];
     console.info('Seeding Database');
     return Promise.all([
 
@@ -28,8 +30,6 @@ mongoose.connect(DATABASE_URL)
       Place.createIndexes(),
       Rating.insertMany(seedRatings),
       Rating.createIndexes(),
-      Photo.insertMany(seedPhotos),
-      Photo.createIndexes(),
       User.insertMany(seedUsers),
       User.createIndexes()
 
