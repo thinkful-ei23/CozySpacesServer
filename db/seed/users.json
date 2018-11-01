@@ -3,48 +3,92 @@
     "_id":      "000000000000000000000001",
     "username": "foobar",
     "email":    "foobar@fakeemail.com",
-    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm"
+    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm",   
+    "ratings": [
+      "111111111111111111111001",
+      "111111111111111111111002",
+      "111111111111111111111005",
+      "111111111111111111111006",
+      "111111111111111111111012"
+   ] 
   },
   {
     "_id":      "000000000000000000000002",
     "username": "batbar",
     "email":    "batbar@fakeemail.com",
-    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm"
-  },
+    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm",
+    "ratings": [
+      "111111111111111111111017",
+      "111111111111111111111019",
+      "111111111111111111111022",
+      "111111111111111111111023",
+      "111111111111111111111028"
+   ] 
+},
   {
     "_id":      "000000000000000000000003",
     "username": "bifbaf",
     "email":    "bifbaf@fakeemail.com",
-    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm"
+    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm",
+    "ratings": [
+      "111111111111111111111003",
+      "111111111111111111111009",
+      "111111111111111111111013",
+      "111111111111111111111020",
+      "111111111111111111111029"
+   ] 
   },
   {
     "_id":      "000000000000000000000004",
     "username": "bizbaz",
     "email":    "bizbaz@fakeemail.com",
-    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm"
+    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm",
+    "ratings": [
+      "111111111111111111111004",
+      "111111111111111111111010",
+      "111111111111111111111025",
+      "111111111111111111111033",
+      "111111111111111111111029"
+   ] 
   },
   {
     "_id":      "000000000000000000000005",
     "username": "marjoe",
     "email":    "marjoe@fakeemail.com",
-    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm"
+    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm",
+    "ratings": [
+      "111111111111111111111016",
+      "111111111111111111111030"
+   ]   
   },
   {
     "_id":      "000000000000000000000006",
     "username": "jarjar",
     "email":    "jarjar@fakeemail.com",
-    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm"
+    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm",
+    "ratings": [
+      "111111111111111111111026",
+      "111111111111111111111031"
+   ]   
   },
   {
     "_id":      "000000000000000000000007",
     "username": "tiptop",
     "email":    "tiptop@fakeemail.com",
-    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm"
+    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm",
+    "ratings": [
+      "111111111111111111111014",
+      "111111111111111111111021"
+   ] 
   },
   {
     "_id":      "000000000000000000000008",
     "username": "bambam",
     "email":    "bambam@fakeemail.com",
-    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm"
+    "password": "$2a$10$n11wkEXrONVM4t1tQ/ruBeRRx990pbFzFZAZKEZfSNhNcxf/gvcwm",
+    "ratings": [
+      "111111111111111111111027",
+      "111111111111111111111032"
+   ] 
   }
 ]
