@@ -31,7 +31,7 @@ router.get('/:id', (req, res, next) => {
 
   Place
     .findOne({_id: id})
-    .populate('Rating')
+    .populate('rating')
     .then(result => {
       res.json(result);
     })

@@ -31,7 +31,9 @@ mongoose.connect(DATABASE_URL)
       Rating.insertMany(seedRatings),
       Rating.createIndexes(),
       User.insertMany(seedUsers),
-      User.createIndexes()
+      User.createIndexes(),
+      Photo.insertMany(seedPhotos),
+      Photo.createIndexes()
 
     ]);
   })
