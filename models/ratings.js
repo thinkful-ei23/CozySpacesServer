@@ -3,10 +3,9 @@
 const mongoose = require('mongoose');
 
 const ratingSchema = new mongoose.Schema({
-  type: { type: String, required: true},
-  score: { type: Number, required: true },
-  placesLink: { type: mongoose.Schema.Types.ObjectId, ref: 'Place' },
-  userLink: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+  userLink: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
+  placesLink: { type: mongoose.Schema.Types.ObjectId, ref: 'Place', required: true },
+  rating: { type: Object, required: true},
 });
 
 ratingSchema.set('toObject', {

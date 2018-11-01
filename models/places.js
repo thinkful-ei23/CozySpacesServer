@@ -3,24 +3,15 @@
 const mongoose = require('mongoose');
 
 const placeSchema = new mongoose.Schema({
-  name: { type: String, required: true},
+  name: { type: String, required: true },
   type: { type: String, required: true },
   address: { type: String, required: true },
   city: { type: String, required: true },
   state: { type: String, required: true },
-  zipcode: { type: String, required: true },
+  zipcode: { type: String, required: true, default: '', },
   averageCozyness:  { type: Number },
-  photos: [
-    {
-      photo: { type: mongoose.Schema.Types.ObjectId, ref: 'Photo' }
-    }
-  ],
-
-  ratings: [
-    {
-      ratings: { type: mongoose.Schema.Types.ObjectId, ref: 'Rating' }
-    }
-  ]
+  photos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Photo' }],
+  ratings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Rating'}]
 });
 
 placeSchema.set('toObject', {
