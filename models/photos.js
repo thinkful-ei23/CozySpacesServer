@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const photoSchema = new mongoose.Schema({
   url: { type: String, required: true},
   caption: { type: String},
+  userLink: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   placesLink: { type: mongoose.Schema.Types.ObjectId, ref: 'Place'},
 });
 

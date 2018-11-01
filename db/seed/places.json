@@ -7,164 +7,218 @@
     "city": "Beaverton",
     "state": "OR ",
     "zipcode": "97006",
-    "averageCozyness": "5",
-    "photos":[
+    "averageCozyness": 4,
+    "averageWarmLighting": 5,
+    "averageRelaxedMusic": 4,
+    "averageCalmEnvironment": 5,
+    "averageSoftFabrics": 5,
+    "averageComfySeating": 4,
+    "averageHotFoodDrink": 4,
+    "photos": [
       "444444444444444444444001"
-    ],   
-     "ratings": [
+    ],
+    "ratings": [
       "111111111111111111111001",
       "111111111111111111111002",
       "111111111111111111111003",
       "111111111111111111111004"
-    ]    
+    ]
   },
   {
-   "_id": "333333333333333333333002",
-   "name": "The Dragonfly Coffee House",
-   "type": "coffee shop",
-   "address": "2387 NW Thurman St",
-   "city": "Portland",
-   "state": "OR",
-   "zipcode": "97124",
-   "averageCozyness": "5",
-   "photos":[
-    "444444444444444444444002"
-  ],   
-  "ratings": [
+    "_id": "333333333333333333333002",
+    "name": "The Dragonfly Coffee House",
+    "type": "coffee shop",
+    "address": "2387 NW Thurman St",
+    "city": "Portland",
+    "state": "OR",
+    "zipcode": "97124",
+    "averageCozyness": 4,
+    "averageWarmLighting": 5,
+    "averageRelaxedMusic": 4,
+    "averageCalmEnvironment": 5,
+    "averageSoftFabrics": 5,
+    "averageComfySeating": 4,
+    "averageHotFoodDrink": 4,
+    "photos": [
+      "444444444444444444444002"
+    ],
+    "ratings": [
       "111111111111111111111005",
       "111111111111111111111006",
       "111111111111111111111007"
-    ]    
+    ]
   },
   {
-   "_id": "333333333333333333333003",
-   "name": "AVA Roasteria",
-   "type": "coffee shop",
-   "address": "936 NE Orenco Station Loop",
-   "city": "OR ",
-   "state": "OR",
-   "zipcode": "97124",
-   "averageCozyness": "5",
-   "photos":[
-    "444444444444444444444003"
-  ],   
-  "ratings": [
+    "_id": "333333333333333333333003",
+    "name": "AVA Roasteria",
+    "type": "coffee shop",
+    "address": "936 NE Orenco Station Loop",
+    "city": "OR ",
+    "state": "OR",
+    "zipcode": "97124",
+    "averageCozyness": 5,
+    "averageWarmLighting": 4,
+    "averageRelaxedMusic": 4,
+    "averageCalmEnvironment": 5,
+    "averageSoftFabrics": 5,
+    "averageComfySeating": 4,
+    "averageHotFoodDrink": 4,
+    "photos": [
+      "444444444444444444444003"
+    ],
+    "ratings": [
       "111111111111111111111008",
       "111111111111111111111009",
       "111111111111111111111010",
       "111111111111111111111011"
-    ]    
+    ]
   },
   {
-   "_id": "333333333333333333333004",
-   "name": "Jack Mormon Coffee",
-   "type": "cafe",
-   "address": "82 E St E",
-   "city": "Salt Lake City",
-   "state": "UT",
-   "zipcode": "84103",
-   "averageCozyness": "5",
-   "photos":[
-    "444444444444444444444004"
-  ],   
-  "ratings": [
+    "_id": "333333333333333333333004",
+    "name": "Jack Mormon Coffee",
+    "type": "cafe",
+    "address": "82 E St E",
+    "city": "Salt Lake City",
+    "state": "UT",
+    "zipcode": "84103",
+    "averageCozyness": 5,
+    "averageWarmLighting": 5,
+    "averageRelaxedMusic": 4,
+    "averageCalmEnvironment": 5,
+    "averageSoftFabrics": 3,
+    "averageComfySeating": 4,
+    "averageHotFoodDrink": 4,
+    "photos": [
+      "444444444444444444444004"
+    ],
+    "ratings": [
       "111111111111111111111012",
       "111111111111111111111013",
       "111111111111111111111014"
-    ]    
+    ]
   },
   {
-   "_id": "333333333333333333333005",
-   "name": "Cafe on 1st",
-   "type": "cafe",
-   "address": "39 I St",
-   "city": "Salt Lake City",
-   "state": "UT",
-   "zipcode": "84103",
-   "averageCozyness": "5",
-   "photos":[
-    "444444444444444444444005"
-  ],   
-  "ratings": [
+    "_id": "333333333333333333333005",
+    "name": "Cafe on 1st",
+    "type": "cafe",
+    "address": "39 I St",
+    "city": "Salt Lake City",
+    "state": "UT",
+    "zipcode": "84103",
+    "averageCozyness": 5,
+    "averageWarmLighting": 5,
+    "averageRelaxedMusic": 3,
+    "averageCalmEnvironment": 5,
+    "averageSoftFabrics": 5,
+    "averageComfySeating": 4,
+    "averageHotFoodDrink": 4,
+    "photos": [
+      "444444444444444444444005"
+    ],
+    "ratings": [
       "111111111111111111111015",
       "111111111111111111111016",
-      "111111111111111111111017" 
-    ]    
+      "111111111111111111111017"
+    ]
   },
   {
-   "_id": "333333333333333333333006",
-   "name": "Salt Lake Roasting Co",
-   "type": "cafe",
-   "address": "820 E 400 S",
-   "city": "Salt Lake City",
-   "state": "UT",
-   "zipcode": "84102",
-   "averageCozyness": "5",
-   "photos":[
-     "444444444444444444444006"
-   ],   
-   "ratings": [
+    "_id": "333333333333333333333006",
+    "name": "Salt Lake Roasting Co",
+    "type": "cafe",
+    "address": "820 E 400 S",
+    "city": "Salt Lake City",
+    "state": "UT",
+    "zipcode": "84102",
+    "averageCozyness": 5,
+    "averageWarmLighting": 3,
+    "averageRelaxedMusic": 4,
+    "averageCalmEnvironment": 5,
+    "averageSoftFabrics": 5,
+    "averageComfySeating": 4,
+    "averageHotFoodDrink": 4,
+    "photos": [
+      "444444444444444444444006"
+    ],
+    "ratings": [
       "111111111111111111111018",
       "111111111111111111111019",
       "111111111111111111111020",
       "111111111111111111111021"
-    ]    
+    ]
   },
   {
-   "_id": "333333333333333333333007",
-   "name": "Java Jo's",
-   "type": "cafe",
-   "address": "401 1st Ave N",
-   "city": "Salt Lake City",
-   "state": "UT",
-   "zipcode": "84103",
-   "averageCozyness": "5",
-   "photos":[
-    "444444444444444444444007"
-  ],   
-  "ratings": [
+    "_id": "333333333333333333333007",
+    "name": "Java Jo's",
+    "type": "cafe",
+    "address": "401 1st Ave N",
+    "city": "Salt Lake City",
+    "state": "UT",
+    "zipcode": "84103",
+    "averageCozyness": 5,
+    "averageWarmLighting": 4,
+    "averageRelaxedMusic": 4,
+    "averageCalmEnvironment": 5,
+    "averageSoftFabrics": 5,
+    "averageComfySeating": 5,
+    "averageHotFoodDrink": 4,
+    "photos": [
+      "444444444444444444444007"
+    ],
+    "ratings": [
       "111111111111111111111022",
       "111111111111111111111023",
       "111111111111111111111024",
       "111111111111111111111025"
-    ]    
+    ]
   },
   {
-   "_id": "333333333333333333333008",
-   "name": "Nostalgia Café",
-   "type": "cafe",
-   "address": "248 E 100 S",
-   "city": "Salt Lake City",
-   "state": "UT",
-   "zipcode": "84111",
-   "averageCozyness": "5",
-   "photos":[
-    "444444444444444444444008"
-  ],   
-  "ratings": [
+    "_id": "333333333333333333333008",
+    "name": "Nostalgia Café",
+    "type": "cafe",
+    "address": "248 E 100 S",
+    "city": "Salt Lake City",
+    "state": "UT",
+    "zipcode": "84111",
+    "averageCozyness": 5,
+    "averageWarmLighting": 5,
+    "averageRelaxedMusic": 4,
+    "averageCalmEnvironment": 5,
+    "averageSoftFabrics": 4,
+    "averageComfySeating": 5,
+    "averageHotFoodDrink": 4,
+    "photos": [
+      "444444444444444444444008"
+    ],
+    "ratings": [
       "111111111111111111111026",
       "111111111111111111111027",
       "111111111111111111111028",
       "111111111111111111111029"
-    ]    
+    ]
   },
   {
-   "_id": "333333333333333333333009",
-   "name": "Eve",
-   "type": "cafe",
-   "address": "575 S Coast Hwy. 101",
-   "city": "Encinitas",
-   "state": "CA",
-   "zipcode": "92024",
-   "averageCozyness": "5",
-   "photos":[
-    "444444444444444444444009"
-  ],   
-  "ratings": [
+    "_id": "333333333333333333333009",
+    "name": "Eve",
+    "type": "cafe",
+    "address": "575 S Coast Hwy. 101",
+    "city": "Encinitas",
+    "state": "CA",
+    "zipcode": "92024",
+    "averageCozyness": 5,
+    "averageWarmLighting": 5,
+    "averageRelaxedMusic": 4,
+    "averageCalmEnvironment": 4,
+    "averageSoftFabrics": 5,
+    "averageComfySeating": 5,
+    "averageHotFoodDrink": 4,
+    "photos": [
+      "444444444444444444444009"
+    ],
+    "ratings": [
       "111111111111111111111030",
       "111111111111111111111031",
       "111111111111111111111032",
       "111111111111111111111033"
-    ]    
+    ]
   }
 ]

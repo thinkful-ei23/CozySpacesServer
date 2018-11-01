@@ -1,5 +1,4 @@
 'use strict';
-
 const mongoose = require('mongoose');
 
 const { DATABASE_URL } = require('../config');
@@ -16,7 +15,7 @@ const seedPhotos = require('../db/seed/photos');
 
 
 console.log(`Connecting to mongodb at ${DATABASE_URL}`);
-mongoose.connect(DATABASE_URL)
+mongoose.connect('mongodb://dev:thinkful1@ds147723.mlab.com:47723/cozy-spaces')
   .then(() => {
     console.info('Dropping Database');
     return mongoose.connection.db.dropDatabase();
@@ -25,7 +24,8 @@ mongoose.connect(DATABASE_URL)
     delete mongoose.connection.models['Place'];
     console.info('Seeding Database');
     return Promise.all([
-
+      Photo.insertMany(seedPhotos),
+      Photo.createIndexes(),
       Place.insertMany(seedPlace),
       Place.createIndexes(),
       Rating.insertMany(seedRatings),
