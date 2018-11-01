@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 
 
 const Place = require('../models/places');
+const Rating = require('../models/ratings');
+const Photo = require('../models/photos');
 
 const router = express.Router();
 
@@ -11,6 +13,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
 
   Place.find()
+    .populate('photos')
     // .sort({ })
     .then(results => {
       res.json(results);
@@ -31,7 +34,8 @@ router.get('/:id', (req, res, next) => {
 
   Place
     .findOne({_id: id})
-    .populate('Rating')
+    .populate('photos')
+    // .populate('ratings')
     .then(result => {
       res.json(result);
     })
