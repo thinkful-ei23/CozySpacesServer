@@ -8,12 +8,13 @@ const passport = require('passport');
 const localStrategy = require('./passport/local');
 const jwtStrategy = require('./passport/jwt');
 
+const { PORT, CLIENT_ORIGIN } = require('./config');
+const { dbConnect } = require('./db-mongoose');
+
 const userRouter = require('./routes/users');
 const placesRouter = require('./routes/places');
 const authRouter = require('./routes/auth');
 
-const { PORT, CLIENT_ORIGIN } = require('./config');
-const { dbConnect } = require('./db-mongoose');
 
 passport.use(localStrategy);
 passport.use(jwtStrategy);

@@ -25,7 +25,6 @@ mongoose.connect(DATABASE_URL)
     delete mongoose.connection.models['Place'];
     console.info('Seeding Database');
     return Promise.all([
-
       Place.insertMany(seedPlace),
       Place.createIndexes(),
       Rating.insertMany(seedRatings),
@@ -34,7 +33,6 @@ mongoose.connect(DATABASE_URL)
       User.createIndexes(),
       Photo.insertMany(seedPhotos),
       Photo.createIndexes()
-
     ]);
   })
   .then(() => {
