@@ -10,11 +10,11 @@ const placeSchema = new mongoose.Schema({
   state: { type: String, required: true },
   zipcode: { type: String, required: true },
   averageCozyness:  { type: Number },
-  photos: [
-    {
-      photo: { type: mongoose.Schema.Types.ObjectId, ref: 'Photo' }
-    }
-  ],
+  // photos: [
+  //   {
+  //     photo: { type: mongoose.Schema.Types.ObjectId, ref: 'Photo' }
+  //   }
+  // ],
   ratings: [
     {
       type: mongoose.Schema.Types.ObjectId, ref: 'Rating' 
@@ -30,4 +30,4 @@ placeSchema.set('toObject', {
   }
 });
 
-module.exports = mongoose.model('place', placeSchema);
+module.exports = mongoose.model('Place', placeSchema);
