@@ -101,8 +101,10 @@ router.post('/', (req, res, next) => {
   Rating.findOne({ placesLink: placesLink, userLink: userLink })
     .then(result => {
       if (result) {
-        const err = new Error('Rating exists already');
+        const err = new Error('You have already posted a rating');
         err.status = 400;
+        err.reason = 'ValidationError';
+        console.log(err);
         return next(err);
       }
       return Rating.create(newRating).then(result => {
@@ -113,6 +115,7 @@ router.post('/', (req, res, next) => {
       });
     })
     .catch(err => {
+      console.log(err);
       next(err);
     });
 });
