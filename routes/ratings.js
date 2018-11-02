@@ -43,8 +43,8 @@ router.get('/', (req, res, next) => {
 
 /* ========== GET/READ A SINGLE ITEM ========== */
 router.get('/:id', (req, res, next) => {
-  const { id } = req.params;
-  const userId = req.user.id;
+  const { id } = req.params; // placeID
+  const userId = req.user.id; // userID
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     const err = new Error('The `id` is not valid');
@@ -52,7 +52,7 @@ router.get('/:id', (req, res, next) => {
     return next(err);
   }
 
-  Rating.findOne({ _id: id, userId })
+  Rating.findOne({ placesLink: id, userId })
     .then(result => {
       if (result) {
         res.json(result);
@@ -67,7 +67,7 @@ router.get('/:id', (req, res, next) => {
 
 /* ========== POST/CREATE AN ITEM ========== */
 router.post('/', (req, res, next) => {
-  const { rating, placeId, userId } = req.body;
+  const { rating, placeId } = req.body;
   const userId = req.user.id;
   //console.log('req.user', req.user);
   /***** Never trust users - validate input *****/
@@ -107,7 +107,7 @@ router.put('/:id', (req, res, next) => {
   const { id } = req.params;
   const { rating,  placeId} = req.body;
   const updateRating = {};
-  const updateFields = ['rating', 'userId', 'placeId']
+  const updateFields = ['rating', 'userId', 'placeId'];
 
   updateFields.forEach(field => {
     if (field in req.body) {
