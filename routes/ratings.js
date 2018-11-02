@@ -71,17 +71,19 @@ router.get('/:id', (req, res, next) => {
 
 /* ========== POST/CREATE AN ITEM ========== */
 router.post('/', (req, res, next) => {
-  const { rating, placeId } = req.body;
+  const { rating, placesLink } = req.body;
+  console.log(req.body);
   const userId = req.user.id;
   //console.log('req.user', req.user);
   /***** Never trust users - validate input *****/
   if (!rating) {
+    console.log('missing rating');
     const err = new Error('Missing `rating` in request body');
     err.status = 400;
     return next(err);
   }
 
-  if (placeId && !mongoose.Types.ObjectId.isValid(placeId)) {
+  if (placesLink && !mongoose.Types.ObjectId.isValid(placesLink)) {
     const err = new Error('The `placeId` is not valid');
     err.status = 400;
     return next(err);
@@ -92,16 +94,20 @@ router.post('/', (req, res, next) => {
     return next(err);
   }
  
-  const newRating = { rating,  placeId,  userId };
+
+  const newRating = { rating,  placesLink,  userLink: userId };
+  // formatted to match the rating model
 
   Rating.create(newRating) //
     .then(result => {
+      console.log('result', result);
       res
         .location(`${req.originalUrl}/${result.id}`)
         .status(201)
         .json(result); //
     })
     .catch(err => {
+      console.log(err);
       next(err);
     });
 });
