@@ -4,8 +4,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
 
-const Rating = require('../models/rating');
-const User = require('../models/user');
+const Rating = require('../models/ratings');
+const User = require('../models/users');
 
 const router = express.Router();
 
@@ -45,6 +45,8 @@ router.get('/', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
   const { id } = req.params; // placeID
   const userId = req.user.id; // userID
+  console.log(userId);
+  console.log(id);
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     const err = new Error('The `id` is not valid');
@@ -52,8 +54,9 @@ router.get('/:id', (req, res, next) => {
     return next(err);
   }
 
-  Rating.findOne({ placesLink: id, userId })
+  Rating.findOne({ placesLink: id, userLink : userId })
     .then(result => {
+      console.log('this is result', result);
       if (result) {
         res.json(result);
       } else {
@@ -61,6 +64,7 @@ router.get('/:id', (req, res, next) => {
       }
     })
     .catch(err => {
+      console.log(' this is catch err', err);
       next(err);
     });
 });
