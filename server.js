@@ -8,10 +8,6 @@ const passport = require('passport');
 const localStrategy = require('./passport/local');
 const jwtStrategy = require('./passport/jwt');
 
-const Place = require('../models/places');
-const Rating = require('../models/ratings');
-const Photo = require('../models/photos');
-
 const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
 
