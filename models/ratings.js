@@ -3,8 +3,8 @@
 const mongoose = require('mongoose');
 
 const ratingSchema = new mongoose.Schema({
-  userLink: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  placesLink: { type: mongoose.Schema.Types.ObjectId, ref: 'Place' },
+  userLink: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  placesLink: { type: mongoose.Schema.Types.ObjectId, ref: 'Place'},
   rating: {        
     warmLighting:  {type: Number},
     relaxedMusic:     {type: Number},
