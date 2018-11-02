@@ -120,10 +120,10 @@ router.post('/', (req, res, next) => {
 
 /* ========== PUT/UPDATE A SINGLE ITEM ========== */
 router.put('/:id', (req, res, next) => {
-  const { id } = req.params;
-  const { rating, placeId } = req.body;
+  const { placesLink, warmLighting, relaxedMusic, calmEnvironment, softFabrics, comfySeating, hotFoodDrink } = req.body;
+  const userLink = req.user.id;
   const updateRating = {};
-  const updateFields = ['rating', 'userId', 'placeId'];
+  const updateFields = ['placesLink', 'warmLighting', 'relaxedMusic', 'calmEnvironment', 'softFabrics', 'comfySeating', 'hotFoodDrink'];
 
   updateFields.forEach(field => {
     if (field in req.body) {
@@ -138,17 +138,18 @@ router.put('/:id', (req, res, next) => {
     return next(err);
   }
   if (placeId && !mongoose.Types.ObjectId.isValid(placeId)) {
-    const err = new Error('The `placeId` is not valid');
+    const err = new Error('The `place Link` is not valid');
     err.status = 400;
     return next(err);
   }
-  if (rating === '') {
-    const err = new Error('Missing `rating` in request body');
+  if (updateFields.length === 0) {
+    const err = new Error('Missing `a rating to update` in request body');
     err.status = 400;
     return next(err);
   }
-
-  Rating.findByIdAndUpdate(id, updateRating, { new: true })
+  Rating.findOne({ placesLink: placesLink, userLink: userLink })
+    .then((result) => {
+    Rating.findOneAndUpdate({ placesLink: placesLink, userLink: userLink })
     .then(result => {
       if (result) {
         res.json(result);
