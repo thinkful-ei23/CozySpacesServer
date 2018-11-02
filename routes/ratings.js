@@ -99,19 +99,18 @@ router.post('/', (req, res, next) => {
   const newRating = { rating, placesLink, userLink };
 
   Rating.findOne({ placesLink: placesLink, userLink: userLink })
-    .then((result) => {
+    .then(result => {
       if (result) {
         const err = new Error('Rating exists already');
         err.status = 400;
         return next(err);
       }
-      return Rating.create(newRating)
-        .then(result => {
-          res
-            .location(`${req.originalUrl}/${result.id}`)
-            .status(201)
-            .json(result);
-        });
+      return Rating.create(newRating).then(result => {
+        res
+          .location(`${req.originalUrl}/${result.id}`)
+          .status(201)
+          .json(result);
+      });
     })
     .catch(err => {
       next(err);
@@ -162,28 +161,37 @@ router.put('/:id', (req, res, next) => {
 });
 
 /* ========== DELETE/REMOVE A SINGLE ITEM ========== */
-router.delete('/:id', (req, res, next) => {
-  const { id } = req.params;
-  const userId = req.user.id;
+router.delete('/:placesLink', (req, res, next) => {
+  const { placesLink } = req.params;
+  const userLink = req.user.id;
+
+  console.log('placesLink: ', placesLink);
+  console.log('userLink: ', userLink);
 
   /***** Never trust users - validate input *****/
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    const err = new Error('The `id` is not valid');
-    err.status = 400;
-    return next(err);
-  }
+  // if (!mongoose.Types.ObjectId.isValid(placesLink)) {
+  //   const err = new Error('The `id` is not valid');
+  //   err.status = 400;
+  //   return next(err);
+  // }
 
-  Rating.deleteOne({ _id: id, userId })
+  Rating.findOne({ placesLink: placesLink, userLink: userLink })
     .then(result => {
-      if (result.n) {
-        res.sendStatus(204);
-      } else {
-        res.sendStatus(404);
-      }
+      console.log('results: ', result);
+      Rating.findOneAndDelete({ placesLink, userLink }).then(result => {
+        if (result) {
+          res.sendStatus(204);
+        } else {
+          res.sendStatus(404);
+        }
+      });
     })
     .catch(err => {
       next(err);
     });
+
+
+    
 });
 
 module.exports = router;
