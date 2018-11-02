@@ -10,7 +10,10 @@ const User = require('../models/users');
 const router = express.Router();
 
 /* ===============USE PASSPORT AUTH JWT ============= */
-router.use('/', passport.authenticate('jwt', { session: false, failWithError: true }));
+router.use(
+  '/',
+  passport.authenticate('jwt', { session: false, failWithError: true })
+);
 
 /* ========== GET/READ ALL ITEMS ========== */
 router.get('/', (req, res, next) => {
@@ -34,7 +37,7 @@ router.get('/', (req, res, next) => {
   Rating.find(filter) //
     .sort({ updatedAt: 'desc' })
     .then(results => {
-      res.json(results);  //
+      res.json(results); //
     })
     .catch(err => {
       next(err);
@@ -54,7 +57,7 @@ router.get('/:id', (req, res, next) => {
     return next(err);
   }
 
-  Rating.findOne({ placesLink: id, userLink : userId })
+  Rating.findOne({ placesLink: id, userLink: userId })
     .then(result => {
       console.log('this is result', result);
       if (result) {
@@ -72,8 +75,7 @@ router.get('/:id', (req, res, next) => {
 /* ========== POST/CREATE AN ITEM ========== */
 router.post('/', (req, res, next) => {
   const { rating, placesLink } = req.body;
-  console.log(req.body);
-  const userId = req.user.id;
+  const userLink = req.user.id;
   //console.log('req.user', req.user);
   /***** Never trust users - validate input *****/
   if (!rating) {
@@ -88,23 +90,29 @@ router.post('/', (req, res, next) => {
     err.status = 400;
     return next(err);
   }
-  if (userId && !mongoose.Types.ObjectId.isValid(userId)) {
+
+  if (userLink && !mongoose.Types.ObjectId.isValid(userLink)) {
     const err = new Error('The `userId` is not valid');
     err.status = 400;
     return next(err);
   }
- 
 
-  const newRating = { rating,  placesLink,  userLink: userId };
-  // formatted to match the rating model
+  const newRating = { rating, placesLink, userLink };
 
-  Rating.create(newRating) //
-    .then(result => {
-      console.log('result', result);
-      res
-        .location(`${req.originalUrl}/${result.id}`)
-        .status(201)
-        .json(result); //
+  Rating.findOne({ placesLink: placesLink, userLink: userLink })
+    .then((result) => {
+      if (result) {
+        const err = new Error('Rating exists already');
+        err.status = 400;
+        return next(err);
+      }
+      return Rating.create(newRating)
+        .then(result => {
+          res
+            .location(`${req.originalUrl}/${result.id}`)
+            .status(201)
+            .json(result);
+        });
     })
     .catch(err => {
       console.log(err);
@@ -115,7 +123,7 @@ router.post('/', (req, res, next) => {
 /* ========== PUT/UPDATE A SINGLE ITEM ========== */
 router.put('/:id', (req, res, next) => {
   const { id } = req.params;
-  const { rating,  placeId} = req.body;
+  const { rating, placeId } = req.body;
   const updateRating = {};
   const updateFields = ['rating', 'userId', 'placeId'];
 
