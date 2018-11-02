@@ -79,7 +79,6 @@ router.post('/', (req, res, next) => {
   //console.log('req.user', req.user);
   /***** Never trust users - validate input *****/
   if (!rating) {
-    console.log('missing rating');
     const err = new Error('Missing `rating` in request body');
     err.status = 400;
     return next(err);
@@ -102,8 +101,10 @@ router.post('/', (req, res, next) => {
   Rating.findOne({ placesLink: placesLink, userLink: userLink })
     .then((result) => {
       if (result) {
-        const err = new Error('Rating exists already');
+        const err = new Error('You have already posted a rating');
         err.status = 400;
+        err.reason = 'ValidationError';
+        console.log(err);
         return next(err);
       }
       return Rating.create(newRating)
