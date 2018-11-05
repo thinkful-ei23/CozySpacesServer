@@ -151,10 +151,12 @@ router.put('/:id', (req, res, next) => {
     return next(err);
   }
 
-  Rating.findByIdAndUpdate(id, updateRating, { new: true })
-    .then(result => {
-      if (result) {
-        res.json(result);
+  Rating.findOne({_id: id})
+    .then(rating => {
+      if (rating) {
+        rating.rating = updateRating.rating;
+        rating.save();
+        res.json(rating);
       } else {
         next();
       }
@@ -162,6 +164,7 @@ router.put('/:id', (req, res, next) => {
     .catch(err => {
       next(err);
     });
+  
 });
 /* ========== DELETE/REMOVE A SINGLE ITEM ========== */
 router.delete('/:placesLink', (req, res, next) => {
