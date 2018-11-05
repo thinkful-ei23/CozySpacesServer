@@ -168,33 +168,24 @@ router.delete('/:placesLink', (req, res, next) => {
   const { placesLink } = req.params;
   const userLink = req.user.id;
 
-  console.log('placesLink: ', placesLink);
-  console.log('userLink: ', userLink);
-
   /***** Never trust users - validate input *****/
-  // if (!mongoose.Types.ObjectId.isValid(placesLink)) {
-  //   const err = new Error('The `id` is not valid');
-  //   err.status = 400;
-  //   return next(err);
-  // }
+  if (!mongoose.Types.ObjectId.isValid(placesLink)) {
+    const err = new Error('The `id` is not valid');
+    err.status = 400;
+    return next(err);
+  }
 
-  Rating.findOne({ placesLink: placesLink, userLink: userLink })
+  Rating.findOneAndDelete({ placesLink, userLink })
     .then(result => {
-      console.log('results: ', result);
-      Rating.findOneAndDelete({ placesLink, userLink }).then(result => {
-        if (result) {
-          res.sendStatus(204);
-        } else {
-          res.sendStatus(404);
-        }
-      });
+      if (result) {
+        res.sendStatus(204);
+      } else {
+        res.sendStatus(404);
+      }
     })
     .catch(err => {
       next(err);
     });
-
-
-    
 });
 
 module.exports = router;
