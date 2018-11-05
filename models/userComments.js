@@ -16,4 +16,4 @@ commentSchema.set('toObject', {
   }
 });
 
-module.exports = mongoose.model('Comment', commentSchema);
+module.exports = mongoose.model('UserComment', commentSchema);

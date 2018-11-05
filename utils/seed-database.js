@@ -8,11 +8,13 @@ const Place = require('../models/places');
 const User = require('../models/users');
 const Rating = require('../models/ratings');
 const Photo = require('../models/photos');
+const UserComment = require('../models/userComments');
 
 const seedPlace = require('../db/seed/places');
 const seedUsers = require('../db/seed/users');
 const seedRatings = require('../db/seed/ratings');
 const seedPhotos = require('../db/seed/photos');
+const seedComments = require('../db/seed/userComments');
 
 
 console.log(`Connecting to mongodb at ${DATABASE_URL}`);
@@ -32,7 +34,9 @@ mongoose.connect(DATABASE_URL)
       User.insertMany(seedUsers),
       User.createIndexes(),
       Photo.insertMany(seedPhotos),
-      Photo.createIndexes()
+      Photo.createIndexes(),
+      UserComment.insertMany(seedComments),
+      UserComment.createIndexes()
     ]);
   })
   .then(() => {
