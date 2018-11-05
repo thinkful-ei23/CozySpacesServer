@@ -38,6 +38,7 @@ router.get('/:id', (req, res, next) => {
     .populate('photos')
     .populate('comments')
     // .populate('ratings')
+    .populate({path: 'ratings'})
     .then(result => {
       res.json(result);
     })

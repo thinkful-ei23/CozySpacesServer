@@ -7,11 +7,17 @@
     "city": "Beaverton",
     "state": "OR ",
     "zipcode": "97006",
-    "averageCozyness": "5",
-    "photos":[
+    "averageCozyness": 4,
+    "averageWarmLighting": 5,
+    "averageRelaxedMusic": 4,
+    "averageCalmEnvironment": 5,
+    "averageSoftFabrics": 5,
+    "averageComfySeating": 4,
+    "averageHotFoodDrink": 4,
+    "photos": [
       "444444444444444444444001"
-    ],   
-     "ratings": [
+    ],
+    "ratings": [
       "111111111111111111111001",
       "111111111111111111111002",
       "111111111111111111111003",
@@ -32,10 +38,16 @@
     "city": "Portland",
     "state": "OR",
     "zipcode": "97124",
-    "averageCozyness": "5",
-    "photos":[
+    "averageCozyness": 4,
+    "averageWarmLighting": 5,
+    "averageRelaxedMusic": 4,
+    "averageCalmEnvironment": 5,
+    "averageSoftFabrics": 5,
+    "averageComfySeating": 4,
+    "averageHotFoodDrink": 4,
+    "photos": [
       "444444444444444444444002"
-    ],   
+    ],
     "ratings": [
       "111111111111111111111005",
       "111111111111111111111006",
@@ -55,10 +67,16 @@
     "city": "OR ",
     "state": "OR",
     "zipcode": "97124",
-    "averageCozyness": "5",
-    "photos":[
+    "averageCozyness": 5,
+    "averageWarmLighting": 4,
+    "averageRelaxedMusic": 4,
+    "averageCalmEnvironment": 5,
+    "averageSoftFabrics": 5,
+    "averageComfySeating": 4,
+    "averageHotFoodDrink": 4,
+    "photos": [
       "444444444444444444444003"
-    ],   
+    ],
     "ratings": [
       "111111111111111111111008",
       "111111111111111111111009",
@@ -80,10 +98,16 @@
     "city": "Salt Lake City",
     "state": "UT",
     "zipcode": "84103",
-    "averageCozyness": "5",
-    "photos":[
+    "averageCozyness": 5,
+    "averageWarmLighting": 5,
+    "averageRelaxedMusic": 4,
+    "averageCalmEnvironment": 5,
+    "averageSoftFabrics": 3,
+    "averageComfySeating": 4,
+    "averageHotFoodDrink": 4,
+    "photos": [
       "444444444444444444444004"
-    ],   
+    ],
     "ratings": [
       "111111111111111111111012",
       "111111111111111111111013",
@@ -104,6 +128,12 @@
     "state": "UT",
     "zipcode": "84103",
     "averageCozyness": "5",
+    "averageWarmLighting": 5,
+    "averageRelaxedMusic": 3,
+    "averageCalmEnvironment": 5,
+    "averageSoftFabrics": 5,
+    "averageComfySeating": 4,
+    "averageHotFoodDrink": 4,
     "photos":[
       "444444444444444444444005"
     ],   
@@ -126,10 +156,16 @@
     "city": "Salt Lake City",
     "state": "UT",
     "zipcode": "84102",
-    "averageCozyness": "5",
-    "photos":[
+    "averageCozyness": 5,
+    "averageWarmLighting": 3,
+    "averageRelaxedMusic": 4,
+    "averageCalmEnvironment": 5,
+    "averageSoftFabrics": 5,
+    "averageComfySeating": 4,
+    "averageHotFoodDrink": 4,
+    "photos": [
       "444444444444444444444006"
-    ],   
+    ],
     "ratings": [
       "111111111111111111111018",
       "111111111111111111111019",
@@ -151,10 +187,16 @@
     "city": "Salt Lake City",
     "state": "UT",
     "zipcode": "84103",
-    "averageCozyness": "5",
-    "photos":[
+    "averageCozyness": 5,
+    "averageWarmLighting": 4,
+    "averageRelaxedMusic": 4,
+    "averageCalmEnvironment": 5,
+    "averageSoftFabrics": 5,
+    "averageComfySeating": 5,
+    "averageHotFoodDrink": 4,
+    "photos": [
       "444444444444444444444007"
-    ],   
+    ],
     "ratings": [
       "111111111111111111111022",
       "111111111111111111111023",
@@ -176,10 +218,16 @@
     "city": "Salt Lake City",
     "state": "UT",
     "zipcode": "84111",
-    "averageCozyness": "5",
-    "photos":[
+    "averageCozyness": 5,
+    "averageWarmLighting": 5,
+    "averageRelaxedMusic": 4,
+    "averageCalmEnvironment": 5,
+    "averageSoftFabrics": 4,
+    "averageComfySeating": 5,
+    "averageHotFoodDrink": 4,
+    "photos": [
       "444444444444444444444008"
-    ],   
+    ],
     "ratings": [
       "111111111111111111111026",
       "111111111111111111111027",
@@ -201,10 +249,16 @@
     "city": "Encinitas",
     "state": "CA",
     "zipcode": "92024",
-    "averageCozyness": "5",
-    "photos":[
+    "averageCozyness": 5,
+    "averageWarmLighting": 5,
+    "averageRelaxedMusic": 4,
+    "averageCalmEnvironment": 4,
+    "averageSoftFabrics": 5,
+    "averageComfySeating": 5,
+    "averageHotFoodDrink": 4,
+    "photos": [
       "444444444444444444444009"
-    ],   
+    ],
     "ratings": [
       "111111111111111111111030",
       "111111111111111111111031",

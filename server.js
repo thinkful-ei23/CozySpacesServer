@@ -13,6 +13,7 @@ const { dbConnect } = require('./db-mongoose');
 
 const userRouter = require('./routes/users');
 const placesRouter = require('./routes/places');
+const ratingsRouter = require('./routes/ratings');
 const authRouter = require('./routes/auth');
 
 
@@ -37,6 +38,7 @@ app.use(express.json());
 
 app.use('/api/users', userRouter);
 app.use('/api/places', placesRouter);
+app.use('/api/ratings', ratingsRouter);
 app.use('/api', authRouter);
 
 app.use((req, res, next) => {
