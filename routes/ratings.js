@@ -33,10 +33,11 @@ router.get('/', (req, res, next) => {
   if (userId) {
     filter.userId = userId;
   }
-
-  Rating.find(filter) //
+  Rating.find(filter)
+  //Rating.find(filter) //
     .sort({ updatedAt: 'desc' })
     .then(results => {
+      console.log('results: ', results);
       res.json(results); //
     })
     .catch(err => {
@@ -44,20 +45,18 @@ router.get('/', (req, res, next) => {
     });
 });
 
-/* ========== GET/READ A SINGLE ITEM ========== */
+/* ========== GET/READ A SINGLE ITEM by place Id and user Id in combo========== */
 router.get('/:id', (req, res, next) => {
-  const { id } = req.params; // placeID
+  const placeId = req.params.id;  
   const userId = req.user.id; // userID
-  console.log(userId);
-  console.log(id);
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    const err = new Error('The `id` is not valid');
+  if (!mongoose.Types.ObjectId.isValid(placeId)) {
+    const err = new Error('The `placeId` is not valid');
     err.status = 400;
     return next(err);
   }
 
-  Rating.findOne({ placesLink: id, userLink: userId })
+  Rating.findOne({ placesLink: placeId, userLink: userId })
     .then(result => {
       console.log('this is result', result);
       if (result) {
@@ -85,13 +84,13 @@ router.post('/', (req, res, next) => {
   }
 
   if (placesLink && !mongoose.Types.ObjectId.isValid(placesLink)) {
-    const err = new Error('The `placeId` is not valid');
+    const err = new Error('The `places Link` is not valid');
     err.status = 400;
     return next(err);
   }
 
   if (userLink && !mongoose.Types.ObjectId.isValid(userLink)) {
-    const err = new Error('The `userId` is not valid');
+    const err = new Error('The `user Link` is not valid');
     err.status = 400;
     return next(err);
   }
@@ -122,11 +121,11 @@ router.post('/', (req, res, next) => {
 
 /* ========== PUT/UPDATE A SINGLE ITEM ========== */
 router.put('/:id', (req, res, next) => {
-  const { id } = req.params;
-  const { rating, placeId } = req.body;
+  const placeId = req.params.id;
+  const userLink = req.user.id;
+  const { warmLighting, relaxedMusic, calmEnvironment, softFabrics, comfySeating, hotFoodDrink } = req.body;
   const updateRating = {};
-  const updateFields = ['rating', 'userId', 'placeId'];
-
+  const updateFields = [ warmLighting, relaxedMusic, calmEnvironment, softFabrics, comfySeating, hotFoodDrink];
   updateFields.forEach(field => {
     if (field in req.body) {
       updateRating[field] = req.body[field];
@@ -134,23 +133,38 @@ router.put('/:id', (req, res, next) => {
   });
 
   /***** Never trust users - validate input *****/
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    const err = new Error('The `id` is not valid');
+  if (!mongoose.Types.ObjectId.isValid(userLink)) {
+    const err = new Error('The `user Link` is not valid');
     err.status = 400;
     return next(err);
   }
   if (placeId && !mongoose.Types.ObjectId.isValid(placeId)) {
-    const err = new Error('The `placeId` is not valid');
+    const err = new Error('The `places id` is not valid');
     err.status = 400;
     return next(err);
   }
-  if (rating === '') {
-    const err = new Error('Missing `rating` in request body');
+  if (updateFields.length === 0) {
+    const err = new Error('Missing `a rating to update` in request body');
     err.status = 400;
     return next(err);
   }
-
-  Rating.findByIdAndUpdate(id, updateRating, { new: true })
+  Rating.findOne({ placesLink: placeId, userLink: userLink })
+    .then((result) => {
+    Rating.updateOne(
+      
+      { placesLink: placeId, userLink: userLink }, 
+      { "$set": 
+        {
+          rating: {
+          warmLighting: warmLighting,
+          relaxedMusic: relaxedMusic, 
+          calmEnvironment: calmEnvironment,
+          softFabrics: softFabrics,
+          comfySeating: comfySeating,
+          hotFoodDrink: hotFoodDrink
+          }
+        }
+      })
     .then(result => {
       if (result) {
         res.json(result);
@@ -161,8 +175,8 @@ router.put('/:id', (req, res, next) => {
     .catch(err => {
       next(err);
     });
+  });
 });
-
 /* ========== DELETE/REMOVE A SINGLE ITEM ========== */
 router.delete('/:placesLink', (req, res, next) => {
   const { placesLink } = req.params;

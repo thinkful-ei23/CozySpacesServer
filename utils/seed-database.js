@@ -15,7 +15,7 @@ const seedPhotos = require('../db/seed/photos');
 
 
 console.log(`Connecting to mongodb at ${DATABASE_URL}`);
-mongoose.connect('mongodb://dev:thinkful1@ds147723.mlab.com:47723/cozy-spaces')
+mongoose.connect(DATABASE_URL)
   .then(() => {
     console.info('Dropping Database');
     return mongoose.connection.db.dropDatabase();
