@@ -47,16 +47,18 @@ router.get('/', (req, res, next) => {
 
 /* ========== GET/READ A SINGLE ITEM by place Id and user Id in combo========== */
 router.get('/:id', (req, res, next) => {
-  const placeId = req.params.id;  
+  const { id } = req.params; // placeID
   const userId = req.user.id; // userID
+  console.log(userId);
+  console.log(id);
 
-  if (!mongoose.Types.ObjectId.isValid(placeId)) {
-    const err = new Error('The `placeId` is not valid');
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    const err = new Error('The `id` is not valid');
     err.status = 400;
     return next(err);
   }
 
-  Rating.findOne({ placesLink: placeId, userLink: userId })
+  Rating.findOne({ placesLink: id, userLink: userId })
     .then(result => {
       console.log('this is result', result);
       if (result) {
@@ -121,11 +123,11 @@ router.post('/', (req, res, next) => {
 
 /* ========== PUT/UPDATE A SINGLE ITEM ========== */
 router.put('/:id', (req, res, next) => {
-  const placeId = req.params.id;
-  const userLink = req.user.id;
-  const { warmLighting, relaxedMusic, calmEnvironment, softFabrics, comfySeating, hotFoodDrink } = req.body;
+  const { id } = req.params;
+  const { rating, placeId } = req.body;
   const updateRating = {};
-  const updateFields = [ warmLighting, relaxedMusic, calmEnvironment, softFabrics, comfySeating, hotFoodDrink];
+  const updateFields = ['rating', 'userId', 'placeId'];
+
   updateFields.forEach(field => {
     if (field in req.body) {
       updateRating[field] = req.body[field];
@@ -133,41 +135,28 @@ router.put('/:id', (req, res, next) => {
   });
 
   /***** Never trust users - validate input *****/
-  if (!mongoose.Types.ObjectId.isValid(userLink)) {
-    const err = new Error('The `user Link` is not valid');
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    const err = new Error('The `id` is not valid');
     err.status = 400;
     return next(err);
   }
   if (placeId && !mongoose.Types.ObjectId.isValid(placeId)) {
-    const err = new Error('The `places id` is not valid');
+    const err = new Error('The `placeId` is not valid');
     err.status = 400;
     return next(err);
   }
-  if (updateFields.length === 0) {
-    const err = new Error('Missing `a rating to update` in request body');
+  if (rating === '') {
+    const err = new Error('Missing `rating` in request body');
     err.status = 400;
     return next(err);
   }
-  Rating.findOne({ placesLink: placeId, userLink: userLink })
-    .then((result) => {
-    Rating.updateOne(
-      
-      { placesLink: placeId, userLink: userLink }, 
-      { "$set": 
-        {
-          rating: {
-          warmLighting: warmLighting,
-          relaxedMusic: relaxedMusic, 
-          calmEnvironment: calmEnvironment,
-          softFabrics: softFabrics,
-          comfySeating: comfySeating,
-          hotFoodDrink: hotFoodDrink
-          }
-        }
-      })
-    .then(result => {
-      if (result) {
-        res.json(result);
+
+  Rating.findOne({_id: id})
+    .then(rating => {
+      if (rating) {
+        rating.rating = updateRating.rating;
+        rating.save();
+        res.json(rating);
       } else {
         next();
       }
@@ -175,7 +164,7 @@ router.put('/:id', (req, res, next) => {
     .catch(err => {
       next(err);
     });
-  });
+  
 });
 /* ========== DELETE/REMOVE A SINGLE ITEM ========== */
 router.delete('/:placesLink', (req, res, next) => {
