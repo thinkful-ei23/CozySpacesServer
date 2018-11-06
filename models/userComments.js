@@ -2,13 +2,13 @@
 
 const mongoose = require('mongoose');
 
-const commentSchema = new mongoose.Schema({
+const userCommentSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   placesId: { type: mongoose.Schema.Types.ObjectId, ref: 'Place'},
   comment: String
 });
 
-commentSchema.set('toObject', {
+userCommentSchema.set('toObject', {
   virtuals: true,
   versionKey: false,
   transform: (doc, ret) => {
@@ -16,4 +16,4 @@ commentSchema.set('toObject', {
   }
 });
 
-module.exports = mongoose.model('UserComment', commentSchema);
+module.exports = mongoose.model('UserComment', userCommentSchema);
