@@ -14,7 +14,7 @@ router.get('/', (req, res, next) => {
 
   Place.find()
     .populate('photos')
-    // .sort({ })
+    .sort({ })
     .then(results => {
       res.json(results);
     })
