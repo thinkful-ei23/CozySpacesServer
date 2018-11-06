@@ -36,7 +36,7 @@ router.get('/:id', (req, res, next) => {
   Place
     .findOne({_id: id})
     .populate('photos')
-    .populate({path: 'comments'})
+    .populate('userComments')
     // .populate('ratings')
     .populate({path: 'ratings'})
     .then(result => {
