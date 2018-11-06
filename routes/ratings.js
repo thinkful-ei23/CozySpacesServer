@@ -58,7 +58,7 @@ router.get('/:id', (req, res, next) => {
     return next(err);
   }
 
-  Rating.findOne({ placesLink: id, userLink: userId })
+  Rating.findOne({ placesId: id, userId: userId })
     .then(result => {
       console.log('this is result', result);
       if (result) {
@@ -75,8 +75,8 @@ router.get('/:id', (req, res, next) => {
 
 /* ========== POST/CREATE AN ITEM ========== */
 router.post('/', (req, res, next) => {
-  const { rating, placesLink } = req.body;
-  const userLink = req.user.id;
+  const { rating, placesId } = req.body;
+  const userId = req.user.id;
   //console.log('req.user', req.user);
   /***** Never trust users - validate input *****/
   if (!rating) {
@@ -85,21 +85,21 @@ router.post('/', (req, res, next) => {
     return next(err);
   }
 
-  if (placesLink && !mongoose.Types.ObjectId.isValid(placesLink)) {
-    const err = new Error('The `places Link` is not valid');
+  if (placesId && !mongoose.Types.ObjectId.isValid(placesId)) {
+    const err = new Error('The `places Id` is not valid');
     err.status = 400;
     return next(err);
   }
 
-  if (userLink && !mongoose.Types.ObjectId.isValid(userLink)) {
-    const err = new Error('The `user Link` is not valid');
+  if (userId && !mongoose.Types.ObjectId.isValid(userId)) {
+    const err = new Error('The `user Id` is not valid');
     err.status = 400;
     return next(err);
   }
 
-  const newRating = { rating, placesLink, userLink };
+  const newRating = { rating, placesId, userId };
 
-  Rating.findOne({ placesLink: placesLink, userLink: userLink })
+  Rating.findOne({ placesId: placesId, userId: userId })
     .then(result => {
       if (result) {
         const err = new Error('You have already posted a rating');
@@ -109,7 +109,7 @@ router.post('/', (req, res, next) => {
         return next(err);
       }
       return Rating.create(newRating).then(result => {
-        updateAvgRatings(placesLink);
+        updateAvgRatings(placesId);
         res
           .location(`${req.originalUrl}/${result.id}`)
           .status(201)
@@ -169,21 +169,21 @@ router.put('/:id', (req, res, next) => {
 
 });
 /* ========== DELETE/REMOVE A SINGLE ITEM ========== */
-router.delete('/:placesLink', (req, res, next) => {
-  const { placesLink } = req.params;
-  const userLink = req.user.id;
+router.delete('/:placesId', (req, res, next) => {
+  const { placesId } = req.params;
+  const userId = req.user.id;
 
   /***** Never trust users - validate input *****/
-  if (!mongoose.Types.ObjectId.isValid(placesLink)) {
+  if (!mongoose.Types.ObjectId.isValid(placesId)) {
     const err = new Error('The `id` is not valid');
     err.status = 400;
     return next(err);
   }
 
-  Rating.findOneAndDelete({ placesLink, userLink })
+  Rating.findOneAndDelete({ placesId, userId })
     .then(result => {
       if (result) {
-        updateAvgRatings(placesLink);
+        updateAvgRatings(placesId);
         res.sendStatus(204);
       } else {
         res.sendStatus(404);
@@ -209,7 +209,7 @@ function updateAvgRatings(placeId) {
     comfySeatingScore,
     hotFoodDrinkScore = 0;
 
-  Ratings.find({ placesLink: placeId })
+  Ratings.find({ placesId: placeId })
     .then((ratings) => {
 
       let numberOfRatings = ratings.length;
