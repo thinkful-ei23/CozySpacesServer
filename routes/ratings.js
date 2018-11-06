@@ -34,7 +34,7 @@ router.get('/', (req, res, next) => {
     filter.userId = userId;
   }
   Rating.find(filter)
-  //Rating.find(filter) //
+    //Rating.find(filter) //
     .sort({ updatedAt: 'desc' })
     .then(results => {
       console.log('results: ', results);
@@ -46,21 +46,18 @@ router.get('/', (req, res, next) => {
 });
 
 /* ========== GET/READ A SINGLE ITEM by place Id and user Id in combo========== */
-router.get('/:id', (req, res, next) => {
-  const { id } = req.params; // placeID
+router.get('/:placeId', (req, res, next) => {
+  const placeId = req.params.placeId;
   const userId = req.user.id; // userID
-  console.log(userId);
-  console.log(id);
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    const err = new Error('The `id` is not valid');
+  if (!mongoose.Types.ObjectId.isValid(userId)) {
+    const err = new Error('The `user id` is not valid');
     err.status = 400;
     return next(err);
   }
 
-  Rating.findOne({ placesLink: id, userLink: userId })
+  Rating.findOne({ placesId: placeId, userId: userId })
     .then(result => {
-      console.log('this is result', result);
       if (result) {
         res.json(result);
       } else {
@@ -75,9 +72,8 @@ router.get('/:id', (req, res, next) => {
 
 /* ========== POST/CREATE AN ITEM ========== */
 router.post('/', (req, res, next) => {
-  const { rating, placesLink } = req.body;
-  const userLink = req.user.id;
-  //console.log('req.user', req.user);
+  const { rating, placesId } = req.body;
+  const userId = req.user.id;
   /***** Never trust users - validate input *****/
   if (!rating) {
     const err = new Error('Missing `rating` in request body');
@@ -85,21 +81,21 @@ router.post('/', (req, res, next) => {
     return next(err);
   }
 
-  if (placesLink && !mongoose.Types.ObjectId.isValid(placesLink)) {
+  if (placesId && !mongoose.Types.ObjectId.isValid(placesId)) {
     const err = new Error('The `places Link` is not valid');
     err.status = 400;
     return next(err);
   }
 
-  if (userLink && !mongoose.Types.ObjectId.isValid(userLink)) {
+  if (userId && !mongoose.Types.ObjectId.isValid(userId)) {
     const err = new Error('The `user Link` is not valid');
     err.status = 400;
     return next(err);
   }
 
-  const newRating = { rating, placesLink, userLink };
+  const newRating = { rating, placesId, userId };
 
-  Rating.findOne({ placesLink: placesLink, userLink: userLink })
+  Rating.findOne({ placesId: placesId, userId: userId })
     .then(result => {
       if (result) {
         const err = new Error('You have already posted a rating');
@@ -134,6 +130,8 @@ router.put('/:id', (req, res, next) => {
     }
   });
 
+  console.log('updateFields: ', updateFields);
+
   /***** Never trust users - validate input *****/
   if (!mongoose.Types.ObjectId.isValid(id)) {
     const err = new Error('The `id` is not valid');
@@ -167,18 +165,18 @@ router.put('/:id', (req, res, next) => {
   
 });
 /* ========== DELETE/REMOVE A SINGLE ITEM ========== */
-router.delete('/:placesLink', (req, res, next) => {
-  const { placesLink } = req.params;
-  const userLink = req.user.id;
+router.delete('/:placesId', (req, res, next) => {
+  const { placesId } = req.params;
+  const userId = req.user.id;
 
   /***** Never trust users - validate input *****/
-  if (!mongoose.Types.ObjectId.isValid(placesLink)) {
+  if (!mongoose.Types.ObjectId.isValid(placesId)) {
     const err = new Error('The `id` is not valid');
     err.status = 400;
     return next(err);
   }
 
-  Rating.findOneAndDelete({ placesLink, userLink })
+  Rating.findOneAndDelete({ placesId, userId })
     .then(result => {
       if (result) {
         res.sendStatus(204);
