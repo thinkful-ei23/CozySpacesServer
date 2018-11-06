@@ -105,6 +105,7 @@ router.post('/', (req, res, next) => {
         return next(err);
       }
       return Rating.create(newRating).then(result => {
+        updateAvgRatings(placesLink);
         res
           .location(`${req.originalUrl}/${result.id}`)
           .status(201)
@@ -149,11 +150,12 @@ router.put('/:id', (req, res, next) => {
     return next(err);
   }
 
-  Rating.findOne({_id: id})
+  Rating.findOne({ _id: id })
     .then(rating => {
       if (rating) {
         rating.rating = updateRating.rating;
         rating.save();
+        updateAvgRatings(id);
         res.json(rating);
       } else {
         next();
@@ -162,7 +164,7 @@ router.put('/:id', (req, res, next) => {
     .catch(err => {
       next(err);
     });
-  
+
 });
 /* ========== DELETE/REMOVE A SINGLE ITEM ========== */
 router.delete('/:placesId', (req, res, next) => {
@@ -179,6 +181,7 @@ router.delete('/:placesId', (req, res, next) => {
   Rating.findOneAndDelete({ placesId, userId })
     .then(result => {
       if (result) {
+        updateAvgRatings(placesLink);
         res.sendStatus(204);
       } else {
         res.sendStatus(404);
@@ -188,5 +191,62 @@ router.delete('/:placesId', (req, res, next) => {
       next(err);
     });
 });
+
+function updateAvgRatings(placeId) {
+  let newwarmLightingScore,
+    newRelaxedMusicScore,
+    newCalmEnvironmentScore,
+    newSoftFabricsScore,
+    newComfySeatingScore,
+    newHotFoodDrinkScore = 0;
+
+  let warmLightingScore,
+    relaxedMusicScore,
+    calmEnvironmentScore,
+    softFabricsScore,
+    comfySeatingScore,
+    hotFoodDrinkScore = 0;
+
+  Ratings.find({ placesLink: placeId })
+    .then((ratings) => {
+
+      let numberOfRatings = ratings.length;
+      ratings.forEach((rating) => {
+        warmLightingScore += rating.rating.warmLighting;
+        relaxedMusicScore += rating.rating.relaxedMusic;
+        calmEnvironmentScore += rating.rating.calmEnvironment;
+        softFabricsScore += rating.rating.softFabrics;
+        comfySeatingScore += rating.rating.comfySeating;
+        hotFoodDrinkScore += rating.rating.hotFoodDrink;
+      });
+      newWarmLightingScore = Math.floor(warmLightingScore / numberOfRatings);
+      newRelaxedMusicScore = Math.floor(relaxedMusicScore / numberOfRatings);
+      newCalmEnvironmentScore = Math.floor(warmLightingScore / numberOfRatings);
+      newSoftFabricsScore = Math.floor(warmLightingScore / numberOfRatings);
+      newComfySeatingScore = Math.floor(warmLightingScore / numberOfRatings);
+      newHotFoodDrinkScore = Math.floor(warmLightingScore / numberOfRatings);
+      return Place.findOne({ _id: placeId })
+    })
+    .then((place) => {
+      place.averageWarmLighting = newWarmLightingScore;
+      place.averageRelaxedMusic = newRelaxedMusicScore;
+      place.averageCalmEnvironment = newCalmEnvironmentScore;
+      place.averageSoftFabrics = newSoftFabricsScore;
+      place.averageComfySeating = newComfySeatingScore;
+      place.averageHotFoodDrink = newHotFoodDrinkScore;
+      place.averageCozyness = 
+      Math.floor(
+        (
+          +place.averageCalmEnvironment +
+          +place.averageSoftFabrics +
+          +place.averageComfySeating +
+          +place.averageHotFoodDrink +
+          +place.averageHotFoodDrink
+        ) / 6);
+      place.save();
+    })
+    .catch((err) => console.error(err));
+}
+
 
 module.exports = router;
