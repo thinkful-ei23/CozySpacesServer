@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const Place = require('../models/places');
 const Rating = require('../models/ratings');
 const Photo = require('../models/photos');
-const Comment = require('../models/comments');
+const Comment = require('../models/userComments');
 
 const router = express.Router();
 

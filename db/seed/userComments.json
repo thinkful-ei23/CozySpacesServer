@@ -3,199 +3,199 @@
     "_id":        "555555555555555555555001",
     "userId":   "000000000000000000000001",
     "placesId": "333333333333333333333001",
-    "comments": "Love this place - super cozy!"
+    "comment": "Love this place - super cozy!"
   }, 
   {
     "_id":        "555555555555555555555002",
     "userId":   "000000000000000000000001",    
     "placesId": "333333333333333333333001",
-    "comments": "Very comfy place"
+    "comment": "Very comfy place"
   },
   {
     "_id":        "555555555555555555555003",
     "userId":   "000000000000000000000003",  
     "placesId": "333333333333333333333001",
-    "comments": "Soothing and unique hot drinks and really great lighting...the owner used to be a lighting designer"
+    "comment": "Soothing and unique hot drinks and really great lighting...the owner used to be a lighting designer"
   },
   {
     "_id":        "555555555555555555555004",
     "userId":   "000000000000000000000004",
     "placesId": "333333333333333333333001",
-    "comments": "Cozzzzzyyyy :)"
+    "comment": "Cozzzzzyyyy :)"
   }, 
   {
     "_id":        "555555555555555555555005",
     "userId":   "000000000000000000000001",
     "placesId": "333333333333333333333002",
-    "comments": ""
+    "comment": ""
   }, 
   {
     "_id":        "555555555555555555555006",    
     "userId":   "000000000000000000000001",
     "placesId": "333333333333333333333002",
-    "comments": "My favorite place when it's cold and rainy! Love the fireplace!"
+    "comment": "My favorite place when it's cold and rainy! Love the fireplace!"
   },
   {
     "_id":        "555555555555555555555007",
     "userId":   "000000000000000000000005",
     "placesId": "333333333333333333333002",
-    "comments": "My home away from home..."
+    "comment": "My home away from home..."
   },
   {
     "_id":        "555555555555555555555008",
     "userId":   "000000000000000000000006",
     "placesId": "333333333333333333333003",
-    "comments": "My friend Burke turned me on to this place and I love it!  If you do too, follow her on this app...she's the best cozy curator"
+    "comment": "My friend Burke turned me on to this place and I love it!  If you do too, follow her on this app...she's the best cozy curator"
   }, 
   {
     "_id":        "555555555555555555555009",
     "userId":   "000000000000000000000003",
     "placesId": "333333333333333333333003",
-    "comments": "This place is in my top 3 favorite places when I'm craving cozy"
+    "comment": "This place is in my top 3 favorite places when I'm craving cozy"
   }, 
   {
     "_id":        "555555555555555555555010",
     "userId":   "000000000000000000000004",
     "placesId": "333333333333333333333003",
-    "comments": "Great place, but there is a daycare next door, so sometimes not so calm between 8am and 6 pm.  After 6pm has always been great for me"
+    "comment": "Great place, but there is a daycare next door, so sometimes not so calm between 8am and 6 pm.  After 6pm has always been great for me"
   }, 
   {
     "_id":        "555555555555555555555011",
     "userId":   "000000000000000000000006",
     "placesId": "333333333333333333333003",
-    "comments": "Super chill, cozy place, and the best part is on Friday nights this an amazing musician named Sel comes and plays a wind synthesizer...you must experience it for yourself!"
+    "comment": "Super chill, cozy place, and the best part is on Friday nights this an amazing musician named Sel comes and plays a wind synthesizer...you must experience it for yourself!"
   }, 
   {
     "_id":        "555555555555555555555012",
     "userId":   "000000000000000000000001",
     "placesId": "333333333333333333333004",
-    "comments": "Ahhhhhh....."
+    "comment": "Ahhhhhh....."
   }, 
   {
     "_id":        "555555555555555555555013",
     "userId":   "000000000000000000000003",
     "placesId": "333333333333333333333004",
-    "comments": ""
+    "comment": ""
   }, 
   {
     "_id":        "555555555555555555555014",
     "userId":   "000000000000000000000007",
     "placesId": "333333333333333333333004",
-    "comments": ""
+    "comment": ""
   }, 
   {
     "_id":        "555555555555555555555015",
     "userId":   "000000000000000000000008",
     "placesId": "333333333333333333333005",
-    "comments": "comfy place"
+    "comment": "comfy place"
   }, 
   {
     "_id":        "555555555555555555555016",
     "userId":   "000000000000000000000001",
     "placesId": "333333333333333333333005",
-    "comments": "Nice place to warm my soul when it's cold out"
+    "comment": "Nice place to warm my soul when it's cold out"
   }, 
   {
     "_id":        "555555555555555555555017",
     "userId":   "000000000000000000000001",
     "placesId": "333333333333333333333005",
-    "comments": "Great wifi at this comfy spot!  I can video conference with my amazing web developer mentor Alex here and the connection never drops"
+    "comment": "Great wifi at this comfy spot!  I can video conference with my amazing web developer mentor Alex here and the connection never drops"
   }, 
   {
     "_id":        "555555555555555555555018",
     "userId":   "000000000000000000000006",
     "placesId": "333333333333333333333006",
-    "comments": "Amazing soup!"
+    "comment": "Amazing soup!"
   }, 
   {
     "_id":        "555555555555555555555019",
     "userId":   "000000000000000000000001",
     "placesId": "333333333333333333333006",
-    "comments": ""
+    "comment": ""
   }, 
   {
     "_id":        "555555555555555555555020",
     "userId":   "000000000000000000000003",
     "placesId": "333333333333333333333006",
-    "comments": "Most comfortable seating ever!"
+    "comment": "Most comfortable seating ever!"
   }, 
   {
     "_id":        "555555555555555555555021",
     "userId":   "000000000000000000000007",
     "placesId": "333333333333333333333006",
-    "comments": ""
+    "comment": ""
   }, 
   {
     "_id":        "555555555555555555555022",
     "userId":   "000000000000000000000001",
     "placesId": "333333333333333333333007",
-    "comments": ""
+    "comment": ""
   }, 
   {
     "_id":        "555555555555555555555023",
     "userId":   "000000000000000000000001",
     "placesId": "333333333333333333333007",
-    "comments": "so calm...."
+    "comment": "so calm...."
   }, 
   {
     "_id":        "555555555555555555555024",
     "userId":   "000000000000000000000055",
     "placesId": "333333333333333333333007",
-    "comments": ""
+    "comment": ""
   }, 
   {
     "_id":        "555555555555555555555025",
     "userId":   "000000000000000000000004",
     "placesId": "333333333333333333333007",
-    "comments": "great fireplace!"
+    "comment": "great fireplace!"
   }, 
   {
     "_id":        "555555555555555555555026",
     "userId":   "000000000000000000000006",
     "placesId": "333333333333333333333008",
-    "comments": "Sel on the wind synthesizer....don't miss it!"
+    "comment": "Sel on the wind synthesizer....don't miss it!"
   }, 
   {
     "_id":        "555555555555555555555027",
     "userId":   "000000000000000000000008",
     "placesId": "333333333333333333333008",
-    "comments": "Sel's music in this cozy place is just what I need at the end of my week!"
+    "comment": "Sel's music in this cozy place is just what I need at the end of my week!"
   }, 
   {
     "_id":        "555555555555555555555028",
     "userId":   "000000000000000000000001",
     "placesId": "333333333333333333333008",
-    "comments": ""
+    "comment": ""
 
   },  
   {
     "_id":        "555555555555555555555029",
     "userId":   "000000000000000000000003",
     "placesId": "333333333333333333333008",
-    "comments": ""
+    "comment": ""
   }, 
   {
     "_id":        "555555555555555555555030",
     "userId":   "000000000000000000000005",
     "placesId": "333333333333333333333009",
-    "comments": "Like a fuzzy blanket right out of the dryer..."
+    "comment": "Like a fuzzy blanket right out of the dryer..."
   }, 
   {
     "_id":        "555555555555555555555031",
     "userId":   "000000000000000000000006",
     "placesId": "333333333333333333333009",
-    "comments": "so cozy...follow Burke on this app....it's how I find the best places"
+    "comment": "so cozy...follow Burke on this app....it's how I find the best places"
   }, 
   {
     "_id":        "555555555555555555555032",
     "userId":   "000000000000000000000008",
     "placesId": "333333333333333333333009",
-    "comments": ""
+    "comment": ""
   }, 
   {
     "_id":        "555555555555555555555033",
     "userId":   "000000000000000000000004",
     "placesId": "333333333333333333333009",
-    "comments": "Amazing host here named Alex with the most soothing voice....sometimes I just come here to hear him talk in this calming environment, and I'm instantly relaxed..."
+    "comment": "Amazing host here named Alex with the most soothing voice....sometimes I just come here to hear him talk in this calming environment, and I'm instantly relaxed..."
   }
 ]

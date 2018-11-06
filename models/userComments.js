@@ -3,8 +3,8 @@
 const mongoose = require('mongoose');
 
 const commentSchema = new mongoose.Schema({
-  userLink: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-  placesLink: { type: mongoose.Schema.Types.ObjectId, ref: 'Place'},
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  placesId: { type: mongoose.Schema.Types.ObjectId, ref: 'Place'},
   comment: String
 });
 
