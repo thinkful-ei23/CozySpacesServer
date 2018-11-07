@@ -6,6 +6,7 @@ const passport = require('passport');
 
 const Rating = require('../models/ratings');
 const User = require('../models/users');
+const Place = require('../models/places');
 
 const router = express.Router();
 
@@ -82,13 +83,13 @@ router.post('/', (req, res, next) => {
   }
 
   if (placesId && !mongoose.Types.ObjectId.isValid(placesId)) {
-    const err = new Error('The `places Link` is not valid');
+    const err = new Error('The `places Id` is not valid');
     err.status = 400;
     return next(err);
   }
 
   if (userId && !mongoose.Types.ObjectId.isValid(userId)) {
-    const err = new Error('The `user Link` is not valid');
+    const err = new Error('The `user Id` is not valid');
     err.status = 400;
     return next(err);
   }
@@ -105,7 +106,7 @@ router.post('/', (req, res, next) => {
         return next(err);
       }
       return Rating.create(newRating).then(result => {
-        updateAvgRatings(placesLink);
+        updateAvgRatings(placesId);
         res
           .location(`${req.originalUrl}/${result.id}`)
           .status(201)
@@ -119,11 +120,12 @@ router.post('/', (req, res, next) => {
 });
 
 /* ========== PUT/UPDATE A SINGLE ITEM ========== */
-router.put('/:id', (req, res, next) => {
-  const { id } = req.params;
-  const { rating, placeId } = req.body;
+router.put('/:ratingId', (req, res, next) => {
+  const { ratingId } = req.params;
+  const { rating, placesId } = req.body;
+
   const updateRating = {};
-  const updateFields = ['rating', 'userId', 'placeId'];
+  const updateFields = ['rating', 'userId', 'placesId'];
 
   updateFields.forEach(field => {
     if (field in req.body) {
@@ -131,16 +133,14 @@ router.put('/:id', (req, res, next) => {
     }
   });
 
-  console.log('updateFields: ', updateFields);
-
   /***** Never trust users - validate input *****/
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    const err = new Error('The `id` is not valid');
+  if (!mongoose.Types.ObjectId.isValid(ratingId)) {
+    const err = new Error('The `rating id` is not valid');
     err.status = 400;
     return next(err);
   }
-  if (placeId && !mongoose.Types.ObjectId.isValid(placeId)) {
-    const err = new Error('The `placeId` is not valid');
+  if (placesId && !mongoose.Types.ObjectId.isValid(placesId)) {
+    const err = new Error('The `placesId` is not valid');
     err.status = 400;
     return next(err);
   }
@@ -150,12 +150,12 @@ router.put('/:id', (req, res, next) => {
     return next(err);
   }
 
-  Rating.findOne({ _id: id })
+  Rating.findOne({ _id: ratingId })
     .then(rating => {
       if (rating) {
         rating.rating = updateRating.rating;
         rating.save();
-        updateAvgRatings(id);
+        updateAvgRatings(placesId);
         res.json(rating);
       } else {
         next();
@@ -181,7 +181,7 @@ router.delete('/:placesId', (req, res, next) => {
   Rating.findOneAndDelete({ placesId, userId })
     .then(result => {
       if (result) {
-        updateAvgRatings(placesLink);
+        updateAvgRatings(placesId);
         res.sendStatus(204);
       } else {
         res.sendStatus(404);
@@ -192,55 +192,100 @@ router.delete('/:placesId', (req, res, next) => {
     });
 });
 
-function updateAvgRatings(placeId) {
-  let newwarmLightingScore,
-    newRelaxedMusicScore,
-    newCalmEnvironmentScore,
-    newSoftFabricsScore,
-    newComfySeatingScore,
-    newHotFoodDrinkScore = 0;
+function updateAvgRatings(placesId) {
 
-  let warmLightingScore,
-    relaxedMusicScore,
-    calmEnvironmentScore,
-    softFabricsScore,
-    comfySeatingScore,
-    hotFoodDrinkScore = 0;
+  console.log('******************START OF UPDATE AVERAGE RATINGS**************************')
+  let warmLightingTotal,
+    relaxedMusicTotal,
+    calmEnvironmentTotal,
+    softFabricsTotal,
+    comfySeatingTotal,
+    hotFoodDrinkTotal;
 
-  Ratings.find({ placesLink: placeId })
+  warmLightingTotal = relaxedMusicTotal = calmEnvironmentTotal = softFabricsTotal = comfySeatingTotal = hotFoodDrinkTotal = 0;
+
+  let warmLightingAverage,
+    relaxedMusicAverage,
+    calmEnvironmentAverage,
+    softFabricsAverage,
+    comfySeatingAverage,
+    hotFoodDrinkAverage;
+
+  warmLightingAverage = relaxedMusicAverage = calmEnvironmentAverage = softFabricsAverage = comfySeatingAverage = hotFoodDrinkAverage = 0;
+
+
+  Rating.find({ placesId: placesId })
     .then((ratings) => {
 
-      let numberOfRatings = ratings.length;
+      // console.log('RATINGS: ', ratings);
+
+      let numberOfRatings = ratings.length; // 4
       ratings.forEach((rating) => {
-        warmLightingScore += rating.rating.warmLighting;
-        relaxedMusicScore += rating.rating.relaxedMusic;
-        calmEnvironmentScore += rating.rating.calmEnvironment;
-        softFabricsScore += rating.rating.softFabrics;
-        comfySeatingScore += rating.rating.comfySeating;
-        hotFoodDrinkScore += rating.rating.hotFoodDrink;
+        warmLightingTotal += rating.rating.warmLighting;
+        relaxedMusicTotal += rating.rating.relaxedMusic;
+        calmEnvironmentTotal += rating.rating.calmEnvironment;
+        softFabricsTotal += rating.rating.softFabrics;
+        comfySeatingTotal += rating.rating.comfySeating;
+        hotFoodDrinkTotal += rating.rating.hotFoodDrink;
       });
-      newWarmLightingScore = Math.floor(warmLightingScore / numberOfRatings);
-      newRelaxedMusicScore = Math.floor(relaxedMusicScore / numberOfRatings);
-      newCalmEnvironmentScore = Math.floor(warmLightingScore / numberOfRatings);
-      newSoftFabricsScore = Math.floor(warmLightingScore / numberOfRatings);
-      newComfySeatingScore = Math.floor(warmLightingScore / numberOfRatings);
-      newHotFoodDrinkScore = Math.floor(warmLightingScore / numberOfRatings);
-      return Place.findOne({ _id: placeId })
+      console.log('**********************');
+      console.log("TOTALS: ");
+      console.log('**********************');
+      console.log('warmLightingTotal: ', warmLightingTotal);
+      console.log('relaxedMusicTotal: ', relaxedMusicTotal);
+      console.log('calmEnvironmentTotal: ', calmEnvironmentTotal);
+      console.log('softFabricsTotal: ', softFabricsTotal);
+      console.log('comfySeatingTotal: ', comfySeatingTotal);
+      console.log('hotFoodDrinkTotal: ', hotFoodDrinkTotal);
+
+      console.log('**********************');
+      console.log('NUMBER OF RATINGS: ', numberOfRatings);
+      console.log('**********************');
+
+
+      warmLightingAverage = (warmLightingTotal / numberOfRatings);
+      relaxedMusicAverage = (relaxedMusicTotal / numberOfRatings);
+      calmEnvironmentAverage = (calmEnvironmentTotal / numberOfRatings);
+      softFabricsAverage = (softFabricsTotal / numberOfRatings);
+      comfySeatingAverage = (comfySeatingTotal / numberOfRatings);
+      hotFoodDrinkAverage = (hotFoodDrinkTotal / numberOfRatings);
+      
+      console.log('**********************');
+      console.log('AVERAGES: ');
+      console.log('**********************');
+      console.log('warmLightingAverage: ', warmLightingAverage);
+      console.log('relaxedMusicAverage: ', relaxedMusicAverage);
+      console.log('calmEnvironmentAverage: ', calmEnvironmentAverage);
+      console.log('softFabricsAverage: ', softFabricsAverage);
+      console.log('comfySeatingAverage: ', comfySeatingAverage);
+      console.log('hotFoodDrinkAverage: ', hotFoodDrinkAverage);
+      console.log('**********************');
+
+      return Place.findOne({ _id: placesId });
     })
     .then((place) => {
-      place.averageWarmLighting = newWarmLightingScore;
-      place.averageRelaxedMusic = newRelaxedMusicScore;
-      place.averageCalmEnvironment = newCalmEnvironmentScore;
-      place.averageSoftFabrics = newSoftFabricsScore;
-      place.averageComfySeating = newComfySeatingScore;
-      place.averageHotFoodDrink = newHotFoodDrinkScore;
+      console.log('**********************');
+      console.log('AVERAGES');
+      console.log('**********************');
+      console.log('warmLightingAverage: ', warmLightingAverage);
+      console.log('relaxedMusicAverage: ', relaxedMusicAverage);
+      console.log('calmEnvironmentAverage: ', calmEnvironmentAverage);
+      console.log('softFabricsAverage: ', softFabricsAverage);
+      console.log('comfySeatingAverage: ', comfySeatingAverage);
+      console.log('hotFoodDrinkAverage: ', hotFoodDrinkAverage);
+      place.averageWarmLighting = warmLightingAverage;
+      place.averageRelaxedMusic = relaxedMusicAverage;
+      place.averageCalmEnvironment = calmEnvironmentAverage;
+      place.averageSoftFabrics = softFabricsAverage;
+      place.averageComfySeating = comfySeatingAverage;
+      place.averageHotFoodDrink = hotFoodDrinkAverage;
       place.averageCozyness = 
-      Math.floor(
-        (
+        ((
+          +place.averageWarmLighting +
+          +place.averageRelaxedMusic +
           +place.averageCalmEnvironment +
           +place.averageSoftFabrics +
           +place.averageComfySeating +
-          +place.averageHotFoodDrink +
           +place.averageHotFoodDrink
         ) / 6);
       place.save();
