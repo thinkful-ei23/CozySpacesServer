@@ -121,8 +121,10 @@ router.post('/', (req, res, next) => {
 
 /* ========== PUT/UPDATE A SINGLE ITEM ========== */
 router.put('/:ratingId', (req, res, next) => {
+  console.log('ENTER ROUTER.PUT*****************************');
   const { ratingId } = req.params;
   const { rating, placesId } = req.body;
+  console.log('ROUTER.PUT RATINGS: ', rating);
 
   const updateRating = {};
   const updateFields = ['rating', 'userId', 'placesId'];
@@ -149,6 +151,16 @@ router.put('/:ratingId', (req, res, next) => {
     err.status = 400;
     return next(err);
   }
+  // try {
+  //   const oneRating = await Rating.findOne({ _id: ratingId });
+
+  //   if (oneRating) {
+  //     await Rating.
+  //   }
+
+  // } catch (err) {
+  //   next(err);
+  // }
 
   Rating.findOne({ _id: ratingId })
     .then(rating => {
@@ -217,11 +229,17 @@ function updateAvgRatings(placesId) {
   Rating.find({ placesId: placesId })
     .then((ratings) => {
 
-      // console.log('RATINGS: ', ratings);
+      console.log('RATINGS: ', ratings);
 
       let numberOfRatings = ratings.length; // 4
+      console.log('NUMBER OF RATINGS: ', numberOfRatings);
+
       ratings.forEach((rating) => {
+        console.log('****************INSIDE THE FOREACH****************');
+        console.log('rating: ', rating);
         warmLightingTotal += rating.rating.warmLighting;
+        console.log('warmLightingTotal: ', warmLightingTotal);
+        console.log('rating.rating.warmLighting: ', rating.rating.warmLighting);
         relaxedMusicTotal += rating.rating.relaxedMusic;
         calmEnvironmentTotal += rating.rating.calmEnvironment;
         softFabricsTotal += rating.rating.softFabrics;
@@ -239,9 +257,6 @@ function updateAvgRatings(placesId) {
       console.log('hotFoodDrinkTotal: ', hotFoodDrinkTotal);
 
       console.log('**********************');
-      console.log('NUMBER OF RATINGS: ', numberOfRatings);
-      console.log('**********************');
-
 
       warmLightingAverage = (warmLightingTotal / numberOfRatings);
       relaxedMusicAverage = (relaxedMusicTotal / numberOfRatings);
@@ -250,17 +265,6 @@ function updateAvgRatings(placesId) {
       comfySeatingAverage = (comfySeatingTotal / numberOfRatings);
       hotFoodDrinkAverage = (hotFoodDrinkTotal / numberOfRatings);
       
-      console.log('**********************');
-      console.log('AVERAGES: ');
-      console.log('**********************');
-      console.log('warmLightingAverage: ', warmLightingAverage);
-      console.log('relaxedMusicAverage: ', relaxedMusicAverage);
-      console.log('calmEnvironmentAverage: ', calmEnvironmentAverage);
-      console.log('softFabricsAverage: ', softFabricsAverage);
-      console.log('comfySeatingAverage: ', comfySeatingAverage);
-      console.log('hotFoodDrinkAverage: ', hotFoodDrinkAverage);
-      console.log('**********************');
-
       return Place.findOne({ _id: placesId });
     })
     .then((place) => {
@@ -288,6 +292,21 @@ function updateAvgRatings(placesId) {
           +place.averageComfySeating +
           +place.averageHotFoodDrink
         ) / 6);
+
+
+      console.log('**********************');
+      console.log('PLACE.AVERAGES');
+      console.log('**********************');
+      console.log('warmLightingAverage: ', place.averageWarmLighting);
+      console.log('relaxedMusicAverage: ', place.averageRelaxedMusic);
+      console.log('calmEnvironmentAverage: ', place.averageCalmEnvironment);
+      console.log('softFabricsAverage: ', place.averageSoftFabrics);
+      console.log('comfySeatingAverage: ', place.averageComfySeating);
+      console.log('hotFoodDrinkAverage: ', place.averageHotFoodDrink);
+      console.log('averageCozyness: ', place.averageCozyness);
+
+
+
       place.save();
     })
     .catch((err) => console.error(err));
