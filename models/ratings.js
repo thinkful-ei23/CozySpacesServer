@@ -11,7 +11,8 @@ const ratingSchema = new mongoose.Schema({
     calmEnvironment:  {type: Number},
     softFabrics:      {type: Number},
     comfySeating:     {type: Number},
-    hotFoodDrink: {type: Number}
+    hotFoodDrink: {type: Number},
+    comment: {type: String}
   }  
 });
 
