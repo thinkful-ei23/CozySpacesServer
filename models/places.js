@@ -9,7 +9,10 @@ const placeSchema = new mongoose.Schema({
   city: { type: String, required: true },
   state: { type: String, required: true },
   zipcode: { type: String, required: true, default: '' },
-  position: {lat : Number, lng: Number},
+  location: {
+    type: { type: String },
+    coordinates: []
+  },
   averageCozyness: {type: Number, default: 0},
   averageWarmLighting: {type: Number, default: 0},
   averageRelaxedMusic: {type: Number, default: 0},
@@ -21,6 +24,8 @@ const placeSchema = new mongoose.Schema({
   ratings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Rating'}],
   userComments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'UserComment' }]
 });
+
+placeSchema.index({ location: '2dsphere' });
 
 placeSchema.set('toObject', {
   virtuals: true,
