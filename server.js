@@ -15,6 +15,7 @@ const userRouter = require('./routes/users');
 const placesRouter = require('./routes/places');
 const ratingsRouter = require('./routes/ratings');
 const authRouter = require('./routes/auth');
+const reportRouter = require('./routes/report');
 
 
 passport.use(localStrategy);
@@ -36,10 +37,11 @@ app.use(
 
 app.use(express.json());
 
+app.use('/api', authRouter);
 app.use('/api/users', userRouter);
 app.use('/api/places', placesRouter);
 app.use('/api/ratings', ratingsRouter);
-app.use('/api', authRouter);
+app.use('/api/report', reportRouter);
 
 app.use((req, res, next) => {
   const err = new Error('Not Found');
