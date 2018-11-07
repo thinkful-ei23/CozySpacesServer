@@ -12,16 +12,31 @@ const router = express.Router();
 
 /* ========== GET/READ ALL ITEMS ========== */
 router.get('/', (req, res, next) => {
-
-  Place.find()
+  const lat = parseFloat(req.query.lat);
+  const lng = parseFloat(req.query.lng);
+  Place.find({
+    location: {
+      $near: {
+        $maxDistance: 60000,
+        $geometry: {
+          type: 'Point',
+          coordinates: [lng, lat]
+        }
+      }
+    }
+  })
     .populate('photos')
-    .sort({ })
     .then(results => {
-      res.json(results);
+      if (results) {
+        res.json(results);
+      } else {
+        next();
+      }
     })
     .catch(err => {
       next(err);
     });
+  
 });
 
 router.get('/:id', (req, res, next) => {
