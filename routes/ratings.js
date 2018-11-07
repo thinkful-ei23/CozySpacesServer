@@ -229,7 +229,7 @@ function updateAvgRatings(placesId) {
         hotFoodDrinkTotal += rating.rating.hotFoodDrink;
       });
       console.log('**********************');
-      console.log("TOTALS: ");
+      console.log('TOTALS: ');
       console.log('**********************');
       console.log('warmLightingTotal: ', warmLightingTotal);
       console.log('relaxedMusicTotal: ', relaxedMusicTotal);
@@ -292,6 +292,5 @@ function updateAvgRatings(placesId) {
     })
     .catch((err) => console.error(err));
 }
-
 
 module.exports = router;
