@@ -3,8 +3,8 @@
 const mongoose = require('mongoose');
 
 const ratingSchema = new mongoose.Schema({
-  userLink: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-  placesLink: { type: mongoose.Schema.Types.ObjectId, ref: 'Place'},
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  placesId: { type: mongoose.Schema.Types.ObjectId, ref: 'Place'},
   rating: {        
     warmLighting:  {type: Number},
     relaxedMusic:     {type: Number},
@@ -20,6 +20,7 @@ ratingSchema.set('toObject', {
   versionKey: false,
   transform: (doc, ret) => {
     delete ret._id;
+    delete ret.__v;
   }
 });
 

@@ -1,14 +1,14 @@
 'use strict';
+
 const mongoose = require('mongoose');
 
-const photoSchema = new mongoose.Schema({
-  url: { type: String, required: true},
-  caption: { type: String},
+const userCommentSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   placesId: { type: mongoose.Schema.Types.ObjectId, ref: 'Place'},
+  comment: String
 });
 
-photoSchema.set('toObject', {
+userCommentSchema.set('toObject', {
   virtuals: true,
   versionKey: false,
   transform: (doc, ret) => {
@@ -16,4 +16,5 @@ photoSchema.set('toObject', {
   }
 });
 
-module.exports = mongoose.model('Photo', photoSchema);
+module.exports = mongoose.model('UserComment', userCommentSchema);
+// userComments
