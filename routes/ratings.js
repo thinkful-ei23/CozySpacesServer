@@ -131,8 +131,10 @@ router.post('/', (req, res, next) => {
 
 /* ========== PUT/UPDATE A SINGLE ITEM ========== */
 router.put('/:ratingId', (req, res, next) => {
+  console.log('ENTER ROUTER.PUT*****************************');
   const { ratingId } = req.params;
   const { rating, placesId } = req.body;
+  console.log('ROUTER.PUT RATINGS: ', rating);
 
   const updateRating = {};
   const updateFields = ['rating', 'userId', 'placesId'];
@@ -159,6 +161,16 @@ router.put('/:ratingId', (req, res, next) => {
     err.status = 400;
     return next(err);
   }
+  // try {
+  //   const oneRating = await Rating.findOne({ _id: ratingId });
+
+  //   if (oneRating) {
+  //     await Rating.
+  //   }
+
+  // } catch (err) {
+  //   next(err);
+  // }
 
   Rating.findOne({ _id: ratingId })
     .then(rating => {
@@ -232,7 +244,11 @@ function updateAvgRatings(placesId, callback) {
       let numberOfRatings = ratings.length; // 4\
 
       ratings.forEach((rating) => {
+        console.log('****************INSIDE THE FOREACH****************');
+        console.log('rating: ', rating);
         warmLightingTotal += rating.rating.warmLighting;
+        console.log('warmLightingTotal: ', warmLightingTotal);
+        console.log('rating.rating.warmLighting: ', rating.rating.warmLighting);
         relaxedMusicTotal += rating.rating.relaxedMusic;
         calmEnvironmentTotal += rating.rating.calmEnvironment;
         softFabricsTotal += rating.rating.softFabrics;
@@ -240,14 +256,12 @@ function updateAvgRatings(placesId, callback) {
         hotFoodDrinkTotal += rating.rating.hotFoodDrink;
       });
 
-
       warmLightingAverage = (warmLightingTotal / numberOfRatings);
       relaxedMusicAverage = (relaxedMusicTotal / numberOfRatings);
       calmEnvironmentAverage = (calmEnvironmentTotal / numberOfRatings);
       softFabricsAverage = (softFabricsTotal / numberOfRatings);
       comfySeatingAverage = (comfySeatingTotal / numberOfRatings);
       hotFoodDrinkAverage = (hotFoodDrinkTotal / numberOfRatings);
-
       return Place.findOne({ _id: placesId });
     })
     .then((place) => {
