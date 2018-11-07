@@ -22,7 +22,8 @@ const placeSchema = new mongoose.Schema({
   averageHotFoodDrink: {type: Number, default: 0},
   photos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Photo' }],
   ratings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Rating'}],
-  userComments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'UserComment' }]
+  userComments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'UserComment' }],
+  userReports: [{ type: mongoose.Schema.Types.ObjectId, ref: 'users'}]
 });
 
 placeSchema.index({ location: '2dsphere' });

@@ -2,13 +2,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-
 const Place = require('../models/places');
 const Rating = require('../models/ratings');
 const Photo = require('../models/photos');
 const UserComment = require('../models/userComments');
 
 const router = express.Router();
+
 
 /* ========== GET/READ ALL ITEMS ========== */
 router.get('/', (req, res, next) => {
@@ -48,19 +48,17 @@ router.get('/:id', (req, res, next) => {
     return next(err);
   }
 
-  Place
-    .findOne({_id: id})
+  Place.findOne({ _id: id })
     .populate('photos')
     .populate('userComments')
     // .populate('ratings')
-    .populate({path: 'ratings'})
+    .populate({ path: 'ratings' })
     .then(result => {
       res.json(result);
     })
     .catch(err => {
       next(err);
     });
- 
 });
 
 router.post('/', (req, res, next) => {
