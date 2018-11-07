@@ -9,6 +9,7 @@ const placeSchema = new mongoose.Schema({
   city: { type: String, required: true },
   state: { type: String, required: true },
   zipcode: { type: String, required: true, default: '' },
+  position: {lat : Number, lng: Number},
   averageCozyness: {type: Number, default: 0},
   averageWarmLighting: {type: Number, default: 0},
   averageRelaxedMusic: {type: Number, default: 0},
