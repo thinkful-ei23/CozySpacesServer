@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const Place = require('../models/places');
 const Rating = require('../models/ratings');
 const Photo = require('../models/photos');
+const UserComment = require('../models/userComments');
 
 const router = express.Router();
 
@@ -14,7 +15,7 @@ router.get('/', (req, res, next) => {
 
   Place.find()
     .populate('photos')
-    // .sort({ })
+    .sort({ })
     .then(results => {
       res.json(results);
     })
@@ -35,6 +36,8 @@ router.get('/:id', (req, res, next) => {
   Place
     .findOne({_id: id})
     .populate('photos')
+    .populate('userComments')
+    // .populate('ratings')
     .populate({path: 'ratings'})
     .then(result => {
       res.json(result);
@@ -44,5 +47,28 @@ router.get('/:id', (req, res, next) => {
     });
  
 });
+
+router.post('/', (req, res, next) => {
+  console.log(req.body);
+  //console.log('req.user', req.user);
+  /***** Never trust users - validate input *****/
+  if (!req.body) {
+    const err = new Error('Missing `place` in request body');
+    err.status = 400;
+    return next(err);
+  }
+
+  Place.create(req.body).then(result => {
+    res
+      .location(`${req.originalUrl}/${result.id}`)
+      .status(201)
+      .json(result);
+  })
+    .catch(err => {
+      console.log(err);
+      next(err);
+    });
+});
+
 
 module.exports = router;
