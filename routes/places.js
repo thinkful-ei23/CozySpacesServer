@@ -25,6 +25,7 @@ router.get('/', (req, res, next) => {
       }
     }
   })
+    .populate('photos')
     .then(results => {
       if (results) {
         res.json(results);
