@@ -105,8 +105,9 @@ router.post('/', (req, res, next) => {
         console.log(err);
         return next(err);
       } else {
-        return Rating.create(newRating)
+        return Rating.create(newRating)    
         .then(result => {
+          console.log('This is the new rating result: ', result);
           Place.findOne({ _id: placesId })
           .then(place => {
             place.ratings.push(result.id);
