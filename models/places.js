@@ -17,7 +17,8 @@ const placeSchema = new mongoose.Schema({
   averageComfySeating: {type: Number, default: 0},
   averageHotFoodDrink: {type: Number, default: 0},
   photos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Photo' }],
-  ratings: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Rating' }]
+  ratings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Rating'}],
+  userComments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'UserComment' }]
 });
 
 placeSchema.set('toObject', {
