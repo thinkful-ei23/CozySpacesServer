@@ -105,23 +105,22 @@ router.post('/', (req, res, next) => {
         console.log(err);
         return next(err);
       } else {
-        return Rating.create(newRating)    
+        Rating.create(newRating)    
         .then(result => {
           console.log('This is the new rating result: ', result);
           Place.findOne({ _id: placesId })
           .then(place => {
             place.ratings.push(result.id);
-            place.save(); 
-          });        
-        })
-        .then( ()=> {
-          updateAvgRatings(placesId, function() {
-            res
-            .location(`${req.originalUrl}/${result.id}`)
-            .status(201)
-            .json(result);
+            place.save((err,doc,numdocs)=>{
+              updateAvgRatings(placesId, function() {
+                res
+                .location(`${req.originalUrl}/${result.id}`)
+                .status(201)
+                .json(result);
+              });
+            }); 
           });
-        })
+        });
       }
     })
     .catch(err => {
@@ -172,15 +171,25 @@ router.put('/:ratingId', (req, res, next) => {
   // } catch (err) {
   //   next(err);
   // }
-
+  console.log('++++++++++++Rating.findOne++++++++ratingId is: ', ratingId);
   Rating.findOne({ _id: ratingId })
     .then(rating => {
       if (rating) {
+        console.log('+++++++GOT A RATING ++++++++');
+        console.log('---beforesave---', rating.rating);
         rating.rating = updateRating.rating;
-        rating.save();
-        updateAvgRatings(placesId, function() {
-          res.json(rating);
+        console.log( 'updateRating.rating is: ', updateRating.rating);
+        console.log( 'rating.rating is: ', rating.rating);
+        rating.save((err,doc,numrows) => {
+          if(!err){
+            console.log('Saved rating.');
+            console.log('Ready to update Avg Ratings');
+            updateAvgRatings(placesId, function() {
+              res.json(rating);
+            }) 
+          }
         });
+        
       } else {
         next();
       }
@@ -205,9 +214,16 @@ router.delete('/:placesId', (req, res, next) => {
   Rating.findOneAndDelete({ placesId, userId })
     .then(result => {
       if (result) {
-        updateAvgRatings(placesId, function() {
-          res.sendStatus(204);
-        });
+        Place.findOne({ _id: placesId })
+        .then(() => {
+          
+          updateAvgRatings(placesId, function() {
+            res.sendStatus(204);
+          }); 
+        })
+
+
+
       } else {
         res.sendStatus(404);
       }
@@ -241,9 +257,11 @@ function updateAvgRatings(placesId, callback) {
 
   Rating.find({ placesId: placesId })
     .then((ratings) => {
+      console.log('Rating.find in updateAvgRatings');
+      console.log('ratings are: ', ratings);
 
       let numberOfRatings = ratings.length; // 4\
-
+      console.log('numberOfRatings are: ', numberOfRatings);
       ratings.forEach((rating) => {
         console.log('****************INSIDE THE FOREACH****************');
         console.log('rating: ', rating);
@@ -258,6 +276,7 @@ function updateAvgRatings(placesId, callback) {
       });
 
       warmLightingAverage = (warmLightingTotal / numberOfRatings);
+      console.log('warmLightingAverage: ', warmLightingAverage);
       relaxedMusicAverage = (relaxedMusicTotal / numberOfRatings);
       calmEnvironmentAverage = (calmEnvironmentTotal / numberOfRatings);
       softFabricsAverage = (softFabricsTotal / numberOfRatings);
@@ -266,6 +285,8 @@ function updateAvgRatings(placesId, callback) {
       return Place.findOne({ _id: placesId });
     })
     .then((place) => {
+      console.log('prior to update - place.averageWarmLighting: ', place.averageWarmLighting)
+      console.log('prior to update - place.ratings[0]: ', place.ratings[0]);
 
       place.averageWarmLighting = +warmLightingAverage.toFixed(2);
       place.averageRelaxedMusic = +relaxedMusicAverage.toFixed(2);
