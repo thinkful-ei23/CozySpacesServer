@@ -48,6 +48,7 @@ router.get('/', (req, res, next) => {
 
 /* ========== GET/READ A SINGLE ITEM by place Id and user Id in combo========== */
 router.get('/:placeId', (req, res, next) => {
+  // fetches specific rating
   const placeId = req.params.placeId;
   const userId = req.user.id; // userID
 
@@ -60,6 +61,7 @@ router.get('/:placeId', (req, res, next) => {
   Rating.findOne({ placesId: placeId, userId: userId })
     .then(result => {
       if (result) {
+        console.log(result);
         res.json(result);
       } else {
         next();
@@ -281,7 +283,7 @@ function updateAvgRatings(placesId, callback) {
         comfySeatingAverage = (comfySeatingTotal / numberOfRatings);
         hotFoodDrinkAverage = (hotFoodDrinkTotal / numberOfRatings);
       }
-      
+
       return Place.findOne({ _id: placesId });
     })
     .then((place) => {
