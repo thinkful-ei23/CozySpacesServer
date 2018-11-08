@@ -23,7 +23,8 @@ const placeSchema = new mongoose.Schema({
   photos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Photo' }],
   ratings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Rating'}],
   userComments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'UserComment' }],
-  userReports: [{ type: mongoose.Schema.Types.ObjectId, ref: 'users'}]
+  userReports: [{ type: mongoose.Schema.Types.ObjectId, ref: 'users'}],
+  archived: {type: Boolean, default: false}
 });
 
 placeSchema.index({ location: '2dsphere' });

@@ -17,7 +17,6 @@ const ratingsRouter = require('./routes/ratings');
 const authRouter = require('./routes/auth');
 const reportRouter = require('./routes/report');
 
-
 passport.use(localStrategy);
 passport.use(jwtStrategy);
 

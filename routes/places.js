@@ -1,6 +1,8 @@
 'use strict';
 const express = require('express');
 const mongoose = require('mongoose');
+const cron = require('node-cron');
+
 
 const Place = require('../models/places');
 const Rating = require('../models/ratings');
@@ -9,6 +11,19 @@ const UserComment = require('../models/userComments');
 
 const router = express.Router();
 
+cron.schedule('* * 1 * * *', () => {
+  const d = new Date();
+  console.log('running a task every 5 seconds: ', d);
+
+  Place.find({}, (err, places) => {
+    places.forEach(place => {
+      if (place.userReports.length >= 5) {
+        place.archived = true;
+        place.save();
+      }
+    });
+  });
+});
 
 /* ========== GET/READ ALL ITEMS ========== */
 router.get('/', (req, res, next) => {
