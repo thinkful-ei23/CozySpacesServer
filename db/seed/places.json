@@ -11,13 +11,13 @@
       "type" : "Point",
       "coordinates": [-122.883894, 45.536223]
     },
-    "averageCozyness": 0,
-    "averageWarmLighting": 0,
-    "averageRelaxedMusic": 0,
-    "averageCalmEnvironment": 0,
-    "averageSoftFabrics": 0,
-    "averageComfySeating": 0,
-    "averageHotFoodDrink": 0,
+    "averageCozyness": 4.75,
+    "averageWarmLighting": 4.75,
+    "averageRelaxedMusic": 4.75,
+    "averageCalmEnvironment": 4.75,
+    "averageSoftFabrics": 4.75,
+    "averageComfySeating": 4.75,
+    "averageHotFoodDrink": 4.75,
 
     "photos": [
       "444444444444444444444001"

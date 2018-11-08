@@ -266,23 +266,24 @@ function updateAvgRatings(placesId, callback) {
     })
     .then((place) => {
 
-      place.averageWarmLighting = warmLightingAverage;
-      place.averageRelaxedMusic = relaxedMusicAverage;
-      place.averageCalmEnvironment = calmEnvironmentAverage;
-      place.averageSoftFabrics = softFabricsAverage;
-      place.averageComfySeating = comfySeatingAverage;
-      place.averageHotFoodDrink = hotFoodDrinkAverage;
+      place.averageWarmLighting = +warmLightingAverage.toFixed(2);
+      place.averageRelaxedMusic = +relaxedMusicAverage.toFixed(2);
+      place.averageCalmEnvironment = +calmEnvironmentAverage.toFixed(2);
+      place.averageSoftFabrics = +softFabricsAverage.toFixed(2);
+      place.averageComfySeating = +comfySeatingAverage.toFixed(2);
+      place.averageHotFoodDrink = +hotFoodDrinkAverage.toFixed(2);
       
       console.log ('----------------place before update: ', place);
-      place.averageCozyness = 
-        ((
+      let numb = 
+        (
           +place.averageWarmLighting +
           +place.averageRelaxedMusic +
           +place.averageCalmEnvironment +
           +place.averageSoftFabrics +
           +place.averageComfySeating +
           +place.averageHotFoodDrink
-        ) / 6);
+        ) / 6;
+        place.averageCozyness = +numb.toFixed(2);
         place.save();
         callback();
         console.log ('+++++++++++++++place after save : ', place);
