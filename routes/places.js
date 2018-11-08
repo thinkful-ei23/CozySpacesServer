@@ -1,6 +1,8 @@
 'use strict';
 const express = require('express');
 const mongoose = require('mongoose');
+const cron = require('node-cron');
+
 
 const Place = require('../models/places');
 const Rating = require('../models/ratings');
@@ -9,12 +11,25 @@ const UserComment = require('../models/userComments');
 
 const router = express.Router();
 
+cron.schedule('* * 1 * * *', () => {
+  const d = new Date();
+  console.log('running a task every 5 seconds: ', d);
+
+  Place.find({}, (err, places) => {
+    places.forEach(place => {
+      if (place.userReports.length >= 5) {
+        place.archived = true;
+        place.save();
+      }
+    });
+  });
+});
 
 /* ========== GET/READ ALL ITEMS ========== */
 router.get('/', (req, res, next) => {
   const lat = parseFloat(req.query.lat);
   const lng = parseFloat(req.query.lng);
-  Place.find({
+  Place.find({ archived : false,
     location: {
       $near: {
         $maxDistance: 60000,
@@ -51,9 +66,10 @@ router.get('/:id', (req, res, next) => {
   Place.findOne({ _id: id })
     .populate('photos')
     .populate('userComments')
-    // .populate('ratings')
-    .populate({ path: 'ratings' })
+    .populate('ratings')
+    // .populate({ path: 'ratings' })
     .then(result => {
+      console.log(result);
       res.json(result);
     })
     .catch(err => {
