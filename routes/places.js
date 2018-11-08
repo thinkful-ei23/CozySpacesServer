@@ -29,7 +29,7 @@ cron.schedule('* * 1 * * *', () => {
 router.get('/', (req, res, next) => {
   const lat = parseFloat(req.query.lat);
   const lng = parseFloat(req.query.lng);
-  Place.find({
+  Place.find({ archived : false,
     location: {
       $near: {
         $maxDistance: 60000,
