@@ -66,9 +66,10 @@ router.get('/:id', (req, res, next) => {
   Place.findOne({ _id: id })
     .populate('photos')
     .populate('userComments')
-    // .populate('ratings')
-    .populate({ path: 'ratings' })
+    .populate('ratings')
+    // .populate({ path: 'ratings' })
     .then(result => {
+      console.log(result);
       res.json(result);
     })
     .catch(err => {
