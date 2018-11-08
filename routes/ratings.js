@@ -108,10 +108,17 @@ router.post('/', (req, res, next) => {
         return next(err);
       }
       return Rating.create(newRating).then(result => {
-        res
-          .location(`${req.originalUrl}/${result.id}`)
-          .status(201)
-          .json(result);
+        return result;
+      }).then((result) => {
+        return Place.update({ _id: placesId }, { $push: { ratings: result._id } })
+          .then(result => {
+            console.log(result);
+            res
+              .location(`${req.originalUrl}/${result._id}`)
+              .status(201)
+              .json(result);
+
+          });
       });
     })
     .catch(err => {

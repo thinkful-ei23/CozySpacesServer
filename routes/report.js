@@ -42,7 +42,7 @@ router.post('/', (req, res, next) => {
         return convertedAndStrippedReport === userId;
       });
       if (found) {
-        const err = new Error('You have already rated the place');
+        const err = new Error('You have already reported the place');
         err.status = 400;
         err.reason = 'No duplicate reports';
         console.log(err);
@@ -50,6 +50,7 @@ router.post('/', (req, res, next) => {
       }
       return Place.update({ _id: placeId }, { $push: { userReports: userId } })
         .then(result => {
+          console.log(result);
           res.json(result);
         });
     })
