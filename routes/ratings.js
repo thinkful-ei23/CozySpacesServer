@@ -6,6 +6,7 @@ const passport = require('passport');
 
 const Rating = require('../models/ratings');
 const User = require('../models/users');
+const Place = require('../models/places');
 
 const router = express.Router();
 
@@ -47,6 +48,7 @@ router.get('/', (req, res, next) => {
 
 /* ========== GET/READ A SINGLE ITEM by place Id and user Id in combo========== */
 router.get('/:placeId', (req, res, next) => {
+  // fetches specific rating
   const placeId = req.params.placeId;
   const userId = req.user.id; // userID
 
@@ -59,6 +61,7 @@ router.get('/:placeId', (req, res, next) => {
   Rating.findOne({ placesId: placeId, userId: userId })
     .then(result => {
       if (result) {
+        console.log(result);
         res.json(result);
       } else {
         next();
@@ -154,6 +157,7 @@ router.put('/:id', (req, res, next) => {
       if (rating) {
         rating.rating = updateRating.rating;
         rating.save();
+        console.log(rating);
         res.json(rating);
       } else {
         next();
