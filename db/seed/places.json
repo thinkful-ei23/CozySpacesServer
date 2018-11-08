@@ -7,6 +7,10 @@
     "city": "Beaverton",
     "state": "OR ",
     "zipcode": "97006",
+    "location": {
+      "type" : "Point",
+      "coordinates": [-122.883894, 45.536223]
+    },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
     "averageRelaxedMusic": 0,
@@ -14,6 +18,7 @@
     "averageSoftFabrics": 0,
     "averageComfySeating": 0,
     "averageHotFoodDrink": 0,
+
     "photos": [
       "444444444444444444444001"
     ],
@@ -38,6 +43,10 @@
     "city": "Portland",
     "state": "OR",
     "zipcode": "97124",
+    "location": {
+      "type" : "Point",
+      "coordinates": [-122.700641, 45.535693]
+    },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
     "averageRelaxedMusic": 0,
@@ -64,9 +73,13 @@
     "name": "AVA Roasteria",
     "type": "coffee shop",
     "address": "936 NE Orenco Station Loop",
-    "city": "OR ",
+    "city": "Hillsboro",
     "state": "OR",
     "zipcode": "97124",
+    "location": {
+      "type" : "Point",
+      "coordinates": [-122.916233, 45.530457]
+    },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
     "averageRelaxedMusic": 0,
@@ -98,6 +111,10 @@
     "city": "Salt Lake City",
     "state": "UT",
     "zipcode": "84103",
+    "location": {
+      "type" : "Point",
+      "coordinates": [-111.877838, 40.776430]
+    },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
     "averageRelaxedMusic": 0,
@@ -127,6 +144,10 @@
     "city": "Salt Lake City",
     "state": "UT",
     "zipcode": "84103",
+    "location": {
+      "type" : "Point",
+      "coordinates": [-111.871801, 40.770356]
+    },
     "averageCozyness": "5",
     "averageWarmLighting": 5,
     "averageRelaxedMusic": 3,
@@ -156,6 +177,10 @@
     "city": "Salt Lake City",
     "state": "UT",
     "zipcode": "84102",
+    "location": {
+      "type" : "Point",
+      "coordinates": [-111.867925, 40.760578]
+    },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
     "averageRelaxedMusic": 0,
@@ -187,6 +212,10 @@
     "city": "Salt Lake City",
     "state": "UT",
     "zipcode": "84103",
+    "location": {
+     "type" : "Point",
+     "coordinates": [79.182055, 30.209236]
+    },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
     "averageRelaxedMusic": 0,
@@ -218,6 +247,10 @@
     "city": "Salt Lake City",
     "state": "UT",
     "zipcode": "84111",
+    "location": {
+      "type" : "Point",
+      "coordinates": [-111.883962, 40.767095]
+    },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
     "averageRelaxedMusic": 0,
@@ -249,6 +282,10 @@
     "city": "Encinitas",
     "state": "CA",
     "zipcode": "92024",
+    "location": {
+      "type" : "Point",
+      "coordinates": [-117.264885, 33.056527]
+    },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
     "averageRelaxedMusic": 0,
