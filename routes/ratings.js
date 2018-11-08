@@ -106,21 +106,21 @@ router.post('/', (req, res, next) => {
         return next(err);
       } else {
         Rating.create(newRating)    
-        .then(result => {
-          console.log('This is the new rating result: ', result);
-          Place.findOne({ _id: placesId })
-          .then(place => {
-            place.ratings.push(result.id);
-            place.save((err,doc,numdocs)=>{
-              updateAvgRatings(placesId, function() {
-                res
-                .location(`${req.originalUrl}/${result.id}`)
-                .status(201)
-                .json(result);
+          .then(result => {
+            console.log('This is the new rating result: ', result);
+            Place.findOne({ _id: placesId })
+              .then(place => {
+                place.ratings.push(result.id);
+                place.save((err,doc,numdocs)=>{
+                  updateAvgRatings(placesId, function() {
+                    res
+                      .location(`${req.originalUrl}/${result.id}`)
+                      .status(201)
+                      .json(result);
+                  });
+                }); 
               });
-            }); 
           });
-        });
       }
     })
     .catch(err => {
@@ -186,7 +186,7 @@ router.put('/:ratingId', (req, res, next) => {
             console.log('Ready to update Avg Ratings');
             updateAvgRatings(placesId, function() {
               res.json(rating);
-            }) 
+            }); 
           }
         });
         
@@ -214,16 +214,13 @@ router.delete('/:placesId', (req, res, next) => {
   Rating.findOneAndDelete({ placesId, userId })
     .then(result => {
       if (result) {
-        Place.findOne({ _id: placesId })
-        .then(() => {
-          
-          updateAvgRatings(placesId, function() {
-            res.sendStatus(204);
-          }); 
-        })
-
-
-
+        console.log(result);
+        Place.update({placesId: placesId }, { $pull: { ratings: { _id: result.id } }} )
+          .then(() => {
+            updateAvgRatings(placesId, function() {
+              res.sendStatus(204);
+            }); 
+          });
       } else {
         res.sendStatus(404);
       }
@@ -235,7 +232,7 @@ router.delete('/:placesId', (req, res, next) => {
 
 function updateAvgRatings(placesId, callback) {
 
-  console.log('******************START OF UPDATE AVERAGE RATINGS**************************')
+  console.log('******************START OF UPDATE AVERAGE RATINGS**************************');
   let warmLightingTotal,
     relaxedMusicTotal,
     calmEnvironmentTotal,
@@ -261,31 +258,34 @@ function updateAvgRatings(placesId, callback) {
       console.log('ratings are: ', ratings);
 
       let numberOfRatings = ratings.length; // 4\
-      console.log('numberOfRatings are: ', numberOfRatings);
-      ratings.forEach((rating) => {
-        console.log('****************INSIDE THE FOREACH****************');
-        console.log('rating: ', rating);
-        warmLightingTotal += rating.rating.warmLighting;
-        console.log('warmLightingTotal: ', warmLightingTotal);
-        console.log('rating.rating.warmLighting: ', rating.rating.warmLighting);
-        relaxedMusicTotal += rating.rating.relaxedMusic;
-        calmEnvironmentTotal += rating.rating.calmEnvironment;
-        softFabricsTotal += rating.rating.softFabrics;
-        comfySeatingTotal += rating.rating.comfySeating;
-        hotFoodDrinkTotal += rating.rating.hotFoodDrink;
-      });
+      if (numberOfRatings !== 0) {
+        console.log('numberOfRatings are: ', numberOfRatings);
+        ratings.forEach((rating) => {
+          console.log('****************INSIDE THE FOREACH****************');
+          console.log('rating: ', rating);
+          warmLightingTotal += rating.rating.warmLighting;
+          console.log('warmLightingTotal: ', warmLightingTotal);
+          console.log('rating.rating.warmLighting: ', rating.rating.warmLighting);
+          relaxedMusicTotal += rating.rating.relaxedMusic;
+          calmEnvironmentTotal += rating.rating.calmEnvironment;
+          softFabricsTotal += rating.rating.softFabrics;
+          comfySeatingTotal += rating.rating.comfySeating;
+          hotFoodDrinkTotal += rating.rating.hotFoodDrink;
+        });
 
-      warmLightingAverage = (warmLightingTotal / numberOfRatings);
-      console.log('warmLightingAverage: ', warmLightingAverage);
-      relaxedMusicAverage = (relaxedMusicTotal / numberOfRatings);
-      calmEnvironmentAverage = (calmEnvironmentTotal / numberOfRatings);
-      softFabricsAverage = (softFabricsTotal / numberOfRatings);
-      comfySeatingAverage = (comfySeatingTotal / numberOfRatings);
-      hotFoodDrinkAverage = (hotFoodDrinkTotal / numberOfRatings);
+        warmLightingAverage = (warmLightingTotal / numberOfRatings) ;
+        console.log('warmLightingAverage: ', warmLightingAverage);
+        relaxedMusicAverage = (relaxedMusicTotal / numberOfRatings);
+        calmEnvironmentAverage = (calmEnvironmentTotal / numberOfRatings);
+        softFabricsAverage = (softFabricsTotal / numberOfRatings);
+        comfySeatingAverage = (comfySeatingTotal / numberOfRatings);
+        hotFoodDrinkAverage = (hotFoodDrinkTotal / numberOfRatings);
+      }
+      
       return Place.findOne({ _id: placesId });
     })
     .then((place) => {
-      console.log('prior to update - place.averageWarmLighting: ', place.averageWarmLighting)
+      console.log('prior to update - place.averageWarmLighting: ', place.averageWarmLighting);
       console.log('prior to update - place.ratings[0]: ', place.ratings[0]);
 
       place.averageWarmLighting = +warmLightingAverage.toFixed(2);
@@ -305,10 +305,10 @@ function updateAvgRatings(placesId, callback) {
           +place.averageComfySeating +
           +place.averageHotFoodDrink
         ) / 6;
-        place.averageCozyness = +numb.toFixed(2);
-        place.save();
-        callback();
-        console.log ('+++++++++++++++place after save : ', place);
+      place.averageCozyness = +numb.toFixed(2);
+      place.save();
+      callback();
+      console.log ('+++++++++++++++place after save : ', place);
     })
     .catch((err) => console.error(err));
 }
