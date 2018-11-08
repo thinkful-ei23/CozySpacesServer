@@ -8,20 +8,17 @@
     "state": "OR ",
     "zipcode": "97006",
     "location": {
-      "type" : "Point",
-      "coordinates": [-122.883894, 45.536223]
+      "type": "Point",
+      "coordinates": [-122.883890, 45.536223]
     },
-    "averageCozyness": 4.75,
-    "averageWarmLighting": 4.75,
-    "averageRelaxedMusic": 4.75,
-    "averageCalmEnvironment": 4.75,
-    "averageSoftFabrics": 4.75,
-    "averageComfySeating": 4.75,
-    "averageHotFoodDrink": 4.75,
-
-    "photos": [
-      "444444444444444444444001"
-    ],
+    "averageCozyness": 0,
+    "averageWarmLighting": 0,
+    "averageRelaxedMusic": 0,
+    "averageCalmEnvironment": 0,
+    "averageSoftFabrics": 0,
+    "averageComfySeating": 0,
+    "averageHotFoodDrink": 0,
+    "photos": ["444444444444444444444001"],
     "ratings": [
       "111111111111111111111001",
       "111111111111111111111002",
@@ -33,7 +30,7 @@
       "555555555555555555555002",
       "555555555555555555555003",
       "555555555555555555555004"
-    ]   
+    ]
   },
   {
     "_id": "333333333333333333333002",
@@ -44,7 +41,7 @@
     "state": "OR",
     "zipcode": "97124",
     "location": {
-      "type" : "Point",
+      "type": "Point",
       "coordinates": [-122.700641, 45.535693]
     },
     "averageCozyness": 0,
@@ -54,9 +51,7 @@
     "averageSoftFabrics": 0,
     "averageComfySeating": 0,
     "averageHotFoodDrink": 0,
-    "photos": [
-      "444444444444444444444002"
-    ],
+    "photos": ["444444444444444444444002"],
     "ratings": [
       "111111111111111111111005",
       "111111111111111111111006",
@@ -77,8 +72,8 @@
     "state": "OR",
     "zipcode": "97124",
     "location": {
-      "type" : "Point",
-      "coordinates": [-122.916233, 45.530457]
+      "type": "Point",
+      "coordinates": [-122.916230, 45.530457]
     },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
@@ -87,9 +82,7 @@
     "averageSoftFabrics": 0,
     "averageComfySeating": 0,
     "averageHotFoodDrink": 0,
-    "photos": [
-      "444444444444444444444003"
-    ],
+    "photos": ["444444444444444444444003"],
     "ratings": [
       "111111111111111111111008",
       "111111111111111111111009",
@@ -101,7 +94,7 @@
       "555555555555555555555009",
       "555555555555555555555010",
       "555555555555555555555011"
-    ]  
+    ]
   },
   {
     "_id": "333333333333333333333004",
@@ -112,8 +105,8 @@
     "state": "UT",
     "zipcode": "84103",
     "location": {
-      "type" : "Point",
-      "coordinates": [-111.877838, 40.776430]
+      "type": "Point",
+      "coordinates": [-111.877838, 40.77643]
     },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
@@ -122,9 +115,7 @@
     "averageSoftFabrics": 0,
     "averageComfySeating": 0,
     "averageHotFoodDrink": 0,
-    "photos": [
-      "444444444444444444444004"
-    ],
+    "photos": ["444444444444444444444004"],
     "ratings": [
       "111111111111111111111012",
       "111111111111111111111013",
@@ -134,7 +125,7 @@
       "555555555555555555555012",
       "555555555555555555555013",
       "555555555555555555555014"
-    ]   
+    ]
   },
   {
     "_id": "333333333333333333333005",
@@ -145,29 +136,27 @@
     "state": "UT",
     "zipcode": "84103",
     "location": {
-      "type" : "Point",
+      "type": "Point",
       "coordinates": [-111.871801, 40.770356]
     },
-    "averageCozyness": "5",
-    "averageWarmLighting": 5,
-    "averageRelaxedMusic": 3,
-    "averageCalmEnvironment": 5,
-    "averageSoftFabrics": 5,
-    "averageComfySeating": 4,
-    "averageHotFoodDrink": 4,
-    "photos":[
-      "444444444444444444444005"
-    ],   
+    "averageCozyness": 0,
+    "averageWarmLighting": 0,
+    "averageRelaxedMusic": 0,
+    "averageCalmEnvironment": 0,
+    "averageSoftFabrics": 0,
+    "averageComfySeating": 0,
+    "averageHotFoodDrink": 0,
+    "photos": ["444444444444444444444005"],
     "ratings": [
       "111111111111111111111015",
       "111111111111111111111016",
-      "111111111111111111111017" 
+      "111111111111111111111017"
     ],
     "userComments": [
       "555555555555555555555015",
       "555555555555555555555016",
       "555555555555555555555017"
-    ] 
+    ]
   },
   {
     "_id": "333333333333333333333006",
@@ -178,8 +167,8 @@
     "state": "UT",
     "zipcode": "84102",
     "location": {
-      "type" : "Point",
-      "coordinates": [-111.867925, 40.760578]
+      "type": "Point",
+      "coordinates": [-111.867920, 40.760578]
     },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
@@ -188,9 +177,7 @@
     "averageSoftFabrics": 0,
     "averageComfySeating": 0,
     "averageHotFoodDrink": 0,
-    "photos": [
-      "444444444444444444444006"
-    ],
+    "photos": ["444444444444444444444006"],
     "ratings": [
       "111111111111111111111018",
       "111111111111111111111019",
@@ -213,8 +200,8 @@
     "state": "UT",
     "zipcode": "84103",
     "location": {
-     "type" : "Point",
-     "coordinates": [79.182055, 30.209236]
+      "type": "Point",
+      "coordinates": [79.182050, 30.209236]
     },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
@@ -223,9 +210,7 @@
     "averageSoftFabrics": 0,
     "averageComfySeating": 0,
     "averageHotFoodDrink": 0,
-    "photos": [
-      "444444444444444444444007"
-    ],
+    "photos": ["444444444444444444444007"],
     "ratings": [
       "111111111111111111111022",
       "111111111111111111111023",
@@ -248,7 +233,7 @@
     "state": "UT",
     "zipcode": "84111",
     "location": {
-      "type" : "Point",
+      "type": "Point",
       "coordinates": [-111.883962, 40.767095]
     },
     "averageCozyness": 0,
@@ -258,9 +243,7 @@
     "averageSoftFabrics": 0,
     "averageComfySeating": 0,
     "averageHotFoodDrink": 0,
-    "photos": [
-      "444444444444444444444008"
-    ],
+    "photos": ["444444444444444444444008"],
     "ratings": [
       "111111111111111111111026",
       "111111111111111111111027",
@@ -283,8 +266,8 @@
     "state": "CA",
     "zipcode": "92024",
     "location": {
-      "type" : "Point",
-      "coordinates": [-117.264885, 33.056527]
+      "type": "Point",
+      "coordinates": [-117.264880, 33.056527]
     },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
@@ -293,9 +276,7 @@
     "averageSoftFabrics": 0,
     "averageComfySeating": 0,
     "averageHotFoodDrink": 0,
-    "photos": [
-      "444444444444444444444009"
-    ],
+    "photos": ["444444444444444444444009"],
     "ratings": [
       "111111111111111111111030",
       "111111111111111111111031",
@@ -307,6 +288,6 @@
       "555555555555555555555031",
       "555555555555555555555032",
       "555555555555555555555033"
-    ]  
+    ]
   }
 ]

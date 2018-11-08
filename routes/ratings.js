@@ -113,14 +113,15 @@ router.post('/', (req, res, next) => {
             place.ratings.push(result.id);
             place.save(); 
           });        
+        })
+        .then( ()=> {
           updateAvgRatings(placesId, function() {
             res
             .location(`${req.originalUrl}/${result.id}`)
             .status(201)
             .json(result);
           });
-        });
-  
+        })
       }
     })
     .catch(err => {
