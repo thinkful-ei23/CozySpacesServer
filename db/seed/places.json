@@ -9,11 +9,7 @@
     "zipcode": "97006",
     "location": {
       "type": "Point",
-<<<<<<< HEAD
       "coordinates": [-122.883890, 45.536223]
-=======
-      "coordinates": [-122.883894, 45.536223]
->>>>>>> development
     },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
@@ -77,11 +73,7 @@
     "zipcode": "97124",
     "location": {
       "type": "Point",
-<<<<<<< HEAD
       "coordinates": [-122.916230, 45.530457]
-=======
-      "coordinates": [-122.916233, 45.530457]
->>>>>>> development
     },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
@@ -147,15 +139,6 @@
       "type": "Point",
       "coordinates": [-111.871801, 40.770356]
     },
-<<<<<<< HEAD
-    "averageCozyness": 0,
-    "averageWarmLighting": 0,
-    "averageRelaxedMusic": 0,
-    "averageCalmEnvironment": 0,
-    "averageSoftFabrics": 0,
-    "averageComfySeating": 0,
-    "averageHotFoodDrink": 0,
-=======
     "averageCozyness": "5",
     "averageWarmLighting": 5,
     "averageRelaxedMusic": 3,
@@ -163,7 +146,6 @@
     "averageSoftFabrics": 5,
     "averageComfySeating": 4,
     "averageHotFoodDrink": 4,
->>>>>>> development
     "photos": ["444444444444444444444005"],
     "ratings": [
       "111111111111111111111015",
@@ -186,11 +168,7 @@
     "zipcode": "84102",
     "location": {
       "type": "Point",
-<<<<<<< HEAD
       "coordinates": [-111.867920, 40.760578]
-=======
-      "coordinates": [-111.867925, 40.760578]
->>>>>>> development
     },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
@@ -223,11 +201,7 @@
     "zipcode": "84103",
     "location": {
       "type": "Point",
-<<<<<<< HEAD
       "coordinates": [79.182050, 30.209236]
-=======
-      "coordinates": [79.182055, 30.209236]
->>>>>>> development
     },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
@@ -293,11 +267,7 @@
     "zipcode": "92024",
     "location": {
       "type": "Point",
-<<<<<<< HEAD
       "coordinates": [-117.264880, 33.056527]
-=======
-      "coordinates": [-117.264885, 33.056527]
->>>>>>> development
     },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
