@@ -85,20 +85,20 @@ router.post('/', (req, res, next) => {
   }
 
   if (placesId && !mongoose.Types.ObjectId.isValid(placesId)) {
-    const err = new Error('The `places Link` is not valid');
+    const err = new Error('The `places Id` is not valid');
     err.status = 400;
     return next(err);
   }
 
   if (userId && !mongoose.Types.ObjectId.isValid(userId)) {
-    const err = new Error('The `user Link` is not valid');
+    const err = new Error('The `user Id` is not valid');
     err.status = 400;
     return next(err);
   }
 
   const newRating = { rating, placesId, userId };
 
-  Rating.findOne({ placesId: placesId, userId: userId })
+  Rating.findOne({ placesId: placesId, userId: userId })  //CHECK FOR EXISTING RATING
     .then(result => {
       if (result) {
         const err = new Error('You have already posted a rating');
@@ -106,20 +106,24 @@ router.post('/', (req, res, next) => {
         err.reason = 'ValidationError';
         console.log(err);
         return next(err);
-      }
-      return Rating.create(newRating).then(result => {
-        return result;
-      }).then((result) => {
-        return Place.update({ _id: placesId }, { $push: { ratings: result._id } })
+      } else {
+        Rating.create(newRating)    
           .then(result => {
-            console.log(result);
-            res
-              .location(`${req.originalUrl}/${result._id}`)
-              .status(201)
-              .json(result);
-
+            console.log('This is the new rating result: ', result);
+            Place.findOne({ _id: placesId })
+              .then(place => {
+                place.ratings.push(result.id);
+                place.save((err,doc,numdocs)=>{
+                  updateAvgRatings(placesId, function() {
+                    res
+                      .location(`${req.originalUrl}/${result.id}`)
+                      .status(201)
+                      .json(result);
+                  });
+                }); 
+              });
           });
-      });
+      }
     })
     .catch(err => {
       console.log(err);
@@ -128,11 +132,14 @@ router.post('/', (req, res, next) => {
 });
 
 /* ========== PUT/UPDATE A SINGLE ITEM ========== */
-router.put('/:id', (req, res, next) => {
-  const { id } = req.params;
-  const { rating, placeId } = req.body;
+router.put('/:ratingId', (req, res, next) => {
+  console.log('ENTER ROUTER.PUT*****************************');
+  const { ratingId } = req.params;
+  const { rating, placesId } = req.body;
+  console.log('ROUTER.PUT RATINGS: ', rating);
+
   const updateRating = {};
-  const updateFields = ['rating', 'userId', 'placeId'];
+  const updateFields = ['rating', 'userId', 'placesId'];
 
   updateFields.forEach(field => {
     if (field in req.body) {
@@ -140,16 +147,14 @@ router.put('/:id', (req, res, next) => {
     }
   });
 
-  console.log('updateFields: ', updateFields);
-
   /***** Never trust users - validate input *****/
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    const err = new Error('The `id` is not valid');
+  if (!mongoose.Types.ObjectId.isValid(ratingId)) {
+    const err = new Error('The `rating id` is not valid');
     err.status = 400;
     return next(err);
   }
-  if (placeId && !mongoose.Types.ObjectId.isValid(placeId)) {
-    const err = new Error('The `placeId` is not valid');
+  if (placesId && !mongoose.Types.ObjectId.isValid(placesId)) {
+    const err = new Error('The `placesId` is not valid');
     err.status = 400;
     return next(err);
   }
@@ -158,14 +163,35 @@ router.put('/:id', (req, res, next) => {
     err.status = 400;
     return next(err);
   }
+  // try {
+  //   const oneRating = await Rating.findOne({ _id: ratingId });
 
-  Rating.findOne({_id: id})
+  //   if (oneRating) {
+  //     await Rating.
+  //   }
+
+  // } catch (err) {
+  //   next(err);
+  // }
+  console.log('++++++++++++Rating.findOne++++++++ratingId is: ', ratingId);
+  Rating.findOne({ _id: ratingId })
     .then(rating => {
       if (rating) {
+        console.log('+++++++GOT A RATING ++++++++');
+        console.log('---beforesave---', rating.rating);
         rating.rating = updateRating.rating;
-        rating.save();
-        console.log(rating);
-        res.json(rating);
+        console.log( 'updateRating.rating is: ', updateRating.rating);
+        console.log( 'rating.rating is: ', rating.rating);
+        rating.save((err,doc,numrows) => {
+          if(!err){
+            console.log('Saved rating.');
+            console.log('Ready to update Avg Ratings');
+            updateAvgRatings(placesId, function() {
+              res.json(rating);
+            }); 
+          }
+        });
+        
       } else {
         next();
       }
@@ -173,7 +199,7 @@ router.put('/:id', (req, res, next) => {
     .catch(err => {
       next(err);
     });
-  
+
 });
 /* ========== DELETE/REMOVE A SINGLE ITEM ========== */
 router.delete('/:placesId', (req, res, next) => {
@@ -190,7 +216,13 @@ router.delete('/:placesId', (req, res, next) => {
   Rating.findOneAndDelete({ placesId, userId })
     .then(result => {
       if (result) {
-        res.sendStatus(204);
+        console.log(result);
+        Place.update({placesId: placesId }, { $pull: { ratings: { _id: result.id } }} )
+          .then(() => {
+            updateAvgRatings(placesId, function() {
+              res.sendStatus(204);
+            }); 
+          });
       } else {
         res.sendStatus(404);
       }
@@ -199,5 +231,88 @@ router.delete('/:placesId', (req, res, next) => {
       next(err);
     });
 });
+
+function updateAvgRatings(placesId, callback) {
+
+  console.log('******************START OF UPDATE AVERAGE RATINGS**************************');
+  let warmLightingTotal,
+    relaxedMusicTotal,
+    calmEnvironmentTotal,
+    softFabricsTotal,
+    comfySeatingTotal,
+    hotFoodDrinkTotal;
+
+  warmLightingTotal = relaxedMusicTotal = calmEnvironmentTotal = softFabricsTotal = comfySeatingTotal = hotFoodDrinkTotal = 0;
+
+  let warmLightingAverage,
+    relaxedMusicAverage,
+    calmEnvironmentAverage,
+    softFabricsAverage,
+    comfySeatingAverage,
+    hotFoodDrinkAverage;
+
+  warmLightingAverage = relaxedMusicAverage = calmEnvironmentAverage = softFabricsAverage = comfySeatingAverage = hotFoodDrinkAverage = 0;
+
+
+  Rating.find({ placesId: placesId })
+    .then((ratings) => {
+      console.log('Rating.find in updateAvgRatings');
+      console.log('ratings are: ', ratings);
+
+      let numberOfRatings = ratings.length; // 4\
+      if (numberOfRatings !== 0) {
+        console.log('numberOfRatings are: ', numberOfRatings);
+        ratings.forEach((rating) => {
+          console.log('****************INSIDE THE FOREACH****************');
+          console.log('rating: ', rating);
+          warmLightingTotal += rating.rating.warmLighting;
+          console.log('warmLightingTotal: ', warmLightingTotal);
+          console.log('rating.rating.warmLighting: ', rating.rating.warmLighting);
+          relaxedMusicTotal += rating.rating.relaxedMusic;
+          calmEnvironmentTotal += rating.rating.calmEnvironment;
+          softFabricsTotal += rating.rating.softFabrics;
+          comfySeatingTotal += rating.rating.comfySeating;
+          hotFoodDrinkTotal += rating.rating.hotFoodDrink;
+        });
+
+        warmLightingAverage = (warmLightingTotal / numberOfRatings) ;
+        console.log('warmLightingAverage: ', warmLightingAverage);
+        relaxedMusicAverage = (relaxedMusicTotal / numberOfRatings);
+        calmEnvironmentAverage = (calmEnvironmentTotal / numberOfRatings);
+        softFabricsAverage = (softFabricsTotal / numberOfRatings);
+        comfySeatingAverage = (comfySeatingTotal / numberOfRatings);
+        hotFoodDrinkAverage = (hotFoodDrinkTotal / numberOfRatings);
+      }
+
+      return Place.findOne({ _id: placesId });
+    })
+    .then((place) => {
+      console.log('prior to update - place.averageWarmLighting: ', place.averageWarmLighting);
+      console.log('prior to update - place.ratings[0]: ', place.ratings[0]);
+
+      place.averageWarmLighting = +warmLightingAverage.toFixed(2);
+      place.averageRelaxedMusic = +relaxedMusicAverage.toFixed(2);
+      place.averageCalmEnvironment = +calmEnvironmentAverage.toFixed(2);
+      place.averageSoftFabrics = +softFabricsAverage.toFixed(2);
+      place.averageComfySeating = +comfySeatingAverage.toFixed(2);
+      place.averageHotFoodDrink = +hotFoodDrinkAverage.toFixed(2);
+      
+      console.log ('----------------place before update: ', place);
+      let numb = 
+        (
+          +place.averageWarmLighting +
+          +place.averageRelaxedMusic +
+          +place.averageCalmEnvironment +
+          +place.averageSoftFabrics +
+          +place.averageComfySeating +
+          +place.averageHotFoodDrink
+        ) / 6;
+      place.averageCozyness = +numb.toFixed(2);
+      place.save();
+      callback();
+      console.log ('+++++++++++++++place after save : ', place);
+    })
+    .catch((err) => console.error(err));
+}
 
 module.exports = router;
