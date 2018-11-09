@@ -64,7 +64,7 @@ router.get('/:placeId', (req, res, next) => {
         console.log(result);
         res.json(result);
       } else {
-        next();
+        res.status(204).send();
       }
     })
     .catch(err => {
