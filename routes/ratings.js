@@ -121,7 +121,13 @@ router.post('/', (req, res, next) => {
                       .json(result);
                   });
                 }); 
-              });
+              });              
+              User.findOne({ _id: userId })
+                .then(user => {
+                  user.ratings.push(result.id);
+                  user.save(); 
+                  console.log('Add this new rating result to user.ratings: ', user.ratings);
+                });
           });
       }
     })
@@ -163,16 +169,6 @@ router.put('/:ratingId', (req, res, next) => {
     err.status = 400;
     return next(err);
   }
-  // try {
-  //   const oneRating = await Rating.findOne({ _id: ratingId });
-
-  //   if (oneRating) {
-  //     await Rating.
-  //   }
-
-  // } catch (err) {
-  //   next(err);
-  // }
   console.log('++++++++++++Rating.findOne++++++++ratingId is: ', ratingId);
   Rating.findOne({ _id: ratingId })
     .then(rating => {
@@ -223,6 +219,7 @@ router.delete('/:placeId', (req, res, next) => {
               res.sendStatus(204);
             }); 
           });
+        User.update({userId: userId }, { $pull: { ratings: { _id: result.id } }} );
       } else {
         res.sendStatus(404);
       }
