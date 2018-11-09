@@ -217,7 +217,7 @@ router.delete('/:placeId', (req, res, next) => {
     .then(result => {
       if (result) {
         console.log(result);
-        Place.update({placeId: placeId }, { $pull: { ratings: { _id: result.id } }} )
+        Place.update({_id: placeId }, { $pull: { ratings: result.id }} )
           .then(() => {
             updateAvgRatings(placeId, function() {
               res.sendStatus(204);
