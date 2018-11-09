@@ -201,7 +201,7 @@
     "zipcode": "84103",
     "location": {
       "type": "Point",
-      "coordinates": [79.182055, 30.209236]
+      "coordinates": [-111.877280, 40.770760]
     },
     "averageCozyness": 0,
     "averageWarmLighting": 0,
