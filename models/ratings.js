@@ -12,7 +12,7 @@ const ratingSchema = new mongoose.Schema({
     softFabrics:      {type: Number},
     comfySeating:     {type: Number},
     hotFoodDrink: {type: Number},
-    comment: {type: String}
+    comment: {type: String, default: null}
   }  
 });
 
