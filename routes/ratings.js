@@ -58,7 +58,7 @@ router.get('/:placeId', (req, res, next) => {
     return next(err);
   }
 
-  Rating.findOne({ placesId: placeId, userId: userId })
+  Rating.findOne({ placeId: placeId, userId: userId })
     .then(result => {
       if (result) {
         console.log(result);
@@ -75,7 +75,7 @@ router.get('/:placeId', (req, res, next) => {
 
 /* ========== POST/CREATE AN ITEM ========== */
 router.post('/', (req, res, next) => {
-  const { rating, placesId } = req.body;
+  const { rating, placeId } = req.body;
   const userId = req.user.id;
   /***** Never trust users - validate input *****/
   if (!rating) {
@@ -84,7 +84,7 @@ router.post('/', (req, res, next) => {
     return next(err);
   }
 
-  if (placesId && !mongoose.Types.ObjectId.isValid(placesId)) {
+  if (placeId && !mongoose.Types.ObjectId.isValid(placeId)) {
     const err = new Error('The `places Id` is not valid');
     err.status = 400;
     return next(err);
@@ -96,9 +96,9 @@ router.post('/', (req, res, next) => {
     return next(err);
   }
 
-  const newRating = { rating, placesId, userId };
+  const newRating = { rating, placeId, userId };
 
-  Rating.findOne({ placesId: placesId, userId: userId })  //CHECK FOR EXISTING RATING
+  Rating.findOne({ placeId: placeId, userId: userId })  //CHECK FOR EXISTING RATING
     .then(result => {
       if (result) {
         const err = new Error('You have already posted a rating');
@@ -110,11 +110,11 @@ router.post('/', (req, res, next) => {
         Rating.create(newRating)    
           .then(result => {
             console.log('This is the new rating result: ', result);
-            Place.findOne({ _id: placesId })
+            Place.findOne({ _id: placeId })
               .then(place => {
                 place.ratings.push(result.id);
                 place.save((err,doc,numdocs)=>{
-                  updateAvgRatings(placesId, function() {
+                  updateAvgRatings(placeId, function() {
                     res
                       .location(`${req.originalUrl}/${result.id}`)
                       .status(201)
@@ -135,11 +135,11 @@ router.post('/', (req, res, next) => {
 router.put('/:ratingId', (req, res, next) => {
   console.log('ENTER ROUTER.PUT*****************************');
   const { ratingId } = req.params;
-  const { rating, placesId } = req.body;
+  const { rating, placeId } = req.body;
   console.log('ROUTER.PUT RATINGS: ', rating);
 
   const updateRating = {};
-  const updateFields = ['rating', 'userId', 'placesId'];
+  const updateFields = ['rating', 'userId', 'placeId'];
 
   updateFields.forEach(field => {
     if (field in req.body) {
@@ -153,8 +153,8 @@ router.put('/:ratingId', (req, res, next) => {
     err.status = 400;
     return next(err);
   }
-  if (placesId && !mongoose.Types.ObjectId.isValid(placesId)) {
-    const err = new Error('The `placesId` is not valid');
+  if (placeId && !mongoose.Types.ObjectId.isValid(placeId)) {
+    const err = new Error('The `placeId` is not valid');
     err.status = 400;
     return next(err);
   }
@@ -186,7 +186,7 @@ router.put('/:ratingId', (req, res, next) => {
           if(!err){
             console.log('Saved rating.');
             console.log('Ready to update Avg Ratings');
-            updateAvgRatings(placesId, function() {
+            updateAvgRatings(placeId, function() {
               res.json(rating);
             }); 
           }
@@ -202,24 +202,24 @@ router.put('/:ratingId', (req, res, next) => {
 
 });
 /* ========== DELETE/REMOVE A SINGLE ITEM ========== */
-router.delete('/:placesId', (req, res, next) => {
-  const { placesId } = req.params;
+router.delete('/:placeId', (req, res, next) => {
+  const { placeId } = req.params;
   const userId = req.user.id;
 
   /***** Never trust users - validate input *****/
-  if (!mongoose.Types.ObjectId.isValid(placesId)) {
+  if (!mongoose.Types.ObjectId.isValid(placeId)) {
     const err = new Error('The `id` is not valid');
     err.status = 400;
     return next(err);
   }
 
-  Rating.findOneAndDelete({ placesId, userId })
+  Rating.findOneAndDelete({ placeId, userId })
     .then(result => {
       if (result) {
         console.log(result);
-        Place.update({placesId: placesId }, { $pull: { ratings: { _id: result.id } }} )
+        Place.update({placeId: placeId }, { $pull: { ratings: { _id: result.id } }} )
           .then(() => {
-            updateAvgRatings(placesId, function() {
+            updateAvgRatings(placeId, function() {
               res.sendStatus(204);
             }); 
           });
@@ -232,7 +232,7 @@ router.delete('/:placesId', (req, res, next) => {
     });
 });
 
-function updateAvgRatings(placesId, callback) {
+function updateAvgRatings(placeId, callback) {
 
   console.log('******************START OF UPDATE AVERAGE RATINGS**************************');
   let warmLightingTotal,
@@ -254,7 +254,7 @@ function updateAvgRatings(placesId, callback) {
   warmLightingAverage = relaxedMusicAverage = calmEnvironmentAverage = softFabricsAverage = comfySeatingAverage = hotFoodDrinkAverage = 0;
 
 
-  Rating.find({ placesId: placesId })
+  Rating.find({ placeId: placeId })
     .then((ratings) => {
       console.log('Rating.find in updateAvgRatings');
       console.log('ratings are: ', ratings);
@@ -284,7 +284,7 @@ function updateAvgRatings(placesId, callback) {
         hotFoodDrinkAverage = (hotFoodDrinkTotal / numberOfRatings);
       }
 
-      return Place.findOne({ _id: placesId });
+      return Place.findOne({ _id: placeId });
     })
     .then((place) => {
       console.log('prior to update - place.averageWarmLighting: ', place.averageWarmLighting);

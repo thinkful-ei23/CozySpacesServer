@@ -5,7 +5,7 @@ const photoSchema = new mongoose.Schema({
   url: { type: String, required: true},
   caption: { type: String},
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-  placesId: { type: mongoose.Schema.Types.ObjectId, ref: 'Place'},
+  placeId: { type: mongoose.Schema.Types.ObjectId, ref: 'Place'},
 });
 
 photoSchema.set('toObject', {
