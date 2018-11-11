@@ -20,7 +20,7 @@ const placeSchema = new mongoose.Schema({
   averageSoftFabrics: {type: Number, default: 0},
   averageComfySeating: {type: Number, default: 0},
   averageHotFoodDrink: {type: Number, default: 0},
-  photos: [{type: mongoose.Schema.Types.ObjectId, ref: 'Photo', default: ["444444444444444444444001"]}], 
+  photos: [{type: mongoose.Schema.Types.ObjectId, ref: 'Photo'}], 
   ratings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Rating'}],
   userReports: [{ type: mongoose.Schema.Types.ObjectId, ref: 'users'}],
   archived: {type: Boolean, default: false}
