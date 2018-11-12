@@ -1,5 +1,10 @@
 [
   {
+    "_id" :       "444444444444444444444000",
+    "url" :       "/img/defaultphoto.jpg",
+    "caption":    "default cozy photo"
+  }, 
+  {
     "_id" :       "444444444444444444444001",
     "url" :       "https://www.tripsavvy.com/thmb/hgT0YIf3yo4l0Hg_G_AueHFbeSc=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/bookworm-588f86cb5f9b5874ee329e2c.jpg",
     "caption":    "cozy place",

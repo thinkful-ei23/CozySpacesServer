@@ -2,8 +2,8 @@
 const mongoose = require('mongoose');
 
 const photoSchema = new mongoose.Schema({
-  url: { type: String, required: true},
-  caption: { type: String},
+  url: { type: String, required: true },
+  caption: { type: String, default: 'This is the default photo' },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   placeId: { type: mongoose.Schema.Types.ObjectId, ref: 'Place'},
 });
