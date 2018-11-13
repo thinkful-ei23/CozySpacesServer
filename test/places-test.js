@@ -41,10 +41,10 @@ describe('Cozy Spaces API', function () {
       Rating.createIndexes(),
 
     ])
-    .then(([users]) => {
-      user = users[0];
-      token = jwt.sign({ user }, JWT_SECRET, { subject: user.username });
-    });
+      .then(([users]) => {
+        user = users[0];
+        token = jwt.sign({ user }, JWT_SECRET, { subject: user.username });
+      });
   });
 
   afterEach(function () {
@@ -87,20 +87,22 @@ describe('Cozy Spaces API', function () {
     });
 
     it('should return a list of Places with the correct fields', function () {
+      const lat = parseFloat(45.536223);
+      const lng = parseFloat(-122.883890);
       return Promise.all([
         Place.find({ archived : false,
-        location: {
-          $near: {
-            $maxDistance: 60000,
-            $geometry: {
-              type: 'Point',
-              coordinates: [lng, lat]
+          location: {
+            $near: {
+              $maxDistance: 60000,
+              $geometry: {
+                type: 'Point',
+                coordinates: [lng, lat]
+              }
             }
           }
-        }
-      }),
+        }),
         chai.request(app).get('/api/places')
-        .set('Authorization', `Bearer ${token}`)
+          .set('Authorization', `Bearer ${token}`)
       ])
         .then(([data, res]) => {
           expect(res).to.have.status(200);
@@ -144,72 +146,72 @@ describe('Cozy Spaces API', function () {
             expect(item.ratings).to.equal(data[i].photos);
             expect(item.userReports).to.equal(data[i].userReports);
             expect(item.archived).to.equal(data[i].archived);
+          });
         });
-      });
     });
-      it('should return cozy places within 60km with GET query', function () {
-        const lat = parseFloat(req.query.lat);
-        const lng = parseFloat(req.query.lng);
-        const dbPromise = Place.find({ archived : false,
-          location: {
-            $near: {
-              $maxDistance: 60000,
-              $geometry: {
-                type: 'Point',
-                coordinates: [lng, lat]
-              }
+    it('should return cozy places within 60km with GET query', function () {
+      const lat = parseFloat(45.536223);
+      const lng = parseFloat(-122.883890);
+      const dbPromise = Place.find({ archived : false,
+        location: {
+          $near: {
+            $maxDistance: 60000,
+            $geometry: {
+              type: 'Point',
+              coordinates: [lng, lat]
             }
           }
-        })
-        const apiPromise = chai.request(app)
-          .get(`/api/places`)
-          .set('Authorization', `Bearer ${token}`);
-
-        return Promise.all([dbPromise, apiPromise])
-          .then(([data, res]) => {
-            expect(res).to.have.status(200);
-            expect(res).to.be.json;
-            expect(res.body).to.be.a('array');
-            expect(res.body).to.have.length(1);
-            res.body.forEach(function (item, i) {
-              expect(item).to.be.a('object');
-              expect(item).to.include.all.keys(
-                'name', 
-                'type',
-                'address', 
-                'city', 
-                'state', 
-                'zipcode', 
-                'location', 
-                'averageCozyness',
-                'averageRelaxedMusic',
-                'averageCalmEnvironment',
-                'averageSoftFabrics',
-                'averageComfySeating',
-                'averageHotFoodDrink',
-                'photos',
-                'ratings',
-                'userReports',
-                'archived'
-              );
-              expect(item.name).to.equal(data[i].name);
-              expect(item.type).to.equal(data[i].type);
-              expect(item.address).to.equal(data[i].address);
-              expect(item.city).to.equal(data[i].city);
-              expect(item.state).to.equal(data[i].state);
-              expect(item.zipcode).to.equal(data[i].zipcode);
-              expect(item.location).to.equal(data[i].location);
-              expect(item.averageCozyness).to.equal(data[i].averageCozyness);
-              expect(item.averageSoftFabrics).to.equal(data[i].averageSoftFabrics);
-              expect(item.averageComfySeating).to.equal(data[i].averageComfySeating);
-              expect(item.averageHotFoodDrink).to.equal(data[i].averageHotFoodDrink);
-              expect(item.photos).to.equal(data[i].photos);
-              expect(item.ratings).to.equal(data[i].photos);
-              expect(item.userReports).to.equal(data[i].userReports);
-              expect(item.archived).to.equal(data[i].archived);
-            });
-          });
+        }
       });
+      const apiPromise = chai.request(app)
+        .get('/api/places')
+        .set('Authorization', `Bearer ${token}`);
+
+      return Promise.all([dbPromise, apiPromise])
+        .then(([data, res]) => {
+          expect(res).to.have.status(200);
+          expect(res).to.be.json;
+          expect(res.body).to.be.a('array');
+          expect(res.body).to.have.length(1);
+          res.body.forEach(function (item, i) {
+            expect(item).to.be.a('object');
+            expect(item).to.include.all.keys(
+              'name', 
+              'type',
+              'address', 
+              'city', 
+              'state', 
+              'zipcode', 
+              'location', 
+              'averageCozyness',
+              'averageRelaxedMusic',
+              'averageCalmEnvironment',
+              'averageSoftFabrics',
+              'averageComfySeating',
+              'averageHotFoodDrink',
+              'photos',
+              'ratings',
+              'userReports',
+              'archived'
+            );
+            expect(item.name).to.equal(data[i].name);
+            expect(item.type).to.equal(data[i].type);
+            expect(item.address).to.equal(data[i].address);
+            expect(item.city).to.equal(data[i].city);
+            expect(item.state).to.equal(data[i].state);
+            expect(item.zipcode).to.equal(data[i].zipcode);
+            expect(item.location).to.equal(data[i].location);
+            expect(item.averageCozyness).to.equal(data[i].averageCozyness);
+            expect(item.averageSoftFabrics).to.equal(data[i].averageSoftFabrics);
+            expect(item.averageComfySeating).to.equal(data[i].averageComfySeating);
+            expect(item.averageHotFoodDrink).to.equal(data[i].averageHotFoodDrink);
+            expect(item.photos).to.equal(data[i].photos);
+            expect(item.ratings).to.equal(data[i].photos);
+            expect(item.userReports).to.equal(data[i].userReports);
+            expect(item.archived).to.equal(data[i].archived);
+          });
+        });
+    });
   });
   describe('GET /api/places/:id', function () {
 
@@ -219,10 +221,11 @@ describe('Cozy Spaces API', function () {
         .then(_data => {
           data = _data;
           return chai.request(app)
-          .get(`/api/places/${data.id}`)
-          .set('Authorization', `Bearer ${token}`);
+            .get(`/api/places/${data.id}`)
+            .set('Authorization', `Bearer ${token}`);
         })
         .then((res) => {
+          const item = res.body;
           expect(res).to.have.status(200);
           expect(res).to.be.json;
           expect(res.body).to.be.an('object');
@@ -246,21 +249,21 @@ describe('Cozy Spaces API', function () {
             'userReports',
             'archived'
           );
-          expect(item.name).to.equal(data[i].name);
-          expect(item.type).to.equal(data[i].type);
-          expect(item.address).to.equal(data[i].address);
-          expect(item.city).to.equal(data[i].city);
-          expect(item.state).to.equal(data[i].state);
-          expect(item.zipcode).to.equal(data[i].zipcode);
-          expect(item.location).to.equal(data[i].location);
-          expect(item.averageCozyness).to.equal(data[i].averageCozyness);
-          expect(item.averageSoftFabrics).to.equal(data[i].averageSoftFabrics);
-          expect(item.averageComfySeating).to.equal(data[i].averageComfySeating);
-          expect(item.averageHotFoodDrink).to.equal(data[i].averageHotFoodDrink);
-          expect(item.photos).to.equal(data[i].photos);
-          expect(item.ratings).to.equal(data[i].photos);
-          expect(item.userReports).to.equal(data[i].userReports);
-          expect(item.archived).to.equal(data[i].archived);
+          expect(item.name).to.equal(data.name);
+          expect(item.type).to.equal(data.type);
+          expect(item.address).to.equal(data.address);
+          expect(item.city).to.equal(data.city);
+          expect(item.state).to.equal(data.state);
+          expect(item.zipcode).to.equal(data.zipcode);
+          expect(item.location).to.equal(data.location);
+          expect(item.averageCozyness).to.equal(data.averageCozyness);
+          expect(item.averageSoftFabrics).to.equal(data.averageSoftFabrics);
+          expect(item.averageComfySeating).to.equal(data.averageComfySeating);
+          expect(item.averageHotFoodDrink).to.equal(data.averageHotFoodDrink);
+          expect(item.photos).to.equal(data.photos);
+          expect(item.ratings).to.equal(data.photos);
+          expect(item.userReports).to.equal(data.userReports);
+          expect(item.archived).to.equal(data.archived);
         });
     });
 
