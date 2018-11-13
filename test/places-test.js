@@ -1,6 +1,6 @@
 'use strict';
 
-const { TEST_MONGODB_URI, JWT_SECRET  } = require('../config');
+const { TEST_DATABASE_URL, JWT_SECRET  } = require('../config');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const mongoose = require('mongoose');
@@ -10,7 +10,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/users');
 const seedUsers = require('../db/seed/users');
 
-const app = require('../server');
+const { app } = require('../server');
 const Place = require('../models/places');
 const Rating = require('../models/ratings');
 
@@ -24,7 +24,7 @@ const expect = chai.expect;
 describe('Cozy Spaces API', function () {
 
   before(function () {
-    return mongoose.connect(TEST_MONGODB_URI)
+    return mongoose.connect(TEST_DATABASE_URL)
       .then(() => mongoose.connection.db.dropDatabase());
   });
 
@@ -57,8 +57,22 @@ describe('Cozy Spaces API', function () {
 
   describe('GET /api/places', function () {
 
-    it('should return the correct number of places', function () {
-      const dbPromise = Place.find({userId: user.id});
+    it('should return places near a specified location', function () {
+
+      // const lat = parseFloat(45.536223);
+      // const lng = parseFloat(-122.883890);
+      const dbPromise =   Place.find({ archived : false,
+        location: {
+          $near: {
+            $maxDistance: 60000,
+            $geometry: {
+              type: 'Point',
+              coordinates: [-122.883890, 45.536223]
+            }
+          }
+        }
+      });
+
       const apiPromise = chai.request(app)
         .get('/api/places')
         .set('Authorization', `Bearer ${token}`); 
@@ -72,7 +86,7 @@ describe('Cozy Spaces API', function () {
         });
     });
 
-    it('should return a list of Places with the correct fields', function () {
+    it.only('should return a list of Places with the correct fields', function () {
       return Promise.all([
         Place.find({ userId: user.id }).sort({ updatedAt: 'desc' }),
         chai.request(app).get('/api/places')
