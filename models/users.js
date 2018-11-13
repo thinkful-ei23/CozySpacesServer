@@ -13,6 +13,18 @@ const userSchema = new mongoose.Schema({
 
 userSchema.set('toObject', {
   virtuals: true,
+  versionKey: false, 
+  transform: (doc, ret) => {
+    delete ret._id;
+    delete ret.password;
+    delete ret.__v;
+  }
+});
+
+
+userSchema.set('toJSON', {
+  virtuals: true,
+  versionKey: false, 
   transform: (doc, ret) => {
     delete ret._id;
     delete ret.password;

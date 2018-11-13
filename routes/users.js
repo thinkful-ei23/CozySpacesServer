@@ -88,6 +88,7 @@ router.post('/', (req, res, next) => {
       return User.create(newUser);
     })
     .then(result => {
+      console.log(result);
       return res
         .status(201)
         .location(`/api/users/${result.id}`)
