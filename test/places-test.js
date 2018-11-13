@@ -4,19 +4,17 @@ const { TEST_DATABASE_URL, JWT_SECRET  } = require('../config');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const mongoose = require('mongoose');
-const express = require('express');
 const jwt = require('jsonwebtoken');
 
 const User = require('../models/users');
-const seedUsers = require('../db/seed/users');
-
-const { app } = require('../server');
 const Place = require('../models/places');
 const Rating = require('../models/ratings');
 
+const seedUsers = require('../db/seed/users.json');
+const seedPlaces = require('../db/seed/places.json');
+const seedRatings = require('../db/seed/ratings.json');
 
-const seedplaces = require('../db/seed/places');
-const seedRatings = require('../db/seed/ratings');
+const app = require('../server');
 
 chai.use(chaiHttp);
 const expect = chai.expect;
@@ -35,7 +33,8 @@ describe('Cozy Spaces API', function () {
       User.insertMany(seedUsers),
       User.createIndexes(),
 
-      Place.insertMany(seedplaces),
+      Place.insertMany(seedPlaces),
+      Place.createIndexes(),
 
       Rating.insertMany(seedRatings),
       Rating.createIndexes(),
@@ -61,7 +60,7 @@ describe('Cozy Spaces API', function () {
 
       // const lat = parseFloat(45.536223);
       // const lng = parseFloat(-122.883890);
-      const dbPromise =   Place.find({ archived : false,
+      const dbPromise = Place.find({ archived : false,
         location: {
           $near: {
             $maxDistance: 60000,
@@ -79,6 +78,8 @@ describe('Cozy Spaces API', function () {
 
       return Promise.all([dbPromise, apiPromise])
         .then(([data, res]) => {
+          // console.log(data);
+          // console.log(res);
           expect(res).to.have.status(200);
           expect(res).to.be.json;
           expect(res.body).to.be.a('array');
