@@ -67,7 +67,7 @@ router.get('/:id', (req, res, next) => {
     .populate('ratings')
     // .populate({ path: 'ratings' })
     .then(result => {
-      console.log(result);
+//      console.log(result);
       res.json(result);
     })
     .catch(err => {
@@ -76,7 +76,7 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  console.log(req.body); 
+//  console.log(req.body); 
   //console.log('req.user', req.user);
   /***** Never trust users - validate input *****/
   if (!req.body) {

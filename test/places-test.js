@@ -86,9 +86,19 @@ describe('Cozy Spaces API', function () {
         });
     });
 
-    it.only('should return a list of Places with the correct fields', function () {
+    it('should return a list of Places with the correct fields', function () {
       return Promise.all([
-        Place.find({ userId: user.id }).sort({ updatedAt: 'desc' }),
+        Place.find({ archived : false,
+        location: {
+          $near: {
+            $maxDistance: 60000,
+            $geometry: {
+              type: 'Point',
+              coordinates: [lng, lat]
+            }
+          }
+        }
+      }),
         chai.request(app).get('/api/places')
         .set('Authorization', `Bearer ${token}`)
       ])
