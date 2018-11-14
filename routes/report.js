@@ -23,6 +23,7 @@ router.post('/', (req, res, next) => {
     err.status = 400;
     return next(err);
   }
+
   if (!mongoose.Types.ObjectId.isValid(placeId)) {
     const err = new Error('The `place id` is not valid');
     err.status = 400;
@@ -57,6 +58,13 @@ router.post('/', (req, res, next) => {
 router.delete('/', (req, res, next) => {
   const userId = req.user.id;
   const { placeId } = req.body;
+
+  
+  if (!mongoose.Types.ObjectId.isValid(placeId)) {
+    const err = new Error('The `place id` is not valid');
+    err.status = 400;
+    return next(err);
+  }
 
   Place.update({ _id: placeId }, { $pull: { userReports: userId } })
     .then(result => {

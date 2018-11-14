@@ -33,7 +33,17 @@ placeSchema.set('toObject', {
   versionKey: false,
   transform: (doc, ret) => {
     delete ret._id;
+    delete ret.location.$init;
   }
 });
+
+placeSchema.set('toJSON', {
+  virtuals: true,
+  versionKey: false,
+  transform: (doc, ret) => {
+    delete ret._id;
+  }
+});
+
 
 module.exports = mongoose.model('Place', placeSchema);

@@ -28,6 +28,11 @@ router.get('/', (req, res, next) => {
   }
 
   if (placeId) {
+    if (!mongoose.Types.ObjectId.isValid(placeId)) {
+      const err = new Error('The `place id` is not valid');
+      err.status = 400;
+      return next(err);
+    }
     filter.placeId = placeId;
   }
 
@@ -55,6 +60,12 @@ router.get('/:placeId', (req, res, next) => {
     return next(err);
   }
 
+  if (!mongoose.Types.ObjectId.isValid(placeId)) {
+    const err = new Error('The `place id` is not valid');
+    err.status = 400;
+    return next(err);
+  }
+
   Rating.findOne({ placeId: placeId, userId: userId })
     .then(result => {
       if (result) {
@@ -72,7 +83,7 @@ router.get('/:placeId', (req, res, next) => {
 router.post('/', (req, res, next) => {
   const { rating, placeId } = req.body;
   const userId = req.user.id;
-  /***** Never trust users - validate input *****/
+
   if (!rating) {
     const err = new Error('Missing `rating` in request body');
     err.status = 400;
@@ -80,7 +91,7 @@ router.post('/', (req, res, next) => {
   }
 
   if (placeId && !mongoose.Types.ObjectId.isValid(placeId)) {
-    const err = new Error('The `places Id` is not valid');
+    const err = new Error('The `place id` is not valid');
     err.status = 400;
     return next(err);
   }
@@ -93,7 +104,7 @@ router.post('/', (req, res, next) => {
 
   const newRating = { rating, placeId, userId };
 
-  Rating.findOne({ placeId: placeId, userId: userId })
+  Rating.findOne({ placeId: placeId, userId: userId })  
     .then(result => {
       if (result) {
         const err = new Error('You have already posted a rating');
@@ -153,7 +164,7 @@ router.put('/:ratingId', (req, res, next) => {
     err.status = 400;
     return next(err);
   }
-  if (rating === '') {
+  if (!rating) {
     const err = new Error('Missing `rating` in request body');
     err.status = 400;
     return next(err);
@@ -244,7 +255,7 @@ function updateAvgRatings(placeId, callback) {
           hotFoodDrinkTotal += rating.rating.hotFoodDrink;
         });
 
-        warmLightingAverage = (warmLightingTotal / numberOfRatings);
+        warmLightingAverage = (warmLightingTotal / numberOfRatings) ;
         relaxedMusicAverage = (relaxedMusicTotal / numberOfRatings);
         calmEnvironmentAverage = (calmEnvironmentTotal / numberOfRatings);
         softFabricsAverage = (softFabricsTotal / numberOfRatings);
@@ -261,7 +272,7 @@ function updateAvgRatings(placeId, callback) {
       place.averageSoftFabrics = +softFabricsAverage.toFixed(2);
       place.averageComfySeating = +comfySeatingAverage.toFixed(2);
       place.averageHotFoodDrink = +hotFoodDrinkAverage.toFixed(2);
-
+      
       let numb = 
         (
           +place.averageWarmLighting +

@@ -73,7 +73,6 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  /***** Never trust users - validate input *****/
   if (!req.body) {
     const err = new Error('Missing `place` in request body');
     err.status = 400;
