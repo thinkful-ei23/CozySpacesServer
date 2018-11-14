@@ -122,12 +122,12 @@ router.post('/', (req, res, next) => {
                   });
                 }); 
               });              
-              User.findOne({ _id: userId })
-                .then(user => {
-                  user.ratings.push(result.id);
-                  user.save(); 
-                  console.log('Add this new rating result to user.ratings: ', user.ratings);
-                });
+            User.findOne({ _id: userId })
+              .then(user => {
+                user.ratings.push(result.id);
+                user.save(); 
+                console.log('Add this new rating result to user.ratings: ', user.ratings);
+              });
           });
       }
     })
