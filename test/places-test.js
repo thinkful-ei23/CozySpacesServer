@@ -4,19 +4,18 @@ const { TEST_DATABASE_URL, JWT_SECRET  } = require('../config');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const mongoose = require('mongoose');
-const express = require('express');
 const jwt = require('jsonwebtoken');
 
 const User = require('../models/users');
-const seedUsers = require('../db/seed/users');
 
-const app = require('../server');
 const Place = require('../models/places');
 const Rating = require('../models/ratings');
 
+const seedUsers = require('../db/seed/users.json');
+const seedPlaces = require('../db/seed/places.json');
+const seedRatings = require('../db/seed/ratings.json');
 
-const seedplaces = require('../db/seed/places');
-const seedRatings = require('../db/seed/ratings');
+const app = require('../server');
 
 chai.use(chaiHttp);
 const expect = chai.expect;
@@ -35,17 +34,17 @@ describe.only('Cozy Spaces API', function () {
       User.insertMany(seedUsers),
       User.createIndexes(),
 
-      Place.insertMany(seedplaces),
+      Place.insertMany(seedPlaces),
       Place.createIndexes(),
 
       Rating.insertMany(seedRatings),
       Rating.createIndexes(),
 
     ])
-    .then(([users]) => {
-      user = users[0];
-      token = jwt.sign({ user }, JWT_SECRET, { subject: user.username });
-    });
+      .then(([users]) => {
+        user = users[0];
+        token = jwt.sign({ user }, JWT_SECRET, { subject: user.username });
+      });
   });
 
   afterEach(function () {
@@ -80,6 +79,8 @@ describe.only('Cozy Spaces API', function () {
 
       return Promise.all([dbPromise, apiPromise])
         .then(([data, res]) => {
+          // console.log(data);
+          // console.log(res);
           expect(res).to.have.status(200);
           expect(res).to.be.json;
           expect(res.body).to.be.a('array');
@@ -158,12 +159,13 @@ describe.only('Cozy Spaces API', function () {
       const lng = parseFloat(-122.883890);
       return Promise.all([
         Place.find({ archived : false,
-        location: {
-          $near: {
-            $maxDistance: 60000,
-            $geometry: {
-              type: 'Point',
-              coordinates: [lng, lat]
+          location: {
+            $near: {
+              $maxDistance: 60000,
+              $geometry: {
+                type: 'Point',
+                coordinates: [lng, lat]
+              }
             }
           }
         }
@@ -213,8 +215,8 @@ describe.only('Cozy Spaces API', function () {
             expect(item.ratings).to.equal(data[i].photos);
             expect(item.userReports).to.equal(data[i].userReports);
             expect(item.archived).to.equal(data[i].archived);
+          });
         });
-      });
     });
 
     // it('should archive Places that have been reported 5 or more times', function () {
@@ -288,10 +290,11 @@ describe.only('Cozy Spaces API', function () {
         .then(_data => {
           data = _data;
           return chai.request(app)
-          .get(`/api/places/${data.id}`)
-          .set('Authorization', `Bearer ${token}`);
+            .get(`/api/places/${data.id}`)
+            .set('Authorization', `Bearer ${token}`);
         })
         .then((res) => {
+          const item = res.body;
           expect(res).to.have.status(200);
           expect(res).to.be.json;
           expect(res.body).to.be.an('object');

@@ -48,6 +48,7 @@ router.get('/', (req, res, next) => {
       }
     })
     .catch(err => {
+      console.log(err);
       next(err);
     });
   
@@ -67,7 +68,7 @@ router.get('/:id', (req, res, next) => {
     .populate('ratings')
     // .populate({ path: 'ratings' })
     .then(result => {
-//      console.log(result);
+      //      console.log(result);
       res.json(result);
     })
     .catch(err => {

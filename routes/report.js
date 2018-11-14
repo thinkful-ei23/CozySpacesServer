@@ -18,14 +18,12 @@ router.post('/', (req, res, next) => {
   const userId = req.user.id;
   const { placeId } = req.body;
 
-  console.log('userId: ', userId);
-  console.log('placeId: ', placeId);
-
   if (!mongoose.Types.ObjectId.isValid(userId)) {
     const err = new Error('The `user id` is not valid');
     err.status = 400;
     return next(err);
   }
+
   if (!mongoose.Types.ObjectId.isValid(placeId)) {
     const err = new Error('The `place id` is not valid');
     err.status = 400;
@@ -45,12 +43,10 @@ router.post('/', (req, res, next) => {
         const err = new Error('You have already reported the place');
         err.status = 400;
         err.reason = 'No duplicate reports';
-        console.log(err);
         return next(err);
       }
       return Place.update({ _id: placeId }, { $push: { userReports: userId } })
         .then(result => {
-          console.log(result);
           res.json(result);
         });
     })
@@ -62,6 +58,13 @@ router.post('/', (req, res, next) => {
 router.delete('/', (req, res, next) => {
   const userId = req.user.id;
   const { placeId } = req.body;
+
+  
+  if (!mongoose.Types.ObjectId.isValid(placeId)) {
+    const err = new Error('The `place id` is not valid');
+    err.status = 400;
+    return next(err);
+  }
 
   console.log('userId: ', userId);
   console.log('placeId: ', placeId);
