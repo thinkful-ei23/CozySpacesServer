@@ -136,10 +136,6 @@ router.post('/', (req, res, next) => {
               .then(user => {
                 user.ratings.push(result.id);
                 user.save(); 
-<<<<<<< HEAD
-=======
-                console.log('Add this new rating result to user.ratings: ', user.ratings);
->>>>>>> development
               });
           });
       }
