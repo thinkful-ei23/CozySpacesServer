@@ -111,13 +111,14 @@ describe('Ratings API resource', function() {
       return chai.request(app).post('/api/places').send(place).set('Authorization', `Bearer ${token}`)
         .then((result) => {
           _place = result.body;
-          rating.placeId = result.body._id;
+          console.log(result.body);
+          rating.placeId = result.body.id;
           return chai.request(app).post('/api/ratings').send(rating).set('Authorization', `Bearer ${token}`);
         })
         .then(() => {
           return Promise.all([
-            Rating.find({userId: user.id, placeId: _place._id}),
-            chai.request(app).get(`/api/ratings?placeId=${_place._id}`).set('Authorization', `Bearer ${token}`)
+            Rating.find({userId: user.id, placeId: _place.id}),
+            chai.request(app).get(`/api/ratings?placeId=${_place.id}`).set('Authorization', `Bearer ${token}`)
           ]);
         })
         .then(([data, res]) => {
@@ -162,13 +163,13 @@ describe('Ratings API resource', function() {
           res.body.forEach(function(rating) {
             expect(rating).to.be.a('object');
             expect(rating).to.include.keys(
-              'rating', 'placeId', 'userId', '_id');
+              'rating', 'placeId', 'userId', 'id');
           });
           rating = res.body[0];
-          return Rating.findById(rating._id);
+          return Rating.findById(rating.id);
         })
         .then (data => {
-          expect(rating._id).to.equal(data.id);
+          expect(rating.id).to.equal(data.id);
           expect(rating.rating.calmEnvironment).to.equal(data.rating.calmEnvironment);
           expect(rating.rating.comfySeating).to.equal(data.rating.comfySeating);
           expect(rating.rating.hotFoodDrink).to.equal(data.rating.hotFoodDrink);
@@ -213,7 +214,7 @@ describe('Ratings API resource', function() {
           expect(res).to.have.status(200);
           expect(res).to.be.json;
           expect(resRating).to.be.a('object');
-          expect(resRating._id).to.equal(dataRating.id);
+          expect(resRating.id).to.equal(dataRating.id);
           expect(mongoose.Types.ObjectId(resRating.placeId)).to.deep.equal((mongoose.Types.ObjectId(dataRating.placeId)));
           expect(resRating.rating.calmEnvironment).to.equal(dataRating.rating.calmEnvironment);
           expect(resRating.rating.comfySeating).to.equal(dataRating.rating.comfySeating);
@@ -502,7 +503,7 @@ describe('Ratings API resource', function() {
 
   describe('DELETE api/ratings/:id', function() {
 
-    it.only('should delete a rating by id ', function() {
+    it('should delete a rating by id ', function() {
       let data;
       return Rating.findOne({userId: user.id})
         .then(_data => {
@@ -523,6 +524,37 @@ describe('Ratings API resource', function() {
           expect(res).to.be.a('array');
           expect(res.length).to.equal(0);
         });
+    });
+
+    it('should respond with a 400 if you attempt to delete a rating with an invalid placeId', function () {
+
+      let id = '3';
+      return chai.request(app).delete(`/api/ratings/${id}`).set('Authorization', `Bearer ${token}`)
+        .then((res) => {
+          const text = JSON.parse(res.error.text).message;
+          expect(res).to.have.status(400);
+          expect(text).to.equal('The `id` is not valid');
+        });
+    });
+
+
+    it('should respond with a 404 if you attempt to delete a rating that does not exist', function () {
+
+      let data;
+      return Rating.findOne({userId: user.id})
+        .then(_data => {
+          data = _data;
+          console.log(data);
+          return chai.request(app).delete(`/api/ratings/${data.placeId}`).set('Authorization', `Bearer ${token}`);
+        })
+        .then((res) => {
+          expect(res).to.have.status(204);
+          return chai.request(app).delete(`/api/ratings/${data.placeId}`).set('Authorization', `Bearer ${token}`);
+        })
+        .then(res => {
+          expect(res.status).to.equal(404);
+        });
+ 
     });
   });
 
