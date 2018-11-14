@@ -48,7 +48,6 @@ router.get('/', (req, res, next) => {
       }
     })
     .catch(err => {
-      console.log(err);
       next(err);
     });
   
@@ -56,7 +55,6 @@ router.get('/', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
   const id = req.params.id;
-  console.log('id', id);
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     const err = new Error('The `id` is not valid');
@@ -67,9 +65,7 @@ router.get('/:id', (req, res, next) => {
   Place.findOne({ _id: id })
     .populate('photos')
     .populate('ratings')
-    // .populate({ path: 'ratings' })
     .then(result => {
-      //      console.log(result);
       res.json(result);
     })
     .catch(err => {
@@ -78,9 +74,7 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-//  console.log(req.body); 
-  //console.log('req.user', req.user);
-  /***** Never trust users - validate input *****/
+
   if (!req.body) {
     const err = new Error('Missing `place` in request body');
     err.status = 400;
@@ -94,7 +88,6 @@ router.post('/', (req, res, next) => {
       .json(result);
   })
     .catch(err => {
-      console.log(err);
       next(err);
     });
 });

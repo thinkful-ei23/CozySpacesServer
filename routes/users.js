@@ -88,7 +88,6 @@ router.post('/', (req, res, next) => {
       return User.create(newUser);
     })
     .then(result => {
-      console.log(result);
       return res
         .status(201)
         .location(`/api/users/${result.id}`)
@@ -106,7 +105,6 @@ router.post('/', (req, res, next) => {
 
 router.delete('/:id', (req, res, next) => {
   const userId = req.params.id;
-  console.log(userId);
 
   if (!mongoose.Types.ObjectId.isValid(userId)) {
     const err = new Error('The `id` is not valid');
