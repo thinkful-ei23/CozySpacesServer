@@ -249,7 +249,6 @@ describe('Cozy Spaces API', function () {
           expect(res).to.have.header('location');
           expect(res).to.be.json;
           expect(res.body).to.be.a('object');
-          console.log('res.body: ', res.body);
           expect(res.body).to.have.all.keys(
             'id',
             'name', 

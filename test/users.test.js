@@ -49,7 +49,6 @@ describe('CozySpacesServer - Users', function () {
             res = _res;
             expect(res).to.have.status(201);
             expect(res.body).to.be.an('object');
-            console.log(res.body);
             expect(res.body).to.have.keys('id', 'username', 'email', 'photos', 'ratings');
             expect(res.body.id).to.exist;
             expect(res.body.username).to.equal(testUser.username);

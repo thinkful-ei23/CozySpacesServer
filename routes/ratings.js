@@ -40,11 +40,9 @@ router.get('/', (req, res, next) => {
     filter.userId = userId;
   }
   Rating.find(filter)
-    //Rating.find(filter) //
     .sort({ updatedAt: 'desc' })
     .then(results => {
-      // console.log('results: ', results);
-      res.json(results); //
+      res.json(results); 
     })
     .catch(err => {
       next(err);
@@ -55,7 +53,7 @@ router.get('/', (req, res, next) => {
 router.get('/:placeId', (req, res, next) => {
   // fetches specific rating
   const placeId = req.params.placeId;
-  const userId = req.user.id; // userID
+  const userId = req.user.id;
 
   if (!mongoose.Types.ObjectId.isValid(userId)) {
     const err = new Error('The `user id` is not valid');
@@ -72,14 +70,12 @@ router.get('/:placeId', (req, res, next) => {
   Rating.findOne({ placeId: placeId, userId: userId })
     .then(result => {
       if (result) {
-        console.log(result);
         res.json(result);
       } else {
         res.status(204).send();
       }
     })
     .catch(err => {
-      console.log(' this is catch err', err);
       next(err);
     });
 });
@@ -88,9 +84,8 @@ router.get('/:placeId', (req, res, next) => {
 router.post('/', (req, res, next) => {
   const { rating, placeId } = req.body;
   const userId = req.user.id;
-  /***** Never trust users - validate input *****/
+
   if (!rating) {
-    console.log('in here');
     const err = new Error('Missing `rating` in request body');
     err.status = 400;
     return next(err);
@@ -110,7 +105,7 @@ router.post('/', (req, res, next) => {
 
   const newRating = { rating, placeId, userId };
 
-  Rating.findOne({ placeId: placeId, userId: userId })  //CHECK FOR EXISTING RATING
+  Rating.findOne({ placeId: placeId, userId: userId })  
     .then(result => {
       if (result) {
         const err = new Error('You have already posted a rating');
@@ -141,7 +136,6 @@ router.post('/', (req, res, next) => {
       }
     })
     .catch(err => {
-      console.log(err);
       next(err);
     });
 });
@@ -230,7 +224,6 @@ router.delete('/:placeId', (req, res, next) => {
 
 function updateAvgRatings(placeId, callback) {
 
-  console.log('******************START OF UPDATE AVERAGE RATINGS**************************');
   let warmLightingTotal,
     relaxedMusicTotal,
     calmEnvironmentTotal,
@@ -252,18 +245,13 @@ function updateAvgRatings(placeId, callback) {
 
   Rating.find({ placeId: placeId })
     .then((ratings) => {
-      console.log('Rating.find in updateAvgRatings');
-      console.log('ratings are: ', ratings);
+
 
       let numberOfRatings = ratings.length; // 4\
       if (numberOfRatings !== 0) {
-        console.log('numberOfRatings are: ', numberOfRatings);
         ratings.forEach((rating) => {
-          console.log('****************INSIDE THE FOREACH****************');
-          console.log('rating: ', rating);
+
           warmLightingTotal += rating.rating.warmLighting;
-          console.log('warmLightingTotal: ', warmLightingTotal);
-          console.log('rating.rating.warmLighting: ', rating.rating.warmLighting);
           relaxedMusicTotal += rating.rating.relaxedMusic;
           calmEnvironmentTotal += rating.rating.calmEnvironment;
           softFabricsTotal += rating.rating.softFabrics;
@@ -272,7 +260,6 @@ function updateAvgRatings(placeId, callback) {
         });
 
         warmLightingAverage = (warmLightingTotal / numberOfRatings) ;
-        console.log('warmLightingAverage: ', warmLightingAverage);
         relaxedMusicAverage = (relaxedMusicTotal / numberOfRatings);
         calmEnvironmentAverage = (calmEnvironmentTotal / numberOfRatings);
         softFabricsAverage = (softFabricsTotal / numberOfRatings);
@@ -283,8 +270,6 @@ function updateAvgRatings(placeId, callback) {
       return Place.findOne({ _id: placeId });
     })
     .then((place) => {
-      console.log('prior to update - place.averageWarmLighting: ', place.averageWarmLighting);
-      console.log('prior to update - place.ratings[0]: ', place.ratings[0]);
 
       place.averageWarmLighting = +warmLightingAverage.toFixed(2);
       place.averageRelaxedMusic = +relaxedMusicAverage.toFixed(2);
@@ -293,7 +278,6 @@ function updateAvgRatings(placeId, callback) {
       place.averageComfySeating = +comfySeatingAverage.toFixed(2);
       place.averageHotFoodDrink = +hotFoodDrinkAverage.toFixed(2);
       
-      console.log ('----------------place before update: ', place);
       let numb = 
         (
           +place.averageWarmLighting +
@@ -306,7 +290,6 @@ function updateAvgRatings(placeId, callback) {
       place.averageCozyness = +numb.toFixed(2);
       place.save();
       callback();
-      console.log ('+++++++++++++++place after save : ', place);
     })
     .catch((err) => console.error(err));
 }

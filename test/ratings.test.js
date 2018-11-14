@@ -111,7 +111,6 @@ describe('Ratings API resource', function() {
       return chai.request(app).post('/api/places').send(place).set('Authorization', `Bearer ${token}`)
         .then((result) => {
           _place = result.body;
-          console.log(result.body);
           rating.placeId = result.body.id;
           return chai.request(app).post('/api/ratings').send(rating).set('Authorization', `Bearer ${token}`);
         })
@@ -153,8 +152,6 @@ describe('Ratings API resource', function() {
           ]);
         })
         .then(([data, res]) => {
-          console.log('data', data);
-          console.log('res', res.body);
           expect(data.length).to.equal(res.body.length);
           expect(res).to.have.status(200);
           expect(res).to.be.json;
@@ -508,7 +505,6 @@ describe('Ratings API resource', function() {
       return Rating.findOne({userId: user.id})
         .then(_data => {
           data = _data;
-          console.log(data);
           return chai.request(app).delete(`/api/ratings/${data.placeId}`).set('Authorization', `Bearer ${token}`);
         })
         .then((res) => {
@@ -544,7 +540,6 @@ describe('Ratings API resource', function() {
       return Rating.findOne({userId: user.id})
         .then(_data => {
           data = _data;
-          console.log(data);
           return chai.request(app).delete(`/api/ratings/${data.placeId}`).set('Authorization', `Bearer ${token}`);
         })
         .then((res) => {

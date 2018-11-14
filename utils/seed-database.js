@@ -14,7 +14,7 @@ const seedRatings = require('../db/seed/ratings');
 const seedPhotos = require('../db/seed/photos');
 
 
-console.log(`Connecting to mongodb at ${DATABASE_URL}`);
+// console.log(`Connecting to mongodb at ${DATABASE_URL}`);
 mongoose.connect(DATABASE_URL)
   .then(() => {
     console.info('Dropping Database');

@@ -66,9 +66,6 @@ router.delete('/', (req, res, next) => {
     return next(err);
   }
 
-  console.log('userId: ', userId);
-  console.log('placeId: ', placeId);
-
   Place.update({ _id: placeId }, { $pull: { userReports: userId } })
     .then(result => {
       res.json(result);
