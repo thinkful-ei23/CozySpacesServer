@@ -216,6 +216,69 @@ describe.only('Cozy Spaces API', function () {
         });
       });
     });
+
+    // it('should archive Places that have been reported 5 or more times', function () {
+    //   return Promise.all([
+    //     Place.find({ archived : false,
+    //       userReports.length >= 5)
+    //     location: {
+    //       $near: {
+    //         $maxDistance: 60000,
+    //         $geometry: {
+    //           type: 'Point',
+    //           coordinates: [lng, lat]
+    //         }
+    //       }
+    //     }
+    //   }),
+    //     chai.request(app).get('/api/places')
+    //     .set('Authorization', `Bearer ${token}`)
+    //   ])
+    //     .then(([data, res]) => {
+    //       expect(res).to.have.status(200);
+    //       expect(res).to.be.json;
+    //       expect(res.body).to.be.a('array');
+    //       expect(res.body).to.have.length(data.length);
+    //       res.body.forEach(function (item, i) {
+    //         expect(item).to.be.a('object');
+    //         // Place: RatingId and content are optional
+    //         expect(item).to.include.all.keys(
+    //           'name', 
+    //           'type',
+    //           'address', 
+    //           'city', 
+    //           'state', 
+    //           'zipcode', 
+    //           'location', 
+    //           'averageCozyness',
+    //           'averageRelaxedMusic',
+    //           'averageCalmEnvironment',
+    //           'averageSoftFabrics',
+    //           'averageComfySeating',
+    //           'averageHotFoodDrink',
+    //           'photos',
+    //           'ratings',
+    //           'userReports',
+    //           'archived'
+    //         );
+    //         expect(item.name).to.equal(data[i].name);
+    //         expect(item.type).to.equal(data[i].type);
+    //         expect(item.address).to.equal(data[i].address);
+    //         expect(item.city).to.equal(data[i].city);
+    //         expect(item.state).to.equal(data[i].state);
+    //         expect(item.zipcode).to.equal(data[i].zipcode);
+    //         expect(item.location).to.equal(data[i].location);
+    //         expect(item.averageCozyness).to.equal(data[i].averageCozyness);
+    //         expect(item.averageSoftFabrics).to.equal(data[i].averageSoftFabrics);
+    //         expect(item.averageComfySeating).to.equal(data[i].averageComfySeating);
+    //         expect(item.averageHotFoodDrink).to.equal(data[i].averageHotFoodDrink);
+    //         expect(item.photos).to.equal(data[i].photos);
+    //         expect(item.ratings).to.equal(data[i].photos);
+    //         expect(item.userReports).to.equal(data[i].userReports);
+    //         expect(item.archived).to.equal(data[i].archived);
+    //     });
+    //   });
+
   });
 
   describe('GET /api/places/:id', function () {
