@@ -10,9 +10,8 @@ const Photo = require('../models/photos');
 
 const router = express.Router();
 
+// running a task once daily
 cron.schedule('* * 1 * * *', () => {
-  const d = new Date();
-  console.log('running a task every 5 seconds: ', d);
 
   Place.find({}, (err, places) => {
     places.forEach(place => {
@@ -65,9 +64,7 @@ router.get('/:id', (req, res, next) => {
   Place.findOne({ _id: id })
     .populate('photos')
     .populate('ratings')
-    // .populate({ path: 'ratings' })
     .then(result => {
-      console.log(result);
       res.json(result);
     })
     .catch(err => {
@@ -76,8 +73,6 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  console.log(req.body); 
-  //console.log('req.user', req.user);
   /***** Never trust users - validate input *****/
   if (!req.body) {
     const err = new Error('Missing `place` in request body');
@@ -92,7 +87,6 @@ router.post('/', (req, res, next) => {
       .json(result);
   })
     .catch(err => {
-      console.log(err);
       next(err);
     });
 });
