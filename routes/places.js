@@ -10,9 +10,8 @@ const Photo = require('../models/photos');
 
 const router = express.Router();
 
+// running a task once daily
 cron.schedule('* * 1 * * *', () => {
-  const d = new Date();
-  console.log('running a task every 5 seconds: ', d);
 
   Place.find({}, (err, places) => {
     places.forEach(place => {
@@ -74,7 +73,6 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-
   if (!req.body) {
     const err = new Error('Missing `place` in request body');
     err.status = 400;

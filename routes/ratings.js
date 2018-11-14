@@ -51,7 +51,6 @@ router.get('/', (req, res, next) => {
 
 /* ========== GET/READ A SINGLE ITEM by place Id and user Id in combo========== */
 router.get('/:placeId', (req, res, next) => {
-  // fetches specific rating
   const placeId = req.params.placeId;
   const userId = req.user.id;
 
@@ -223,7 +222,6 @@ router.delete('/:placeId', (req, res, next) => {
 });
 
 function updateAvgRatings(placeId, callback) {
-
   let warmLightingTotal,
     relaxedMusicTotal,
     calmEnvironmentTotal,
@@ -246,11 +244,9 @@ function updateAvgRatings(placeId, callback) {
   Rating.find({ placeId: placeId })
     .then((ratings) => {
 
-
-      let numberOfRatings = ratings.length; // 4\
+      let numberOfRatings = ratings.length; 
       if (numberOfRatings !== 0) {
         ratings.forEach((rating) => {
-
           warmLightingTotal += rating.rating.warmLighting;
           relaxedMusicTotal += rating.rating.relaxedMusic;
           calmEnvironmentTotal += rating.rating.calmEnvironment;
@@ -270,7 +266,6 @@ function updateAvgRatings(placeId, callback) {
       return Place.findOne({ _id: placeId });
     })
     .then((place) => {
-
       place.averageWarmLighting = +warmLightingAverage.toFixed(2);
       place.averageRelaxedMusic = +relaxedMusicAverage.toFixed(2);
       place.averageCalmEnvironment = +calmEnvironmentAverage.toFixed(2);
