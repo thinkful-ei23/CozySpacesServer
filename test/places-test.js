@@ -58,8 +58,6 @@ describe('Cozy Spaces API', function () {
 
     it('should return places near a specified location', function () {
 
-      // const lat = parseFloat(45.536223);
-      // const lng = parseFloat(-122.883890);
       const dbPromise = Place.find({ archived : false,
         location: {
           $near: {
@@ -73,13 +71,11 @@ describe('Cozy Spaces API', function () {
       });
 
       const apiPromise = chai.request(app)
-        .get('/api/places')
+        .get('/api/places?lat=45.536223&lng=-122.883890')
         .set('Authorization', `Bearer ${token}`); 
 
       return Promise.all([dbPromise, apiPromise])
         .then(([data, res]) => {
-          // console.log(data);
-          // console.log(res);
           expect(res).to.have.status(200);
           expect(res).to.be.json;
           expect(res.body).to.be.a('array');
@@ -102,10 +98,12 @@ describe('Cozy Spaces API', function () {
             }
           }
         }),
-        chai.request(app).get('/api/places')
+        chai.request(app).get('/api/places?lat=45.536223&lng=-122.883890')
           .set('Authorization', `Bearer ${token}`)
       ])
         .then(([data, res]) => {
+          console.log('data',data);
+          console.log('res', res.body);
           expect(res).to.have.status(200);
           expect(res).to.be.json;
           expect(res.body).to.be.a('array');

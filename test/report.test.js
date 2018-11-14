@@ -18,7 +18,7 @@ const expect = chai.expect;
 
 chai.use(chaiHttp);
 
-describe.only('CozySpacesServer - Reports', function () {
+describe('CozySpacesServer - Reports', function () {
 
   before(function () {
     return mongoose.connect(TEST_DATABASE_URL)

@@ -25,4 +25,13 @@ ratingSchema.set('toObject', {
   }
 });
 
+ratingSchema.set('toJSON', {
+  virtuals: true,
+  versionKey: false,
+  transform: (doc, ret) => {
+    delete ret._id;
+    delete ret.__v;
+  }
+});
+
 module.exports = mongoose.model('Rating', ratingSchema);

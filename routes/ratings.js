@@ -28,6 +28,11 @@ router.get('/', (req, res, next) => {
   }
 
   if (placeId) {
+    if (!mongoose.Types.ObjectId.isValid(placeId)) {
+      const err = new Error('The `place id` is not valid');
+      err.status = 400;
+      return next(err);
+    }
     filter.placeId = placeId;
   }
 
@@ -38,7 +43,7 @@ router.get('/', (req, res, next) => {
     //Rating.find(filter) //
     .sort({ updatedAt: 'desc' })
     .then(results => {
-      console.log('results: ', results);
+      // console.log('results: ', results);
       res.json(results); //
     })
     .catch(err => {
@@ -54,6 +59,12 @@ router.get('/:placeId', (req, res, next) => {
 
   if (!mongoose.Types.ObjectId.isValid(userId)) {
     const err = new Error('The `user id` is not valid');
+    err.status = 400;
+    return next(err);
+  }
+
+  if (!mongoose.Types.ObjectId.isValid(placeId)) {
+    const err = new Error('The `place id` is not valid');
     err.status = 400;
     return next(err);
   }
@@ -79,13 +90,14 @@ router.post('/', (req, res, next) => {
   const userId = req.user.id;
   /***** Never trust users - validate input *****/
   if (!rating) {
+    console.log('in here');
     const err = new Error('Missing `rating` in request body');
     err.status = 400;
     return next(err);
   }
 
   if (placeId && !mongoose.Types.ObjectId.isValid(placeId)) {
-    const err = new Error('The `places Id` is not valid');
+    const err = new Error('The `place id` is not valid');
     err.status = 400;
     return next(err);
   }
@@ -104,12 +116,10 @@ router.post('/', (req, res, next) => {
         const err = new Error('You have already posted a rating');
         err.status = 400;
         err.reason = 'ValidationError';
-        console.log(err);
         return next(err);
       } else {
         Rating.create(newRating)    
           .then(result => {
-            console.log('This is the new rating result: ', result);
             Place.findOne({ _id: placeId })
               .then(place => {
                 place.ratings.push(result.id);
@@ -126,7 +136,6 @@ router.post('/', (req, res, next) => {
               .then(user => {
                 user.ratings.push(result.id);
                 user.save(); 
-                console.log('Add this new rating result to user.ratings: ', user.ratings);
               });
           });
       }
@@ -139,10 +148,8 @@ router.post('/', (req, res, next) => {
 
 /* ========== PUT/UPDATE A SINGLE ITEM ========== */
 router.put('/:ratingId', (req, res, next) => {
-  console.log('ENTER ROUTER.PUT*****************************');
   const { ratingId } = req.params;
   const { rating, placeId } = req.body;
-  console.log('ROUTER.PUT RATINGS: ', rating);
 
   const updateRating = {};
   const updateFields = ['rating', 'userId', 'placeId'];
@@ -164,24 +171,17 @@ router.put('/:ratingId', (req, res, next) => {
     err.status = 400;
     return next(err);
   }
-  if (rating === '') {
+  if (!rating) {
     const err = new Error('Missing `rating` in request body');
     err.status = 400;
     return next(err);
   }
-  console.log('++++++++++++Rating.findOne++++++++ratingId is: ', ratingId);
   Rating.findOne({ _id: ratingId })
     .then(rating => {
       if (rating) {
-        console.log('+++++++GOT A RATING ++++++++');
-        console.log('---beforesave---', rating.rating);
         rating.rating = updateRating.rating;
-        console.log( 'updateRating.rating is: ', updateRating.rating);
-        console.log( 'rating.rating is: ', rating.rating);
         rating.save((err,doc,numrows) => {
           if(!err){
-            console.log('Saved rating.');
-            console.log('Ready to update Avg Ratings');
             updateAvgRatings(placeId, function() {
               res.json(rating);
             }); 
@@ -212,7 +212,6 @@ router.delete('/:placeId', (req, res, next) => {
   Rating.findOneAndDelete({ placeId, userId })
     .then(result => {
       if (result) {
-        console.log(result);
         Place.update({_id: placeId }, { $pull: { ratings: result.id }} )
           .then(() => {
             updateAvgRatings(placeId, function() {

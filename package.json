@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "cross-env NODE_ENV=test mocha --file test/places-test.js --timeout 10000"
+    "test": "mocha --exit --timeout 30000"
   },
   "repository": {
     "type": "git",

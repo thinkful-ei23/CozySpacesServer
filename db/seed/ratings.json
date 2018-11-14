@@ -58,21 +58,7 @@
         "hotFoodDrink":     0,
         "comment": "Cozzzzzyyyy"
       }     
-  }, 
-  {
-    "_id":        "111111111111111111111005",
-    "userId":   "000000000000000000000001",
-    "placeId": "333333333333333333333002",
-    "rating": 
-      {        
-        "warmLighting":     0, 
-        "relaxedMusic":     0,
-        "calmEnvironment":  0,
-        "softFabrics":      0,
-        "comfySeating":     0,
-        "hotFoodDrink":     0
-      }     
-  }, 
+  },  
   {
     "_id":        "111111111111111111111006",    
     "userId":   "000000000000000000000001",
