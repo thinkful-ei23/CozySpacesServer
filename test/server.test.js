@@ -3,6 +3,8 @@
 // Clear the console before each run
 // process.stdout.write("\x1Bc\n");
 
+//nyc --reporter=lcov --reporter=text cross-env NODE_ENV=test mocha --file test/server.test.js --timeout 30000 --exit
+
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 
