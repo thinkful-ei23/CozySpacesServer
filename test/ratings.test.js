@@ -384,7 +384,7 @@ describe('Ratings API resource', function() {
 
   describe('PUT api/ratings', function() {
 
-    it.only('should update ratings you send over', function() {
+    it('should update ratings you send over', function() {
       let updatedRating = {
         'placeId' : '333333333333333333333002',
         'rating': 
@@ -434,7 +434,7 @@ describe('Ratings API resource', function() {
 
     });
 
-    it.only('should respond with a 400 if you attempt to update a rating with an invalid ratingId', function () {
+    it('should respond with a 400 if you attempt to update a rating with an invalid ratingId', function () {
       let updatedRating = {
         'placeId' : '333333333333333333333006',
         'rating': 
@@ -449,8 +449,8 @@ describe('Ratings API resource', function() {
           }     
       };
 
-          return chai.request(app).put(`/api/ratings/3`)
-            .send(updatedRating).set('Authorization', `Bearer ${token}`)
+      return chai.request(app).put('/api/ratings/3')
+        .send(updatedRating).set('Authorization', `Bearer ${token}`)
         .then((res) => {
           const text = JSON.parse(res.error.text).message;
           expect(res).to.have.status(400);
@@ -458,7 +458,7 @@ describe('Ratings API resource', function() {
         });
     });
 
-    it.only('should respond with a 400 if you attempt to update a rating with an invalid placeId', function () {
+    it('should respond with a 400 if you attempt to update a rating with an invalid placeId', function () {
       let updatedRating = {
         'placeId' : '3',
         'rating': 
@@ -472,7 +472,7 @@ describe('Ratings API resource', function() {
             'comment': 'Updated - super cozy!'
           }     
       };
-      let id = '3';
+      let id = '111111111111111111111001';
       return chai.request(app).put(`/api/ratings/${id}`)
         .send(updatedRating).set('Authorization', `Bearer ${token}`)
         .then((res) => {
@@ -482,7 +482,7 @@ describe('Ratings API resource', function() {
         });
     });
 
-    it.only('should respond with a 400 if you attempt to update a rating without a rating', function () {
+    it('should respond with a 400 if you attempt to update a rating without a rating', function () {
       const updateObject = {};
       let data;
       return Rating.findOne()
@@ -498,51 +498,32 @@ describe('Ratings API resource', function() {
         });
     });
 
-    it('should return an error when given a duplicate name', function () {
-      return Folder.find({userId: user.id}).limit(2)
-        .then(results => {
-          const [item1, item2] = results;
-          item1.name = item2.name;
-          return chai.request(app)
-            .put(`/api/folders/${item1.id}`)
-            .send({name: item1.name}).set('Authorization', `Bearer ${token}`);
-        })
-        .then(res => {
-          const message = JSON.parse(res.text).message;
-          expect(message).to.equal('You already have a folder with that name');
-          expect(res).to.have.status(400);
-        });
-    });
-    
-
-
   });
 
-  describe('DELETE api/folders/:id', function() {
+  describe('DELETE api/ratings/:id', function() {
 
-    it('should delete a folder by id and the children of the folder', function() {
+    it.only('should delete a rating by id ', function() {
       let data;
-      return Folder.findOne({userId: user.id})
+      return Rating.findOne({userId: user.id})
         .then(_data => {
           data = _data;
-          return chai.request(app).delete(`/api/folders/${data.id}`).set('Authorization', `Bearer ${token}`);
+          console.log(data);
+          return chai.request(app).delete(`/api/ratings/${data.placeId}`).set('Authorization', `Bearer ${token}`);
         })
         .then((res) => {
           expect(res).to.have.status(204);
-          return Note.find({folderId : data.id, userId: user.id});
+          return Rating.find({placeId : data.placeId, userId: user.id});
         })
         .then(res => {
           expect(res).to.be.a('array');
           expect(res.length).to.equal(0);
-          return Folder.find({id: data.id, userId : user.id});
+          return Rating.find({id: data.id, userId : user.id});
         })
         .then(res => {
           expect(res).to.be.a('array');
           expect(res.length).to.equal(0);
         });
     });
-
-    
   });
 
 

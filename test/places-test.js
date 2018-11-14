@@ -20,7 +20,7 @@ const app = require('../server');
 chai.use(chaiHttp);
 const expect = chai.expect;
 
-describe.only('Cozy Spaces API', function () {
+describe('Cozy Spaces API', function () {
 
   before(function () {
     return mongoose.connect(TEST_DATABASE_URL)
@@ -139,12 +139,15 @@ describe.only('Cozy Spaces API', function () {
             expect(item.city).to.equal(data[i].city);
             expect(item.state).to.equal(data[i].state);
             expect(item.zipcode).to.equal(data[i].zipcode);
-            expect(item.location).to.equal(data[i].location);
+            expect(item.location.coordinates[0]).to.equal(data[i].location.coordinates[0]);
+            expect(item.location.coordinates[1]).to.equal(data[i].location.coordinates[1]);
             expect(item.averageCozyness).to.equal(data[i].averageCozyness);
             expect(item.averageSoftFabrics).to.equal(data[i].averageSoftFabrics);
             expect(item.averageComfySeating).to.equal(data[i].averageComfySeating);
             expect(item.averageHotFoodDrink).to.equal(data[i].averageHotFoodDrink);
-            expect(item.photos).to.equal(data[i].photos);
+            console.log('photo', item.photos[0]);
+            console.log('other photo: ', data[i].photos[0]);
+            expect(item.photos.length).to.equal(data[i].photos.length);
             expect(item.ratings).to.equal(data[i].photos);
             expect(item.userReports).to.equal(data[i].userReports);
             expect(item.archived).to.equal(data[i].archived);

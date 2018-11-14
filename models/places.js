@@ -26,11 +26,7 @@ const placeSchema = new mongoose.Schema({
   archived: {type: Boolean, default: false}
 });
 
-<<<<<<< HEAD
-// placeSchema.index({ location: '2dsphere' });
-=======
-//placeSchema.index({ location: '2dsphere' });
->>>>>>> b81a13384a8548ddce82394053903d56546558f6
+placeSchema.index({ location: '2dsphere' });
 
 placeSchema.set('toObject', {
   virtuals: true,
@@ -38,8 +34,6 @@ placeSchema.set('toObject', {
   transform: (doc, ret) => {
     delete ret._id;
     delete ret.location.$init;
-<<<<<<< HEAD
-=======
   }
 });
 
@@ -48,8 +42,8 @@ placeSchema.set('toJSON', {
   versionKey: false,
   transform: (doc, ret) => {
     delete ret._id;
->>>>>>> b81a13384a8548ddce82394053903d56546558f6
   }
 });
+
 
 module.exports = mongoose.model('Place', placeSchema);
