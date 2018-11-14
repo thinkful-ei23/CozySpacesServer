@@ -26,9 +26,18 @@ const placeSchema = new mongoose.Schema({
   archived: {type: Boolean, default: false}
 });
 
-placeSchema.index({ location: '2dsphere' });
+//placeSchema.index({ location: '2dsphere' });
 
 placeSchema.set('toObject', {
+  virtuals: true,
+  versionKey: false,
+  transform: (doc, ret) => {
+    delete ret._id;
+    delete ret.location.$init;
+  }
+});
+
+placeSchema.set('toJSON', {
   virtuals: true,
   versionKey: false,
   transform: (doc, ret) => {
