@@ -10,7 +10,6 @@ const localStrategy = require('./passport/local');
 const jwtStrategy = require('./passport/jwt');
 
 const { PORT, CLIENT_ORIGIN, DATABASE_URL} = require('./config');
-const { dbConnect } = require('./db-mongoose');
 
 const userRouter = require('./routes/users');
 const placesRouter = require('./routes/places');
