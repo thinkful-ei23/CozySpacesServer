@@ -20,7 +20,7 @@
   }, 
   {
     "_id" :       "444444444444444444444003",
-    "url" :       "/img/Ava-Roasteria-1024x683",
+    "url" :       "/img/Ava-Roasteria-1024x683.jpg",
     "caption":    "OMFG it's cozy!",
     "userId":   "000000000000000000000003",
     "placeId": "333333333333333333333003"  
@@ -62,9 +62,16 @@
   }, 
   {
     "_id" :       "444444444444444444444009",
-    "url" :       "https://www.travelportland.com/wp-content/uploads/2015/12/Rimsky-Korsakoffee-House-652x521.jpg",
+    "url" :       "https://static1.squarespace.com/static/5a2196146f4ca36177ddd89a/t/5af344b7352f53a65e649988/1525892297451/IMG_6625.JPG?format=960w",
     "caption":    "My comfy place",
     "userId":   "000000000000000000000002",
     "placeId": "333333333333333333333009"  
+  }, 
+  {
+    "_id" :       "444444444444444444444010",
+    "url" :       "https://www.daouvineyards.com/assets/client/Image/Events/3rdC_046.jpg",
+    "caption":    "I'm heading here tonite!",
+    "userId":   "000000000000000000000002",
+    "placeId": "333333333333333333333010"  
   } 
 ] 

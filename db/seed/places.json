@@ -196,5 +196,27 @@
     "averageHotFoodDrink": 0,
     "photos": ["444444444444444444444009"],
     "ratings": []
-  }
+  },
+  {
+  "_id": "333333333333333333333010",
+  "name": "The 3rd Corner",
+  "type": "cafe",
+  "address": "897 S. Coast Highway, Ste. F-104",
+  "city": "Encinitas",
+  "state": "CA",
+  "zipcode": "92024",
+  "location": {
+    "type": "Point",
+    "coordinates": [-117.264885, 33.056527]
+  },
+  "averageCozyness": 0,
+  "averageWarmLighting": 0,
+  "averageRelaxedMusic": 0,
+  "averageCalmEnvironment": 0,
+  "averageSoftFabrics": 0,
+  "averageComfySeating": 0,
+  "averageHotFoodDrink": 0,
+  "photos": ["444444444444444444444010"],
+  "ratings": []
+}
 ]
