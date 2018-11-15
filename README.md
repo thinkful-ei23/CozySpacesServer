@@ -1,6 +1,6 @@
 ![alt text][logo]
 
-[logo]: img/icon-left-logo-cropped-readme.png "Cozy Spaces Logo"
+[logo]: img/icon-left-logo-cropped-readme2.png "Cozy Spaces Logo"
 Cozy Spaces is focused on improving quality of life through curating truly cozy spaces especially for those who experience cold climates.  
 
 ## V1 Feature List
