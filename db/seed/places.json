@@ -133,12 +133,12 @@
   },
   {
     "_id": "333333333333333333333007",
-    "name": "Java Jo's",
+    "name": "Raw Bean Coffee",
     "type": "cafe",
-    "address": "401 1st Ave N",
+    "address": "611 S W Temple",
     "city": "Salt Lake City",
     "state": "UT",
-    "zipcode": "84103",
+    "zipcode": "84101",
     "location": {
       "type": "Point",
       "coordinates": [-111.877280, 40.770760]

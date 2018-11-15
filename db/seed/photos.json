@@ -27,35 +27,35 @@
   }, 
   {
     "_id" :       "444444444444444444444004",
-    "url" :       "https://www.iheartreykjavik.net/wp-content/uploads/2017/01/Babal%C3%BA-2.jpg",
+    "url" :       "/img/jacksMormonCoffee.JPG",
     "caption":    "cozier",
     "userId":   "000000000000000000000004",
     "placeId": "333333333333333333333004"  
   }, 
   {
     "_id" :       "444444444444444444444005",
-    "url" :       "https://www.oakbaybeachhotel.com/wp-content/uploads/2015/05/KatesCafe.jpg",
+    "url" :       "/img/cafeOn1st.JPG",
     "caption":    "comfier",
     "userId":   "000000000000000000000005",
     "placeId": "333333333333333333333005"  
   }, 
   {
     "_id" :       "444444444444444444444006",
-    "url" :       "https://assets3.thrillist.com/v1/image/2788431/size/tmg-facebook_social.jpg",
+    "url" :       "/img/saltLakeRoasingCo.JPG",
     "caption":    "Coziest place ever",
     "userId":   "000000000000000000000006",
     "placeId": "333333333333333333333006"  
   }, 
   {
     "_id" :       "444444444444444444444007",
-    "url" :       "https://cdn-images-1.medium.com/max/1600/1*gYoVszcP6XPixqKa4srKJQ.jpeg",
+    "url" :       "/img/rawBeanCoffee.JPG",
     "caption":    "excuse my photo skillz",
     "userId":   "000000000000000000000007",
     "placeId": "333333333333333333333002"  
   }, 
   {
     "_id" :       "444444444444444444444008",
-    "url" :       "http://lava-cafe.com/images/homepic.jpg",
+    "url" :       "/img/nostalgiaCafe.JPG",
     "caption":    "Your caption here",
     "userId":   "000000000000000000000008",
     "placeId": "333333333333333333333007"  
