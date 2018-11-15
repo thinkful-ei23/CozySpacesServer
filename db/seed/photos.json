@@ -6,21 +6,21 @@
   }, 
   {
     "_id" :       "444444444444444444444001",
-    "url" :       "https://www.tripsavvy.com/thmb/hgT0YIf3yo4l0Hg_G_AueHFbeSc=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/bookworm-588f86cb5f9b5874ee329e2c.jpg",
+    "url" :       "/img/insomnia.jpg",
     "caption":    "cozy place",
     "userId":   "000000000000000000000001",
     "placeId": "333333333333333333333001"  
   }, 
   {
     "_id" :       "444444444444444444444002",
-    "url" :       "http://cafes4nomads.com/wp-content/uploads/2014/12/IMGP0039.jpg",
+    "url" :       "/img/dragonfly.jpg",
     "caption":    "really comfy",
     "userId":   "000000000000000000000001",
     "placeId": "333333333333333333333002"  
   }, 
   {
     "_id" :       "444444444444444444444003",
-    "url" :       "http://enjoycanada.co/wp/wp-content/uploads/2016/01/cafe.jpg",
+    "url" :       "/img/Ava-Roasteria-1024x683",
     "caption":    "OMFG it's cozy!",
     "userId":   "000000000000000000000003",
     "placeId": "333333333333333333333003"  
