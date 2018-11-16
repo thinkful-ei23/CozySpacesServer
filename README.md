@@ -1,10 +1,20 @@
-![alt text][logo]
+![Cozy Spaces Logo][logo]
 
-[logo]: img/icon-left-logo-cropped-readme2.png "Cozy Spaces Logo"
-Cozy Spaces is focused on improving quality of life through curating truly cozy spaces especially for those who experience cold climates.  
+[logo]: img/icon-left-logo-cropped-readme.png
+[twitter]: img/Twitter_Logo_Blue42pxcropped.png
+[instagram]: img/glyph-logo_May201629px.png
+[producthunt]: img/product-hunt-logo-orange-28px.png
+[github]: GitHub-Mark-32px.png
+[1]: https://twitter.com/CozySpacesApp
+[2]: https://www.instagram.com/cozyspacesapp/
+[3]: https://github.com/thinkful-ei23/CozySpacesServer
 
-## Demo here:
-https://dashboard.heroku.com/apps/cozy-spaces-client
+
+Cozy Spaces is focused on bringing a warm glow to life through curating truly cozy spaces, especially for anyone experiencing cold climates, and/or nostalgia of a cozier time.  Need a cozy space to warm up your toes and light up your soul?  **_[Find one here](https://cozy-spaces-client.herokuapp.com/ "Cozy Spaces")_**&nbsp;
+
+[![Twitter Icon][twitter]][1]&nbsp;&nbsp;
+[![Instagram Icon][instagram]][2]&nbsp;&nbsp;&nbsp;&nbsp;
+[![Product Hunt Icon][producthunt]][1]
 
 ## V1 Feature List
   * Users are taken to an introductory landing page the first time they visit the app.  If they have previously visited Cozy Spaces, they will be taken directly to listings of cozy spaces.
@@ -14,6 +24,15 @@ https://dashboard.heroku.com/apps/cozy-spaces-client
   * If users would like to rate a place, they can create an account/log in and then they will be able to rate a place, as well as edit or delete their rating.
   * Logged in users can add a cozy place by clicking a location on a map and adding information about that location.
   * Logged in users can access their username and email in their profile, where they can also delete their account.
+
+## Screenshots
+| <img alt="Landing Page" src="img/LandingPage.PNG" width="350"> | <img alt="Registration" src="img/Registration.PNG" width="350"> | <img alt="Login" src="img/Login.PNG" width="350"> |
+|:---:|:---:|:---:|
+| Landing Page | Registration | Login |
+
+| <img alt="Listings" src="img/Listings.PNG" width="350"> | <img alt="Specific Place Details" src="img/Specific_Place_Details.PNG" width="350"> | <img alt="Add Listing" src="img/AddListing.PNG" width="350"> |
+|:---:|:---:|:---:|
+| Listings | Specific Place Details | Add Listing |
 
 ## V2 Feature List
   * Logged in users can upload photos of cozy places.
@@ -29,24 +48,37 @@ https://dashboard.heroku.com/apps/cozy-spaces-client
   * Accounts archived instead of deleted.
 
 ## Developers
-  * Alexander Puhl https://github.com/AlexanderPuhl
-  * Burke Koontz https://github.com/burkeKoontz
-  * Jemadean Dobrosielski https://github.com/JemDobro
-  * Selvin Norman https://github.com/selvinor
+  * [Alexander Puhl](https://github.com/AlexanderPuhl)
+  * [Burke Koontz](https://github.com/burkeKoontz)
+  * [Jemadean Dobrosielski](https://github.com/JemDobro)
+  * [Selvin Norman](https://github.com/selvinor)
 
-## Twitter 
-https://twitter.com/CozySpacesApp
+## Tech Used
 
-## Product Hunt
+### Front End
 
-## Tech Stack:
-  * React for the frontend
-  * Redux for state management
-  * Node/Express for the backend
-  * MongoDB/Mongoose for the database
-  * JWTs for authentication
+  * HTML5
+  * CSS3
+  * JavaScript
+  * React
+  * Redux
   * GoogleMap API
-  * Heroku for Deployment  
 
-## This is the Cozy Spaces backend.  The frontend can be found here: 
-https://github.com/thinkful-ei23/cozy-spaces-client
+### Back End
+[![GitHub Icon][github]][3]
+
+  * Node/Express
+  * MongoDB/Mongoose
+  * JWTs for authentication
+
+### Testing and Deployment  
+
+  * Mocha -testing framework
+  * Chai - assertion library for Node
+  * Heroku - deployment
+  * mLab - cloud database service 
+
+## API Documentation
+
+[Click to view API Documentation](https://documenter.getpostman.com/view/4458639/RzZCEdYf)
+
