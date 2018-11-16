@@ -1,0 +1,487 @@
+[
+  {
+    "_id":        "111111111111111111111001",
+    "userId":   "000000000000000000000001",
+    "placeId": "333333333333333333333001",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "Love this place - super cozy!"
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111002",
+    "userId":   "000000000000000000000002",    
+    "placeId": "333333333333333333333001",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "Very comfy place"
+      }     
+  },
+  {
+    "_id":        "111111111111111111111003",
+    "userId":   "000000000000000000000003",  
+    "placeId": "333333333333333333333001",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "Soothing and unique hot drinks and really great lighting...the owner used to be a lighting designer"
+      }     
+  },
+  {
+    "_id":        "111111111111111111111004",
+    "userId":   "000000000000000000000004",
+    "placeId": "333333333333333333333001",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "Cozzzzzyyyy"
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111005",
+    "userId":   "000000000000000000000001",
+    "placeId": "333333333333333333333002",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111006",    
+    "userId":   "000000000000000000000001",
+    "placeId": "333333333333333333333002",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "My favorite place when it's cold and rainy! Love the fireplace!"
+      }     
+  },
+  {
+    "_id":        "111111111111111111111007",
+    "userId":   "000000000000000000000005",
+    "placeId": "333333333333333333333002",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "My home away from home..."
+      }     
+  },
+  {
+    "_id":        "111111111111111111111008",
+    "userId":   "000000000000000000000006",
+    "placeId": "333333333333333333333003",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "My friend Burke turned me on to this place and I love it!  If you do too, follow her on this app...she's the best cozy curator"
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111009",
+    "userId":   "000000000000000000000003",
+    "placeId": "333333333333333333333003",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "This place is in my top 3 favorite places when I'm craving cozy"
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111010",
+    "userId":   "000000000000000000000004",
+    "placeId": "333333333333333333333003",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "Great place, but there is a daycare next door, so sometimes not so calm between 8am and 6 pm.  After 6pm has always been great for me"
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111011",
+    "userId":   "000000000000000000000006",
+    "placeId": "333333333333333333333003",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "Super chill, cozy place, and the best part is on Friday nights this an amazing musician named Sel comes and plays a wind synthesizer...you must experience it for yourself!"
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111012",
+    "userId":   "000000000000000000000001",
+    "placeId": "333333333333333333333004",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "Ahhhhhh....."
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111013",
+    "userId":   "000000000000000000000003",
+    "placeId": "333333333333333333333004",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111014",
+    "userId":   "000000000000000000000007",
+    "placeId": "333333333333333333333004",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111015",
+    "userId":   "000000000000000000000008",
+    "placeId": "333333333333333333333005",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "comfy place"
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111016",
+    "userId":   "000000000000000000000005",
+    "placeId": "333333333333333333333005",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "Nice place to warm my soul when it's cold out"
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111017",
+    "userId":   "000000000000000000000002",
+    "placeId": "333333333333333333333005",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "Great wifi at this comfy spot!  I can video conference with my amazing web developer mentor Alex here and the connection never drops"
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111018",
+    "userId":   "000000000000000000000006",
+    "placeId": "333333333333333333333006",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "Amazing soup!"
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111019",
+    "userId":   "000000000000000000000002",
+    "placeId": "333333333333333333333006",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111020",
+    "userId":   "000000000000000000000003",
+    "placeId": "333333333333333333333006",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "Most comfortable seating ever!"
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111021",
+    "userId":   "000000000000000000000007",
+    "placeId": "333333333333333333333006",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111022",
+    "userId":   "000000000000000000000002",
+    "placeId": "333333333333333333333007",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111023",
+    "userId":   "000000000000000000000002",
+    "placeId": "333333333333333333333007",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "so calm...."
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111024",
+    "userId":   "000000000000000000000055",
+    "placeId": "333333333333333333333007",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111025",
+    "userId":   "000000000000000000000004",
+    "placeId": "333333333333333333333007",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "great fireplace!"
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111026",
+    "userId":   "000000000000000000000006",
+    "placeId": "333333333333333333333008",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "Sel on the wind synthesizer....don't miss it!"
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111027",
+    "userId":   "000000000000000000000008",
+    "placeId": "333333333333333333333008",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "Sel's music in this cozy place is just what I need at the end of my week!"
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111028",
+    "userId":   "000000000000000000000002",
+    "placeId": "333333333333333333333008",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0
+      }     
+  },  
+  {
+    "_id":        "111111111111111111111029",
+    "userId":   "000000000000000000000003",
+    "placeId": "333333333333333333333008",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111030",
+    "userId":   "000000000000000000000005",
+    "placeId": "333333333333333333333009",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "Like a fuzzy blanket right out of the dryer..."
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111031",
+    "userId":   "000000000000000000000006",
+    "placeId": "333333333333333333333009",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "so cozy...follow Burke on this app....it's how I find the best places"
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111032",
+    "userId":   "000000000000000000000008",
+    "placeId": "333333333333333333333009",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0
+      }     
+  }, 
+  {
+    "_id":        "111111111111111111111033",
+    "userId":   "000000000000000000000004",
+    "placeId": "333333333333333333333009",
+    "rating": 
+      {        
+        "warmLighting":     0, 
+        "relaxedMusic":     0,
+        "calmEnvironment":  0,
+        "softFabrics":      0,
+        "comfySeating":     0,
+        "hotFoodDrink":     0,
+        "comment": "Amazing host here named Alex with the most soothing voice....sometimes I just come here to hear him talk in this calming environment, and I'm instantly relaxed..."
+      }     
+  }
+]
