@@ -50,11 +50,9 @@ app.use((req, res, next) => {
 
 app.use((err, req, res, next) => {
   if (err.status) {
-    // console.log(err);
     const errBody = Object.assign({}, err, { message: err.message });
     res.status(err.status).json(errBody);
   } else {
-    // console.log(err);
     res.status(500).json({ message: 'Internal Server Error' });
   }
 });
@@ -62,11 +60,11 @@ app.use((err, req, res, next) => {
 function runServer(port = PORT) {
   const server = app
     .listen(port, () => {
-      // console.info(`App listening on port ${server.address().port}`);
+      console.info(`App listening on port ${server.address().port}`);
     })
     .on('error', err => {
-      // console.error('Express failed to start');
-      // console.error(err);
+      console.error('Express failed to start');
+      console.error(err);
     });
 }
 
