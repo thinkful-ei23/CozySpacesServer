@@ -8,13 +8,14 @@
 [1]: https://twitter.com/CozySpacesApp
 [2]: https://www.instagram.com/cozyspacesapp/
 [3]: https://github.com/thinkful-ei23/cozy-spaces-client
+[4]: https://www.producthunt.com/posts/cozy-spaces
 
 
 Cozy Spaces is focused on bringing a warm glow to life through curating truly cozy spaces, especially for anyone experiencing cold climates, and/or nostalgia of a cozier time.  Need a cozy space to warm up your toes and light up your soul?  **_[Find one here](https://cozy-spaces-client.herokuapp.com/ "Cozy Spaces")_**&nbsp;
 
 [![Twitter Icon][twitter]][1]&nbsp;&nbsp;
 [![Instagram Icon][instagram]][2]&nbsp;&nbsp;&nbsp;&nbsp;
-[![Product Hunt Icon][producthunt]][1]&nbsp;&nbsp;&nbsp;&nbsp;
+[![Product Hunt Icon][producthunt]][4]&nbsp;&nbsp;&nbsp;&nbsp;
 [![GitHub Icon][github]][3] &nbsp;Frontend
 
 ## V1 Feature List
