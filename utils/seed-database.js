@@ -10,7 +10,6 @@ const Photo = require('../models/photos');
 
 const seedPlace = require('../db/seed/places');
 const seedUsers = require('../db/seed/users');
-const seedRatings = require('../db/seed/ratings');
 const seedPhotos = require('../db/seed/photos');
 
 
@@ -26,8 +25,8 @@ mongoose.connect(DATABASE_URL)
     return Promise.all([
       Place.insertMany(seedPlace),
       Place.createIndexes(),
-      Rating.insertMany(seedRatings),
-      Rating.createIndexes(),
+      // Rating.insertMany(seedRatings),
+      // Rating.createIndexes(),
       User.insertMany(seedUsers),
       User.createIndexes(),
       Photo.insertMany(seedPhotos),

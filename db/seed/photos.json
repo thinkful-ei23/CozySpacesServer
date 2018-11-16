@@ -6,65 +6,72 @@
   }, 
   {
     "_id" :       "444444444444444444444001",
-    "url" :       "https://www.tripsavvy.com/thmb/hgT0YIf3yo4l0Hg_G_AueHFbeSc=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/bookworm-588f86cb5f9b5874ee329e2c.jpg",
+    "url" :       "/img/insomnia.jpg",
     "caption":    "cozy place",
     "userId":   "000000000000000000000001",
     "placeId": "333333333333333333333001"  
   }, 
   {
     "_id" :       "444444444444444444444002",
-    "url" :       "http://cafes4nomads.com/wp-content/uploads/2014/12/IMGP0039.jpg",
+    "url" :       "/img/dragonfly.jpg",
     "caption":    "really comfy",
     "userId":   "000000000000000000000001",
     "placeId": "333333333333333333333002"  
   }, 
   {
     "_id" :       "444444444444444444444003",
-    "url" :       "http://enjoycanada.co/wp/wp-content/uploads/2016/01/cafe.jpg",
+    "url" :       "/img/Ava-Roasteria-1024x683.jpg",
     "caption":    "OMFG it's cozy!",
     "userId":   "000000000000000000000003",
     "placeId": "333333333333333333333003"  
   }, 
   {
     "_id" :       "444444444444444444444004",
-    "url" :       "https://www.iheartreykjavik.net/wp-content/uploads/2017/01/Babal%C3%BA-2.jpg",
+    "url" :       "/img/jacksMormonCoffee.JPG",
     "caption":    "cozier",
     "userId":   "000000000000000000000004",
     "placeId": "333333333333333333333004"  
   }, 
   {
     "_id" :       "444444444444444444444005",
-    "url" :       "https://www.oakbaybeachhotel.com/wp-content/uploads/2015/05/KatesCafe.jpg",
+    "url" :       "/img/cafeOn1st.JPG",
     "caption":    "comfier",
     "userId":   "000000000000000000000005",
     "placeId": "333333333333333333333005"  
   }, 
   {
     "_id" :       "444444444444444444444006",
-    "url" :       "https://assets3.thrillist.com/v1/image/2788431/size/tmg-facebook_social.jpg",
+    "url" :       "/img/saltLakeRoasingCo.JPG",
     "caption":    "Coziest place ever",
     "userId":   "000000000000000000000006",
     "placeId": "333333333333333333333006"  
   }, 
   {
     "_id" :       "444444444444444444444007",
-    "url" :       "https://cdn-images-1.medium.com/max/1600/1*gYoVszcP6XPixqKa4srKJQ.jpeg",
+    "url" :       "/img/rawBeanCoffee.JPG",
     "caption":    "excuse my photo skillz",
     "userId":   "000000000000000000000007",
     "placeId": "333333333333333333333002"  
   }, 
   {
     "_id" :       "444444444444444444444008",
-    "url" :       "http://lava-cafe.com/images/homepic.jpg",
+    "url" :       "/img/nostalgiaCafe.JPG",
     "caption":    "Your caption here",
     "userId":   "000000000000000000000008",
     "placeId": "333333333333333333333007"  
   }, 
   {
     "_id" :       "444444444444444444444009",
-    "url" :       "https://www.travelportland.com/wp-content/uploads/2015/12/Rimsky-Korsakoffee-House-652x521.jpg",
+    "url" :       "https://static1.squarespace.com/static/5a2196146f4ca36177ddd89a/t/5af344b7352f53a65e649988/1525892297451/IMG_6625.JPG?format=960w",
     "caption":    "My comfy place",
     "userId":   "000000000000000000000002",
     "placeId": "333333333333333333333009"  
+  }, 
+  {
+    "_id" :       "444444444444444444444010",
+    "url" :       "https://www.daouvineyards.com/assets/client/Image/Events/3rdC_046.jpg",
+    "caption":    "I'm heading here tonite!",
+    "userId":   "000000000000000000000002",
+    "placeId": "333333333333333333333010"  
   } 
 ] 
